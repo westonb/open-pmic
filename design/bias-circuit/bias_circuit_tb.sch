@@ -24,6 +24,7 @@ value="
 .save all
 tran 1n 300n
 write bias_circuit_tb.raw
+plot VCP VBP VCN VBN
 .endc
 "}
 C {devices/code.sym} 60 -420 0 0 {name=STDCELL_MODELS 
@@ -72,11 +73,11 @@ value="
 .include \\\\$::SKYWATER_MODELS\\\\/models/corners/tt/rf.spice
 "
 }
-C {devices/vsource.sym} 550 -460 0 0 {name=V1 value=3.4}
+C {devices/vsource.sym} 550 -460 0 0 {name=V1 value=3.0}
 C {devices/gnd.sym} 550 -410 0 0 {name=l2 lab=GND}
 C {devices/lab_pin.sym} 550 -510 0 0 {name=l3 sig_type=std_logic lab=V3V3
 }
-C {devices/isource.sym} 400 -450 2 0 {name=I0 value=100u
+C {devices/isource.sym} 400 -450 2 0 {name=I0 value=60u
 }
 C {devices/gnd.sym} 400 -400 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 400 -500 0 0 {name=l4 sig_type=std_logic lab=IBIAS
@@ -96,4 +97,4 @@ C {devices/lab_pin.sym} 710 -270 2 0 {name=l11 sig_type=std_logic lab=VCP
 
 
 }
-C {/home/wbraun/projects/open-pmic/design/bias-circuit/bias_circuit.sym} 500 -210 0 0 {name=x1}
+C {design/bias-circuit/bias_circuit.sym} 500 -210 0 0 {name=x1}
