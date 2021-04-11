@@ -69,7 +69,7 @@ N 2180 -530 2180 -500 { lab=#net4}
 N 1980 -660 2000 -660 { lab=VPWR}
 N 2000 -660 2000 -640 { lab=VPWR}
 N 2000 -580 2000 -560 { lab=GND}
-N 1900 -660 1920 -660 { lab=V3V3}
+N 1790 -660 1810 -660 { lab=V3V3}
 N 2030 -200 2030 -160 { lab=INP}
 N 2030 -100 2030 -80 { lab=GND}
 N 1980 -130 1980 -80 { lab=GATE_PWR_N}
@@ -80,6 +80,8 @@ N 2030 -80 2040 -80 { lab=GND}
 N 2460 -140 2460 -120 { lab=GND}
 N 2460 -220 2460 -200 { lab=#net2}
 N 2300 -220 2380 -220 { lab=#net2}
+N 1870 -660 1880 -660 { lab=#net5}
+N 1940 -660 1980 -660 { lab=VPWR}
 C {devices/code_shown.sym} 198.75 -701.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -261,7 +263,7 @@ footprint=1206
 device=resistor
 m=1}
 C {devices/gnd.sym} 2180 -420 0 0 {name=l6 lab=GND}
-C {devices/ind.sym} 1950 -660 1 0 {name=L2
+C {devices/ind.sym} 1840 -660 1 0 {name=L2
 m=1
 value=5n
 footprint=1206
@@ -272,11 +274,11 @@ C {devices/lab_pin.sym} 2000 -660 2 0 {name=l9 sig_type=std_logic lab=VPWR
 }
 C {devices/capa.sym} 2000 -610 0 0 {name=C3
 m=1
-value=20p
+value=1n
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 2000 -560 0 0 {name=l10 lab=GND}
-C {devices/lab_pin.sym} 1900 -660 0 0 {name=l11 sig_type=std_logic lab=V3V3
+C {devices/lab_pin.sym} 1790 -660 0 0 {name=l11 sig_type=std_logic lab=V3V3
 }
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 2010 -130 0 0 {name=M4
 L=0.5
@@ -298,6 +300,11 @@ C {devices/lab_pin.sym} 1980 -80 0 0 {name=l13 sig_type=std_logic lab=GATE_PWR_N
 C {devices/gnd.sym} 2460 -120 0 0 {name=l14 lab=GND}
 C {devices/res.sym} 2270 -220 1 0 {name=R5
 value=0.1
+footprint=1206
+device=resistor
+m=1}
+C {devices/res.sym} 1910 -660 1 0 {name=R6
+value=0.01
 footprint=1206
 device=resistor
 m=1}
