@@ -7,6 +7,12 @@ E {}
 T {Current division ratio is 1/400} 1740 -890 0 0 0.4 0.4 {}
 T {source for current sensing} 2200 -1060 0 0 0.4 0.4 {}
 T {Off Chip Debug} 2000 530 0 0 0.4 0.4 {}
+T {3.6pF nominal 
+30um x 30um} 1950 20 0 0 0.4 0.4 {}
+T {each resistor 6.76k nominal} 2240 640 0 0 0.4 0.4 {}
+T {slope = ri * Vin / L 
+ri = 1.69} 180 -420 0 0 0.4 0.4 {}
+T {off chip power components} 2500 -880 0 0 0.4 0.4 {}
 N 550 -510 550 -490 { lab=V3V3}
 N 550 -430 550 -410 { lab=GND}
 N 320 -180 320 -160 { lab=GND}
@@ -18,8 +24,6 @@ N 850 380 870 380 { lab=REF_SWITCH}
 N 1130 520 1130 540 { lab=IBIAS_C_N}
 N 1350 340 1390 340 { lab=OPA_OUT}
 N 1570 470 1570 490 { lab=GND}
-N 1390 430 1390 450 { lab=GND}
-N 1390 340 1390 370 { lab=OPA_OUT}
 N 1320 -1080 1360 -1080 { lab=NMOS_DRV_N}
 N 1360 -1080 1360 -940 { lab=NMOS_DRV_N}
 N 1360 -940 1680 -940 { lab=NMOS_DRV_N}
@@ -179,54 +183,54 @@ N 2230 420 2230 500 { lab=GND}
 N 2230 300 2230 360 { lab=I_SENSE}
 N 2230 330 2250 330 { lab=I_SENSE}
 N 1210 340 1350 340 { lab=OPA_OUT}
-N 120 -200 120 -180 { lab=GND}
-N 120 -280 120 -260 { lab=IBIAS_OFFSET}
-N 2550 270 2650 270 { lab=IBIAS_OFFSET}
-N 2490 270 2510 270 { lab=V3V3}
-N 2490 230 2490 270 { lab=V3V3}
-N 2490 230 2510 230 { lab=V3V3}
-N 2510 230 2510 240 { lab=V3V3}
-N 2690 270 2710 270 { lab=V3V3}
-N 2710 230 2710 270 { lab=V3V3}
-N 2690 230 2710 230 { lab=V3V3}
-N 2690 230 2690 240 { lab=V3V3}
-N 2510 300 2510 310 { lab=I_SENSE}
-N 2230 310 2510 310 { lab=I_SENSE}
-N 2690 300 2690 340 { lab=IBIAS_OFFSET}
-N 2630 270 2630 320 { lab=IBIAS_OFFSET}
-N 2640 320 2690 320 { lab=IBIAS_OFFSET}
-N 2630 320 2640 320 { lab=IBIAS_OFFSET}
-N 2340 -60 2440 -60 { lab=ISLOPE}
-N 2280 -60 2300 -60 { lab=V3V3}
-N 2280 -100 2280 -60 { lab=V3V3}
-N 2280 -100 2300 -100 { lab=V3V3}
-N 2300 -100 2300 -90 { lab=V3V3}
-N 2480 -60 2500 -60 { lab=V3V3}
-N 2500 -100 2500 -60 { lab=V3V3}
-N 2480 -100 2500 -100 { lab=V3V3}
-N 2480 -100 2480 -90 { lab=V3V3}
-N 2480 -30 2480 10 { lab=ISLOPE}
-N 2420 -60 2420 -10 { lab=ISLOPE}
-N 2430 -10 2480 -10 { lab=ISLOPE}
-N 2420 -10 2430 -10 { lab=ISLOPE}
+N 2340 -150 2440 -150 { lab=ISLOPE}
+N 2280 -150 2300 -150 { lab=V3V3}
+N 2280 -190 2280 -150 { lab=V3V3}
+N 2280 -190 2300 -190 { lab=V3V3}
+N 2300 -190 2300 -180 { lab=V3V3}
+N 2480 -150 2500 -150 { lab=V3V3}
+N 2500 -190 2500 -150 { lab=V3V3}
+N 2480 -190 2500 -190 { lab=V3V3}
+N 2480 -190 2480 -180 { lab=V3V3}
+N 2480 -120 2480 -80 { lab=ISLOPE}
+N 2420 -150 2420 -100 { lab=ISLOPE}
+N 2430 -100 2480 -100 { lab=ISLOPE}
+N 2420 -100 2430 -100 { lab=ISLOPE}
 N 420 -1220 440 -1220 { lab=#net6}
 N 200 -1220 340 -1220 { lab=#net2}
 N 520 -1220 540 -1220 { lab=TIMEOUT}
-N 2420 430 2420 510 { lab=GND}
-N 2400 390 2420 390 { lab=GND}
-N 2400 390 2400 500 { lab=GND}
-N 2400 500 2420 500 { lab=GND}
-N 2420 310 2420 360 { lab=I_SENSE}
-N 2420 180 2420 310 { lab=I_SENSE}
-N 2420 420 2420 430 { lab=GND}
-N 2400 150 2420 150 { lab=GND}
-N 2420 100 2420 120 { lab=I_MOD}
+N 2560 430 2560 510 { lab=GND}
+N 2540 390 2560 390 { lab=GND}
+N 2540 390 2540 500 { lab=GND}
+N 2540 500 2560 500 { lab=GND}
+N 2560 310 2560 360 { lab=I_SENSE}
+N 2560 180 2560 310 { lab=I_SENSE}
+N 2560 420 2560 430 { lab=GND}
+N 2540 150 2560 150 { lab=GND}
 N 2300 180 2300 310 { lab=I_SENSE}
-N 2300 100 2300 120 { lab=I_MOD}
-N 2300 100 2420 100 { lab=I_MOD}
-N 2300 -30 2300 100 { lab=I_MOD}
 N 120 40 120 60 { lab=GND}
 N 120 -40 120 -20 { lab=ISLOPE}
+N 2300 -120 2300 -90 { lab=I_MOD}
+N 2180 80 2180 100 { lab=I_SENSE}
+N 2180 100 2300 100 { lab=I_SENSE}
+N 2300 80 2300 100 { lab=I_SENSE}
+N 2300 100 2300 180 { lab=I_SENSE}
+N 2180 0 2180 20 { lab=I_MOD}
+N 2180 -0 2300 0 { lab=I_MOD}
+N 2300 0 2300 20 { lab=I_MOD}
+N 2300 -90 2300 0 { lab=I_MOD}
+N 2560 -20 2560 120 { lab=I_MOD}
+N 2180 390 2210 390 { lab=GND}
+N 2180 390 2180 440 { lab=GND}
+N 2180 440 2230 440 { lab=GND}
+N 2300 -20 2560 -20 { lab=I_MOD}
+N 2230 310 2300 310 { lab=I_SENSE}
+N 2300 310 2560 310 { lab=I_SENSE}
+N 2350 390 2350 420 { lab=GND}
+N 2350 420 2370 420 { lab=GND}
+N 2350 420 2350 480 { lab=GND}
+N 2230 480 2350 480 { lab=GND}
+N 2370 310 2370 360 { lab=I_SENSE}
 C {devices/code_shown.sym} 198.75 -701.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -318,7 +322,6 @@ C {devices/lab_pin.sym} 1370 320 2 0 {name=l16 sig_type=std_logic lab=OPA_OUT
 }
 C {devices/lab_pin.sym} 2250 330 2 0 {name=l17 sig_type=std_logic lab=I_SENSE
 }
-C {devices/gnd.sym} 1390 450 0 0 {name=l18 lab=GND}
 C {design/power-stage/power_stage.sym} 1880 -1120 0 0 {name=x1}
 C {design/switch-control/switch_control.sym} 1100 -1160 0 0 {name=x3}
 C {devices/gnd.sym} 1640 -1160 0 0 {name=l23 lab=GND}
@@ -435,9 +438,9 @@ C {devices/lab_pin.sym} 4640 -370 2 0 {name=l71 sig_type=std_logic lab=RESET_CMP
 }
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 3810 -250 0 0 {name=M1
 L=1
-W=12
+W=5
 nf=1
-mult=1
+mult=8
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -479,7 +482,7 @@ C {sky130_fd_pr/nfet_g5v0d10v5.sym} 1850 450 0 0 {name=M4
 L=1
 W=5
 nf=1
-mult=20
+mult=8
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -493,7 +496,7 @@ C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1890 270 0 1 {name=M5
 L=1
 W=5
 nf=1
-mult=20
+mult=8
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -520,16 +523,11 @@ spiceprefix=X
 C {devices/gnd.sym} 1870 500 0 0 {name=l9 lab=GND}
 C {devices/lab_wire.sym} 1870 200 0 1 {name=l11 sig_type=std_logic lab=V3V3}
 C {devices/gnd.sym} 2030 500 0 0 {name=l10 lab=GND}
-C {devices/res.sym} 2230 390 2 0 {name=R1
-value=500
-footprint=1206
-device=resistor
-m=1}
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 2210 270 0 0 {name=M7
 L=1
 W=5
 nf=1
-mult=20
+mult=4
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -541,13 +539,8 @@ spiceprefix=X
 }
 C {devices/lab_wire.sym} 2230 200 0 1 {name=l13 sig_type=std_logic lab=V3V3}
 C {devices/gnd.sym} 2230 500 0 0 {name=l14 lab=GND}
-C {devices/isource.sym} 120 -230 0 0 {name=I3 value=100u
-}
-C {devices/gnd.sym} 120 -180 0 0 {name=l49 lab=GND}
-C {devices/lab_pin.sym} 120 -280 0 0 {name=l50 sig_type=std_logic lab=IBIAS_OFFSET
-}
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 2530 270 0 1 {name=M8
-L=1
+C {sky130_fd_pr/pfet_g5v0d10v5.sym} 2320 -150 0 1 {name=M10
+L=2
 W=5
 nf=1
 mult=2
@@ -560,11 +553,11 @@ sa=0 sb=0 sd=0
 model=pfet_g5v0d10v5
 spiceprefix=X
 }
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 2670 270 0 0 {name=M9
-L=1
+C {sky130_fd_pr/pfet_g5v0d10v5.sym} 2460 -150 0 0 {name=M11
+L=2
 W=5
 nf=1
-mult=2
+mult=12
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -574,45 +567,30 @@ sa=0 sb=0 sd=0
 model=pfet_g5v0d10v5
 spiceprefix=X
 }
-C {devices/lab_wire.sym} 2490 230 0 1 {name=l63 sig_type=std_logic lab=V3V3}
-C {devices/lab_wire.sym} 2690 230 0 1 {name=l64 sig_type=std_logic lab=V3V3}
-C {devices/lab_pin.sym} 2690 340 2 0 {name=l65 sig_type=std_logic lab=IBIAS_OFFSET
-}
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 2320 -60 0 1 {name=M10
-L=1
-W=5
-nf=1
-mult=2
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_g5v0d10v5
-spiceprefix=X
-}
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 2460 -60 0 0 {name=M11
-L=1
-W=5
-nf=1
-mult=2
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_g5v0d10v5
-spiceprefix=X
-}
-C {devices/lab_wire.sym} 2280 -100 0 1 {name=l66 sig_type=std_logic lab=V3V3}
-C {devices/lab_wire.sym} 2480 -100 0 1 {name=l73 sig_type=std_logic lab=V3V3}
-C {devices/lab_pin.sym} 2480 10 2 0 {name=l74 sig_type=std_logic lab=ISLOPE
+C {devices/lab_wire.sym} 2280 -190 0 1 {name=l66 sig_type=std_logic lab=V3V3}
+C {devices/lab_wire.sym} 2480 -190 0 1 {name=l73 sig_type=std_logic lab=V3V3}
+C {devices/lab_pin.sym} 2480 -80 2 0 {name=l74 sig_type=std_logic lab=ISLOPE
 }
 C {sky130_stdcells/inv_4.sym} 380 -1220 0 0 {name=x2 VGND=GND VNB=GND VPB=V3V3 VPWR=V3V3 prefix=sky130_fd_sc_hvl__}
 C {sky130_stdcells/inv_4.sym} 480 -1220 0 0 {name=x6 VGND=GND VNB=GND VPB=V3V3 VPWR=V3V3 prefix=sky130_fd_sc_hvl__}
-C {sky130_fd_pr/nfet_g5v0d10v5.sym} 2440 390 0 1 {name=M12
+C {sky130_fd_pr/nfet_g5v0d10v5.sym} 2580 390 0 1 {name=M12
+L=1
+W=5
+nf=1
+mult=4
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=nfet_g5v0d10v5
+spiceprefix=X
+}
+C {devices/gnd.sym} 2560 500 0 0 {name=l48 lab=GND}
+C {devices/lab_pin.sym} 2600 390 2 0 {name=l75 sig_type=std_logic lab=TIMEOUT
+}
+C {sky130_fd_pr/nfet_g5v0d10v5.sym} 2580 150 0 1 {name=M13
 L=1
 W=5
 nf=1
@@ -626,35 +604,27 @@ sa=0 sb=0 sd=0
 model=nfet_g5v0d10v5
 spiceprefix=X
 }
-C {devices/gnd.sym} 2420 500 0 0 {name=l48 lab=GND}
-C {devices/lab_pin.sym} 2460 390 2 0 {name=l75 sig_type=std_logic lab=TIMEOUT
+C {devices/gnd.sym} 2540 150 1 0 {name=l76 lab=GND}
+C {devices/lab_pin.sym} 2600 150 2 0 {name=l77 sig_type=std_logic lab=TIMEOUT
 }
-C {sky130_fd_pr/nfet_g5v0d10v5.sym} 2440 150 0 1 {name=M13
-L=1
-W=5
-nf=1
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_g5v0d10v5
-spiceprefix=X
-}
-C {devices/gnd.sym} 2400 150 1 0 {name=l76 lab=GND}
-C {devices/lab_pin.sym} 2460 150 2 0 {name=l77 sig_type=std_logic lab=TIMEOUT
-}
-C {devices/capa.sym} 2300 150 0 0 {name=C1
-m=1
-value=10p
-footprint=1206
-device="ceramic capacitor"}
-C {devices/isource.sym} 120 10 0 0 {name=I4 value=1.8u
+C {devices/isource.sym} 120 10 0 0 {name=I4 value=4.8u
 }
 C {devices/gnd.sym} 120 60 0 0 {name=l78 lab=GND}
 C {devices/lab_pin.sym} 120 -40 0 0 {name=l79 sig_type=std_logic lab=ISLOPE
 }
-C {devices/lab_pin.sym} 2300 50 2 0 {name=l80 sig_type=std_logic lab=I_MOD
+C {devices/lab_pin.sym} 2300 -60 2 0 {name=l80 sig_type=std_logic lab=I_MOD
 }
+C {sky130_fd_pr/cap_mim_m3_1.sym} 2180 50 0 0 {name=C4 model=cap_mim_m3_1 W=30 L=30 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_2.sym} 2300 50 0 0 {name=C6 model=cap_mim_m3_2 W=30 L=30 MF=1 spiceprefix=X}
+C {sky130_fd_pr/res_high_po_1p41.sym} 2230 390 0 0 {name=R6
+W=1.41
+L=20
+model=res_high_po_1p41
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_high_po_1p41.sym} 2370 390 0 0 {name=R1
+W=1.41
+L=20
+model=res_high_po_1p41
+spiceprefix=X
+mult=1}
