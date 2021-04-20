@@ -16,7 +16,7 @@ C {devices/code_shown.sym} 198.75 -701.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 vg VG3V3 0 -3.3
-.option temp=75
+.option temp=25
 .control
 .save all
 .options savecurrents
@@ -73,9 +73,9 @@ C {devices/isource.sym} 820 -150 0 0 {name=I0 value=1m}
 C {devices/lab_wire.sym} 810 -210 0 0 {name=l3 sig_type=std_logic lab=Vdrain}
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 800 -280 0 0 {name=M2
 L=0.5
-W=20
+W=4.6
 nf=1
-mult=800
+mult=5040
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 

@@ -30,8 +30,7 @@ value="
 
 .control
 .save all
-ac dec 200 10 100Meg
-ac dec 200 10 100Meg
+ac dec 200 10 1000Meg
 settype decibel out
 plot vdb(out)
 let outd = 180/PI*cph(out)
@@ -90,11 +89,11 @@ C {devices/vsource.sym} 550 -460 0 0 {name=V1 value=3.3}
 C {devices/gnd.sym} 550 -410 0 0 {name=l2 lab=GND}
 C {devices/lab_pin.sym} 550 -510 0 0 {name=l3 sig_type=std_logic lab=V3V3
 }
-C {devices/isource.sym} 1280 -70 2 0 {name=I0 value=30u
+C {devices/isource.sym} 1280 -70 2 0 {name=I0 value=20u
 }
 C {devices/gnd.sym} 1280 -20 0 0 {name=l1 lab=GND}
 C {design/folded-cascode-n-in/folded_cascode_n_in.sym} 1180 -320 0 0 {}
-C {devices/vsource.sym} 740 -450 0 0 {name=V2 value=2.0}
+C {devices/vsource.sym} 740 -450 0 0 {name=V2 value=3}
 C {devices/gnd.sym} 740 -400 0 0 {name=l16 lab=GND}
 C {devices/vsource.sym} 740 -530 0 0 {name=V3 value="AC 1"}
 C {devices/lab_pin.sym} 760 -500 2 0 {name=l17 sig_type=std_logic lab=INM
@@ -112,7 +111,7 @@ C {devices/lab_pin.sym} 1400 -320 2 0 {name=l23 sig_type=std_logic lab=OUT
 }
 C {devices/capa.sym} 1420 -230 0 0 {name=C1
 m=1
-value=1p
+value=50f
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 1420 -180 0 0 {name=l24 lab=GND}

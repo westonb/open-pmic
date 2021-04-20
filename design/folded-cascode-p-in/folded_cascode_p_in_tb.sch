@@ -111,7 +111,7 @@ C {devices/lab_pin.sym} 1400 -320 2 0 {name=l23 sig_type=std_logic lab=OUT
 }
 C {devices/capa.sym} 1420 -230 0 0 {name=C1
 m=1
-value=10p
+value=50f
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 1420 -180 0 0 {name=l24 lab=GND}
