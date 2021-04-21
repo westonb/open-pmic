@@ -46,7 +46,7 @@ B 5 -182.5 117.5 -177.5 122.5 {name=TIMEOUT
 dir=inout}
 B 5 177.5 -2.5 182.5 2.5 {name=CYCLE_END
 dir=inout}
-B 5 177.5 77.5 182.5 82.5 {name=XXX
+B 5 177.5 77.5 182.5 82.5 {name=IMON
 dir=inout}
 T {VDD} -80 -190 0 0 0.4 0.4 {}
 T {VSS} 40 -190 0 0 0.4 0.4 {}
