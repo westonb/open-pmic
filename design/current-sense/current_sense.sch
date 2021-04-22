@@ -49,7 +49,7 @@ N 1140 -200 1140 -190 { lab=VSS}
 N 1140 -230 1160 -230 { lab=VSS}
 N 1160 -230 1160 -190 { lab=VSS}
 N 1140 -190 1160 -190 { lab=VSS}
-N 1140 -280 1140 -260 { lab=I_MON}
+N 1140 -280 1140 -260 { lab=IMON}
 N 1020 -410 1040 -410 { lab=#net2}
 N 1040 -410 1040 -370 { lab=#net2}
 N 980 -370 1040 -370 { lab=#net2}
@@ -181,7 +181,7 @@ L=20
 model=res_high_po_1p41
 spiceprefix=X
 mult=1}
-C {devices/lab_wire.sym} 1140 -280 0 1 {name=l2 sig_type=std_logic lab=I_MON}
+C {devices/lab_wire.sym} 1140 -280 0 1 {name=l2 sig_type=std_logic lab=IMON}
 C {devices/lab_pin.sym} 80 -300 0 0 {name=l3 sig_type=std_logic lab=SENSE_FET
 }
 C {devices/lab_pin.sym} 680 -420 0 0 {name=l4 sig_type=std_logic lab=SENSE_FET
