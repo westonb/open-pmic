@@ -4,27 +4,28 @@ K {}
 V {}
 S {}
 E {}
-N 220 50 260 50 { lab=VOUT}
-N -120 50 -120 90 { lab=VIN}
-N -120 90 -120 190 { lab=VIN}
-N 20 130 20 160 { lab=GND}
-N 20 160 120 160 { lab=GND}
-N 120 130 120 160 { lab=GND}
-N 20 -60 20 -30 { lab=VDD}
-N 20 -60 120 -60 { lab=VDD}
-N 120 -60 120 -30 { lab=VDD}
-N -280 10 -280 50 { lab=VDD}
-N -120 50 -80 50 { lab=VIN}
-C {devices/gnd.sym} -120 240 0 0 {name=l1 lab=GND}
-C {devices/lab_wire.sym} -120 50 0 0 {name=l2 sig_type=std_logic lab=VIN}
-C {devices/lab_wire.sym} 260 50 0 0 {name=l3 sig_type=std_logic lab=VOUT}
-C {devices/code.sym} -530 -60 0 0 {name=STDCELL_MODELS 
+N 70 -270 70 -230 { lab=VDD}
+N 380 -300 380 -270 { lab=VDD}
+N 200 -200 230 -200 { lab=#net1}
+N 530 -220 570 -220 { lab=VRAMP}
+N 530 -180 570 -180 { lab=VDD}
+C {design/oscillator/oscillator.sym} 380 -200 0 0 {name=x1}
+C {devices/vsource.sym} 70 -200 0 0 {name=V1 value=3.3}
+C {devices/gnd.sym} 70 -170 0 0 {name=l1 lab=GND}
+C {devices/gnd.sym} 380 -130 0 0 {name=l2 lab=GND}
+C {devices/lab_pin.sym} 70 -270 0 0 {name=l3 sig_type=std_logic lab=VDD}
+C {devices/lab_pin.sym} 380 -300 0 0 {name=l4 sig_type=std_logic lab=VDD}
+C {devices/isource.sym} 200 -170 2 0 {name=I0 value=20u}
+C {devices/gnd.sym} 200 -140 0 0 {name=l5 lab=GND}
+C {devices/lab_pin.sym} 570 -220 0 1 {name=l6 sig_type=std_logic lab=VRAMP}
+C {devices/lab_pin.sym} 570 -180 0 1 {name=l7 sig_type=std_logic lab=TIMEOUT}
+C {devices/code.sym} 710 -490 0 0 {name=STDCELL_MODELS 
 only_toplevel=true
 place=end
 format="tcleval(@value )"
 value="[sky130_models]"
 name=s1 only_toplevel=false value=blabla}
-C {devices/code.sym} -530 110 0 0 {name=TT_MODELS
+C {devices/code.sym} 710 -320 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -64,19 +65,12 @@ value="
 .include \\\\$::SKYWATER_MODELS\\\\/models/corners/tt/rf.spice
 "
 }
-C {design/oscillator/schmittbuf.sym} 70 50 0 0 {name=x1}
-C {devices/lab_wire.sym} 100 -60 0 0 {name=l4 sig_type=std_logic lab=VDD}
-C {devices/gnd.sym} 70 160 0 0 {name=l5 lab=GND}
-C {devices/vsource.sym} -280 80 0 0 {name=V1 value=3.3}
-C {devices/gnd.sym} -280 110 0 0 {name=l6 lab=GND}
-C {devices/lab_wire.sym} -280 20 0 0 {name=l7 sig_type=std_logic lab=VDD}
-C {devices/code_shown.sym} -531.25 278.125 0 0 {name=NGSPICE
+C {devices/code_shown.sym} 708.75 -151.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .control
 .save all
-tran 1n 0.5u
+tran 0.1n 500n
 write schmittbuf_tb.raw
 .endc
 "}
-C {devices/vsource.sym} -120 210 0 0 {name=V2 value="pwl 0 0 0.2u 3 0.3u 3 0.5u 0"}
