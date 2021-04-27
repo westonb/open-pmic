@@ -5,7 +5,8 @@ V {}
 S {}
 E {}
 T {current sink for output monitoring} 950 -100 0 0 0.4 0.4 {}
-T {todo: add ESD protection} -20 -100 0 0 0.4 0.4 {}
+T {todo: add ESD protection} -60 160 0 0 0.4 0.4 {}
+T {Each Resistor 6.7k nominal} 1360 -160 0 0 0.4 0.4 {}
 N 340 -540 340 -520 { lab=VSS}
 N 200 -540 200 -520 { lab=VDD}
 N 80 -380 100 -380 { lab=SW_NODE}

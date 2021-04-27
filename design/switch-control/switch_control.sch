@@ -4,10 +4,10 @@ K {}
 V {}
 S {}
 E {}
-T {Q} 1000 10 0 0 0.4 0.4 {}
-T {!Q} 1010 200 0 0 0.4 0.4 {}
-T {S} 850 0 0 0 0.4 0.4 {}
-T {R} 850 220 0 0 0.4 0.4 {}
+T {Q} 940 -170 0 0 0.4 0.4 {}
+T {!Q} 950 20 0 0 0.4 0.4 {}
+T {S} 790 -180 0 0 0.4 0.4 {}
+T {R} 790 40 0 0 0.4 0.4 {}
 N 940 -260 980 -260 { lab=#net1}
 N 820 -260 860 -260 { lab=#net2}
 N 700 -260 740 -260 { lab=#net3}
@@ -15,15 +15,15 @@ N 580 -260 620 -260 { lab=#net4}
 N 460 -260 500 -260 { lab=#net5}
 N 340 -260 380 -260 { lab=NMOS_DLY_IN}
 N 1220 -80 1240 -80 { lab=NMOS_DT}
-N 1000 140 1000 180 { lab=HS_CTRL}
-N 1000 60 1000 100 { lab=LS_CTRL}
-N 860 80 880 80 { lab=HS_CTRL}
-N 860 160 880 160 { lab=LS_CTRL}
-N 860 140 860 160 { lab=LS_CTRL}
-N 860 140 1000 100 { lab=LS_CTRL}
-N 860 80 860 100 { lab=HS_CTRL}
-N 860 100 1000 140 { lab=HS_CTRL}
-N 860 40 880 40 { lab=TIMEOUT}
+N 940 -40 940 0 { lab=HS_CTRL}
+N 940 -120 940 -80 { lab=LS_CTRL}
+N 800 -100 820 -100 { lab=HS_CTRL}
+N 800 -20 820 -20 { lab=LS_CTRL}
+N 800 -40 800 -20 { lab=LS_CTRL}
+N 800 -40 940 -80 { lab=LS_CTRL}
+N 800 -100 800 -80 { lab=HS_CTRL}
+N 800 -80 940 -40 { lab=HS_CTRL}
+N 800 -140 820 -140 { lab=TIMEOUT}
 N 940 -360 980 -360 { lab=#net6}
 N 820 -360 860 -360 { lab=#net7}
 N 700 -360 740 -360 { lab=#net8}
@@ -35,17 +35,16 @@ N 360 -300 1080 -300 { lab=#net11}
 N 360 -360 360 -300 { lab=#net11}
 N 360 -360 380 -360 { lab=#net11}
 N 1060 -360 1100 -360 { lab=N_DLY_MID}
-N 640 180 680 180 { lab=#net12}
-N 540 180 560 180 { lab=TIMEOUT}
-N 800 200 880 200 { lab=#net13}
-N 540 40 540 180 { lab=TIMEOUT}
-N 540 40 860 40 { lab=TIMEOUT}
-N 520 180 540 180 { lab=TIMEOUT}
-N 520 220 680 220 { lab=OC_CMP_IN}
-N 1000 60 1040 60 { lab=LS_CTRL}
+N 580 0 620 0 { lab=#net12}
+N 480 0 500 0 { lab=TIMEOUT}
+N 740 20 820 20 { lab=#net13}
+N 480 -140 480 0 { lab=TIMEOUT}
+N 480 -140 800 -140 { lab=TIMEOUT}
+N 460 0 480 0 { lab=TIMEOUT}
+N 940 -120 980 -120 { lab=LS_CTRL}
 N 1220 20 1240 20 { lab=HS_CTRL}
 N 1220 60 1240 60 { lab=SW_EN}
-N 1000 180 1040 180 { lab=HS_CTRL}
+N 940 0 980 0 { lab=HS_CTRL}
 N 1220 200 1240 200 { lab=LS_CTRL}
 N 1220 240 1240 240 { lab=SW_EN}
 N 1360 40 1380 40 { lab=#net14}
@@ -135,12 +134,12 @@ N 1690 -450 1720 -450 { lab=#net55}
 N 1600 -120 1600 -60 { lab=#net52}
 N 1600 -60 1610 -60 { lab=#net52}
 N 1690 -60 1710 -60 { lab=NMOS_DRV_N}
-N 1040 -1040 1060 -1040 { lab=#net56}
+N 1040 -1040 1060 -1040 { lab=TIMEOUT_EXT}
 N 1040 -1000 1060 -1000 { lab=TIMEOUT_INT}
 N 1040 -960 1060 -960 { lab=TIMEOUT_SEL}
 N 1140 -1020 1180 -1020 { lab=TIMEOUT}
 N 1180 -1040 1180 -1020 { lab=TIMEOUT}
-N 1340 -1020 1380 -1020 { lab=#net57}
+N 1340 -1020 1380 -1020 { lab=#net56}
 N 1180 -1020 1260 -1020 { lab=TIMEOUT}
 N 1460 -1020 1500 -1020 { lab=TIMEOUT_OUT}
 N 1800 -450 1820 -450 { lab=PMOS_DRV}
@@ -148,8 +147,15 @@ N 1600 -530 1600 -500 { lab=#net53}
 N 1600 -530 1620 -530 { lab=#net53}
 N 1700 -530 1740 -530 { lab=PMOS_DRV_N}
 N 1600 -120 1700 -120 { lab=#net52}
-N 1780 -120 1820 -120 { lab=#net58}
+N 1780 -120 1820 -120 { lab=#net57}
 N 1900 -120 1920 -120 { lab=NMOS_DRV}
+N 580 100 600 100 { lab=#net58}
+N 600 40 600 100 { lab=#net58}
+N 600 40 620 40 { lab=#net58}
+N 440 80 460 80 { lab=CYCLE_END}
+N 380 120 460 120 { lab=#net59}
+N 220 100 260 100 { lab=OVERCURRENT}
+N 220 140 260 140 { lab=OC_EN}
 C {sky130_stdcells/inv_1.sym} 420 -260 0 0 {name=x2 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/mux2_1.sym} 1280 -140 0 0 {name=x1 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/inv_1.sym} 660 -260 0 0 {name=x4 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
@@ -168,17 +174,17 @@ C {sky130_stdcells/inv_4.sym} 1020 -360 0 0 {name=x19 VGND=VGND VNB=VNB VPB=VPB 
 C {sky130_stdcells/inv_1.sym} 540 -360 0 0 {name=x20 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/inv_1.sym} 780 -360 0 0 {name=x21 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/inv_1.sym} 1020 -260 0 0 {name=x5 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
-C {sky130_stdcells/and2_1.sym} 740 200 0 0 {name=x22 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
-C {sky130_stdcells/inv_1.sym} 600 180 0 0 {name=x23 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
+C {sky130_stdcells/and2_1.sym} 680 20 0 0 {name=x22 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
+C {sky130_stdcells/inv_1.sym} 540 0 0 0 {name=x23 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {devices/ipin.sym} 80 -860 0 0 {name=p8 lab=TIMEOUT_INT}
-C {devices/ipin.sym} 80 -740 0 0 {name=p9 lab=OC_CMP_IN}
-C {devices/lab_wire.sym} 520 180 0 0 {name=l9 sig_type=std_logic lab=TIMEOUT}
-C {devices/lab_wire.sym} 520 220 0 0 {name=l10 sig_type=std_logic lab=OC_CMP_IN}
-C {devices/lab_wire.sym} 1040 180 0 1 {name=l11 sig_type=std_logic lab=HS_CTRL}
+C {devices/ipin.sym} 80 -740 0 0 {name=p9 lab=CYCLE_END}
+C {devices/lab_wire.sym} 460 0 0 0 {name=l9 sig_type=std_logic lab=TIMEOUT}
+C {devices/lab_wire.sym} 440 80 0 0 {name=l10 sig_type=std_logic lab=CYCLE_END}
+C {devices/lab_wire.sym} 980 0 0 1 {name=l11 sig_type=std_logic lab=HS_CTRL}
 C {devices/lab_wire.sym} 1220 20 0 0 {name=l3 sig_type=std_logic lab=HS_CTRL}
-C {devices/ipin.sym} 80 -690 0 0 {name=p10 lab=SW_EN}
+C {devices/ipin.sym} 80 -610 0 0 {name=p10 lab=SW_EN}
 C {devices/lab_wire.sym} 1220 60 0 0 {name=l12 sig_type=std_logic lab=SW_EN}
-C {devices/lab_wire.sym} 1040 60 0 1 {name=l13 sig_type=std_logic lab=LS_CTRL}
+C {devices/lab_wire.sym} 980 -120 0 1 {name=l13 sig_type=std_logic lab=LS_CTRL}
 C {sky130_stdcells/and2_1.sym} 1300 220 0 0 {name=x8 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {devices/lab_wire.sym} 1220 200 0 0 {name=l14 sig_type=std_logic lab=LS_CTRL}
 C {devices/lab_wire.sym} 1220 240 0 0 {name=l15 sig_type=std_logic lab=SW_EN}
@@ -225,9 +231,9 @@ C {sky130_stdcells/inv_1.sym} 1540 -640 0 0 {name=x57 VGND=VGND VNB=VNB VPB=VPB 
 C {sky130_stdcells/inv_1.sym} 1780 -740 0 0 {name=x58 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/nand2_1.sym} 1300 40 0 0 {name=x3 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/mux2_1.sym} 1560 200 2 1 {name=x9 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
-C {devices/ipin.sym} 80 -660 0 0 {name=p11 lab=SW_OVERRIDE}
-C {devices/ipin.sym} 80 -620 0 0 {name=p12 lab=PMOS_VAL}
-C {devices/ipin.sym} 80 -580 0 0 {name=p13 lab=NMOS_VAL}
+C {devices/ipin.sym} 80 -580 0 0 {name=p11 lab=SW_OVERRIDE}
+C {devices/ipin.sym} 80 -540 0 0 {name=p12 lab=PMOS_VAL}
+C {devices/ipin.sym} 80 -500 0 0 {name=p13 lab=NMOS_VAL}
 C {devices/lab_wire.sym} 1480 120 0 0 {name=l5 sig_type=std_logic lab=SW_OVERRIDE}
 C {devices/lab_wire.sym} 1500 80 0 0 {name=l6 sig_type=std_logic lab=PMOS_VAL}
 C {devices/lab_wire.sym} 1500 180 0 0 {name=l7 sig_type=std_logic lab=NMOS_VAL}
@@ -237,10 +243,10 @@ C {devices/lab_wire.sym} 1820 -450 0 1 {name=l18 sig_type=std_logic lab=PMOS_DRV
 C {devices/lab_wire.sym} 1920 -120 0 1 {name=l19 sig_type=std_logic lab=NMOS_DRV}
 C {devices/ipin.sym} 320 -1000 0 0 {name=p5 lab=PMOS_DRV}
 C {devices/ipin.sym} 320 -920 0 0 {name=p6 lab=NMOS_DRV}
-C {devices/ipin.sym} 80 -520 0 0 {name=p7 lab=PMOS_DT}
-C {devices/ipin.sym} 80 -480 0 0 {name=p14 lab=NMOS_DT}
-C {sky130_stdcells/nor2_1.sym} 940 180 0 0 {name=x13 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__}
-C {sky130_stdcells/nor2_1.sym} 940 60 0 0 {name=x16 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
+C {devices/ipin.sym} 80 -440 0 0 {name=p7 lab=PMOS_DT}
+C {devices/ipin.sym} 80 -400 0 0 {name=p14 lab=NMOS_DT}
+C {sky130_stdcells/nor2_1.sym} 880 0 0 0 {name=x13 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__}
+C {sky130_stdcells/nor2_1.sym} 880 -120 0 0 {name=x16 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/and2_1.sym} 1520 -120 0 0 {name=x59 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {devices/lab_wire.sym} 1450 -100 0 0 {name=l20 sig_type=std_logic lab=NMOS_DLY_IN}
 C {sky130_stdcells/or2_1.sym} 1520 -500 0 0 {name=x60 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
@@ -268,3 +274,9 @@ C {sky130_stdcells/inv_4.sym} 1660 -530 0 0 {name=x67 VGND=VGND VNB=VNB VPB=VPB 
 C {sky130_stdcells/inv_1.sym} 1740 -120 0 0 {name=x68 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/inv_4.sym} 1650 -60 0 0 {name=x69 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
 C {sky130_stdcells/inv_4.sym} 1860 -120 0 0 {name=x62 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
+C {sky130_stdcells/or2_1.sym} 520 100 0 0 {name=x70 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
+C {sky130_stdcells/and2_1.sym} 320 120 0 0 {name=x71 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
+C {devices/lab_wire.sym} 220 100 0 0 {name=l27 sig_type=std_logic lab=OVERCURRENT}
+C {devices/lab_wire.sym} 220 140 0 0 {name=l28 sig_type=std_logic lab=OC_EN}
+C {devices/ipin.sym} 80 -710 0 0 {name=p24 lab=OVERCURRENT}
+C {devices/ipin.sym} 80 -680 0 0 {name=p25 lab=OC_EN}

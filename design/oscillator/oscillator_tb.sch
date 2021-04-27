@@ -8,7 +8,7 @@ N 70 -270 70 -230 { lab=VDD}
 N 380 -300 380 -270 { lab=VDD}
 N 200 -200 230 -200 { lab=#net1}
 N 530 -220 570 -220 { lab=VRAMP}
-N 530 -180 570 -180 { lab=VDD}
+N 530 -180 570 -180 { lab=TIMEOUT}
 C {design/oscillator/oscillator.sym} 380 -200 0 0 {name=x1}
 C {devices/vsource.sym} 70 -200 0 0 {name=V1 value=3.3}
 C {devices/gnd.sym} 70 -170 0 0 {name=l1 lab=GND}
@@ -71,6 +71,6 @@ value="
 .control
 .save all
 tran 0.1n 500n
-write schmittbuf_tb.raw
+write oscillator_tb.raw
 .endc
 "}

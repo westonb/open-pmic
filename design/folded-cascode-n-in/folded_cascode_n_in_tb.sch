@@ -93,7 +93,7 @@ C {devices/isource.sym} 1280 -70 2 0 {name=I0 value=20u
 }
 C {devices/gnd.sym} 1280 -20 0 0 {name=l1 lab=GND}
 C {design/folded-cascode-n-in/folded_cascode_n_in.sym} 1180 -320 0 0 {}
-C {devices/vsource.sym} 740 -450 0 0 {name=V2 value=3}
+C {devices/vsource.sym} 740 -450 0 0 {name=V2 value=3.3}
 C {devices/gnd.sym} 740 -400 0 0 {name=l16 lab=GND}
 C {devices/vsource.sym} 740 -530 0 0 {name=V3 value="AC 1"}
 C {devices/lab_pin.sym} 760 -500 2 0 {name=l17 sig_type=std_logic lab=INM
@@ -111,7 +111,7 @@ C {devices/lab_pin.sym} 1400 -320 2 0 {name=l23 sig_type=std_logic lab=OUT
 }
 C {devices/capa.sym} 1420 -230 0 0 {name=C1
 m=1
-value=50f
+value=10p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 1420 -180 0 0 {name=l24 lab=GND}
