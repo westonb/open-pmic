@@ -263,7 +263,7 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 2340 -70 0 0 {name=l35 lab=GND}
 C {devices/res.sym} 2660 -220 2 0 {name=R4
-value=6.48
+value=20
 footprint=1206
 device=resistor
 m=1}

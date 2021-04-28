@@ -81,6 +81,9 @@ N 1920 -180 1920 -120 { lab=#net6}
 N 2020 -280 2020 -200 { lab=#net4}
 N 1940 -280 1960 -280 { lab=OPA_OUT}
 N 2280 -180 2280 -160 { lab=GND}
+N 1800 -420 1810 -420 { lab=OPA_OUT}
+N 1810 -440 1810 -420 { lab=OPA_OUT}
+N 1810 -520 1810 -500 { lab=V3V3}
 C {devices/code_shown.sym} 198.75 -701.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -160,7 +163,7 @@ C {sky130_fd_pr/pfet_g5v0d10v5.sym} 2060 -200 0 0 {name=M7
 L=1
 W=5
 nf=1
-mult=50
+mult=20
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -248,4 +251,13 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 2280 -160 0 0 {name=l38 lab=GND}
 C {devices/lab_pin.sym} 2110 -200 2 0 {name=l6 sig_type=std_logic lab=V3V3
+}
+C {devices/capa.sym} 1810 -470 0 0 {name=C2
+m=1
+value=2p
+footprint=1206
+device="ceramic capacitor"}
+C {devices/lab_pin.sym} 1800 -420 0 0 {name=l7 sig_type=std_logic lab=OPA_OUT
+}
+C {devices/lab_pin.sym} 1810 -520 0 0 {name=l8 sig_type=std_logic lab=V3V3
 }

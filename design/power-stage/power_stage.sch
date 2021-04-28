@@ -4,6 +4,8 @@ K {}
 V {}
 S {}
 E {}
+T {SKY130 IO pad ESD resistor is 2x sky130_fd_pr__res_generic_po W=2 L=3.15 m=1} 570 -160 0 0 0.4 0.4 {}
+T {150 ohm nominal} 380 -520 0 0 0.4 0.4 {}
 N 1160 -700 1160 -580 { lab=SW_NODE}
 N 1160 -520 1160 -480 { lab=VSS}
 N 1160 -550 1180 -550 { lab=VSS}
@@ -33,6 +35,25 @@ N 1660 -1080 1680 -1080 { lab=P_DRIVE}
 N 1120 -1080 1140 -1080 { lab=N_DRIVE}
 N 780 -1120 800 -1120 { lab=N_IN}
 N 780 -1040 800 -1040 { lab=N_IN_N}
+N 640 -680 640 -640 { lab=SW_NODE_ESD}
+N 600 -660 640 -660 { lab=SW_NODE_ESD}
+N 580 -710 600 -710 { lab=#net1}
+N 580 -760 580 -710 { lab=#net1}
+N 580 -760 660 -760 { lab=#net1}
+N 640 -760 640 -740 { lab=#net1}
+N 640 -710 660 -710 { lab=#net1}
+N 660 -760 660 -710 { lab=#net1}
+N 580 -610 600 -610 { lab=VSS}
+N 580 -610 580 -560 { lab=VSS}
+N 580 -560 640 -560 { lab=VSS}
+N 640 -580 640 -560 { lab=VSS}
+N 640 -610 660 -610 { lab=VSS}
+N 660 -610 660 -560 { lab=VSS}
+N 640 -560 660 -560 { lab=VSS}
+N 640 -780 640 -760 { lab=#net1}
+N 520 -660 600 -660 { lab=SW_NODE_ESD}
+N 440 -660 460 -660 { lab=SW_NODE}
+N 640 -660 680 -660 { lab=SW_NODE_ESD}
 C {devices/ipin.sym} 260 -580 0 0 {name=p2 lab=N_IN}
 C {devices/ipin.sym} 260 -680 0 0 {name=p3 lab=VSS}
 C {devices/ipin.sym} 260 -640 0 0 {name=p5 lab=P_IN}
@@ -102,3 +123,42 @@ C {devices/lab_wire.sym} 1680 -1080 0 1 {name=l30 sig_type=std_logic lab=P_DRIVE
 C {devices/lab_wire.sym} 1320 -1120 0 0 {name=l31 sig_type=std_logic lab=P_IN}
 C {devices/lab_wire.sym} 1320 -1040 0 0 {name=l32 sig_type=std_logic lab=P_IN_N}
 C {devices/lab_wire.sym} 1500 -1220 0 0 {name=l33 sig_type=std_logic lab=VDD_PWR}
+C {devices/ipin.sym} 260 -420 0 0 {name=p4 lab=SW_NODE_ESD}
+C {sky130_fd_pr/nfet_g5v0d10v5.sym} 620 -610 0 0 {name=M1
+L=0.5
+W=5
+nf=1
+mult=20
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=nfet_g5v0d10v5
+spiceprefix=X
+}
+C {sky130_fd_pr/pfet_g5v0d10v5.sym} 620 -710 0 0 {name=M2
+L=0.5
+W=5
+nf=1
+mult=20
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=pfet_g5v0d10v5
+spiceprefix=X
+}
+C {devices/lab_wire.sym} 590 -560 0 1 {name=l64 sig_type=std_logic lab=VSS}
+C {sky130_fd_pr/res_generic_po.sym} 490 -660 1 0 {name=R1
+W=2
+L=6.3
+model=res_generic_po
+spiceprefix=X
+mult=1}
+C {devices/lab_wire.sym} 440 -660 0 0 {name=l3 sig_type=std_logic lab=SW_NODE}
+C {devices/lab_wire.sym} 680 -660 0 1 {name=l4 sig_type=std_logic lab=SW_NODE_ESD}
+C {devices/lab_wire.sym} 640 -780 0 1 {name=l9 sig_type=std_logic lab=VDD_PWR}
