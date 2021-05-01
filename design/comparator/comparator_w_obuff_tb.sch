@@ -6,35 +6,37 @@ S {}
 E {}
 N 190 -510 190 -480 { lab=V3V3}
 N 190 -420 190 -390 { lab=GND}
-N 860 -420 860 -380 { lab=V3V3}
-N 860 -220 860 -190 { lab=GND}
+N 800 -520 800 -480 { lab=V3V3}
+N 1000 -540 1000 -510 { lab=GND}
 N 120 -420 120 -390 { lab=GND}
 N 120 -510 120 -480 { lab=IBIAS}
-N 940 -220 940 -180 { lab=IBIAS}
+N 960 -120 960 -80 { lab=IBIAS}
 N 1010 -300 1080 -300 { lab=VOUT}
 N 300 -540 300 -510 { lab=VINP}
 N 300 -450 300 -420 { lab=VINM}
 N 300 -430 320 -430 { lab=VINM}
 N 300 -360 300 -300 { lab=GND}
 N 1150 -300 1180 -300 { lab=INVOUT}
-N 660 -320 710 -320 { lab=VINP}
-N 660 -280 710 -280 { lab=VINM}
+N 650 -340 700 -340 { lab=VINP}
+N 650 -260 700 -260 { lab=VINM}
 N 320 -240 320 -220 { lab=VTEST}
 N 320 -160 320 -140 { lab=GND}
+N 940 -540 940 -480 { lab=GND}
+N 940 -540 1000 -540 { lab=GND}
 C {devices/vsource.sym} 190 -450 0 0 {name=V1 value=3.3
 }
 C {devices/lab_pin.sym} 190 -510 0 0 {name=l1 sig_type=std_logic lab=V3V3
 }
 C {devices/gnd.sym} 190 -390 0 1 {name=l2 lab=GND}
-C {devices/lab_pin.sym} 860 -420 0 0 {name=l3 sig_type=std_logic lab=V3V3
+C {devices/lab_pin.sym} 800 -520 0 0 {name=l3 sig_type=std_logic lab=V3V3
 }
-C {devices/gnd.sym} 860 -190 0 0 {name=l4 lab=GND}
+C {devices/gnd.sym} 1000 -510 0 0 {name=l4 lab=GND}
 C {devices/isource.sym} 120 -450 0 0 {name=I0 value=80u}
 C {devices/gnd.sym} 120 -390 0 0 {name=l5 lab=GND}
 C {devices/lab_pin.sym} 120 -510 0 0 {name=l6 sig_type=std_logic lab=IBIAS
 
 }
-C {devices/lab_pin.sym} 940 -180 0 1 {name=l7 sig_type=std_logic lab=IBIAS}
+C {devices/lab_pin.sym} 960 -80 0 1 {name=l7 sig_type=std_logic lab=IBIAS}
 C {devices/lab_pin.sym} 1040 -300 1 1 {name=l8 sig_type=std_logic lab=VOUT
 
 }
@@ -45,10 +47,10 @@ C {devices/lab_pin.sym} 320 -430 2 0 {name=l10 sig_type=std_logic lab=VINM
 
 
 }
-C {devices/lab_pin.sym} 660 -320 0 0 {name=l11 sig_type=std_logic lab=VINP
+C {devices/lab_pin.sym} 650 -340 0 0 {name=l11 sig_type=std_logic lab=VINP
 
 }
-C {devices/lab_pin.sym} 660 -280 0 0 {name=l12 sig_type=std_logic lab=VINM
+C {devices/lab_pin.sym} 650 -260 0 0 {name=l12 sig_type=std_logic lab=VINM
 
 
 }
@@ -103,7 +105,7 @@ only_toplevel=true
 value="
 .control
 .save all
-tran 1n 10u
+tran 1n 3u
 write comparator_w_obuff_tb.raw
 .endc
 "}
