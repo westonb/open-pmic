@@ -11,12 +11,17 @@ T {I/O Pad Emulation} 260 -1590 0 0 0.4 0.4 {}
 T {simplified model for coilcraft LPS6235-223} 2400 -560 0 0 0.4 0.4 {}
 T {switch node capacitance} 1930 -430 0 0 0.4 0.4 {}
 T {source for current sensing} 2740 -330 0 0 0.4 0.4 {}
+T {external compensation components} 980 -70 0 0 0.4 0.4 {}
+T {Digital inputs from IO} -80 -810 0 0 0.4 0.4 {}
+T {supply rails} 2000 -1670 0 0 0.4 0.4 {}
+T {monitoring for current sense} 1190 -1560 0 0 0.4 0.4 {}
+T {external bias power supplies} 340 200 0 0 0.4 0.4 {}
 N 560 -150 560 -130 { lab=GND}
 N 560 -230 560 -210 { lab=#net1}
 N 1790 -1200 1790 -1180 { lab=#net2}
 N 1790 -1120 1790 -1100 { lab=GND}
-N 560 -700 560 -680 { lab=#net3}
-N 560 -620 560 -600 { lab=GND}
+N 340 40 340 60 { lab=#net3}
+N 340 120 340 140 { lab=GND}
 N 820 -160 820 -140 { lab=GND}
 N 820 -240 820 -220 { lab=#net4}
 N 1200 -720 1210 -720 { lab=V3V3}
@@ -46,16 +51,16 @@ N 1060 -240 1060 -220 { lab=#net8}
 N 1200 -460 1220 -460 { lab=VCOMP}
 N 1200 -380 1220 -380 { lab=ISLOPE}
 N 1200 -420 1220 -420 { lab=IBIAS}
-N 700 -700 700 -680 { lab=#net9}
-N 700 -620 700 -600 { lab=GND}
+N 1300 -1410 1300 -1390 { lab=#net9}
+N 1300 -1330 1300 -1310 { lab=GND}
 N 1200 -340 1220 -340 { lab=IMON}
 N 300 -150 300 -130 { lab=GND}
 N 300 -230 300 -210 { lab=#net10}
 N 1200 -300 1220 -300 { lab=IOSC}
-N 60 -160 60 -140 { lab=VSS}
-N 60 -240 60 -220 { lab=TIMEOUT_EXT}
-N 60 -260 80 -260 { lab=TIMEOUT_EXT}
-N 60 -260 60 -240 { lab=TIMEOUT_EXT}
+N -140 -640 -140 -620 { lab=VSS}
+N -140 -720 -140 -700 { lab=TIMEOUT_EXT}
+N -140 -740 -120 -740 { lab=TIMEOUT_EXT}
+N -140 -740 -140 -720 { lab=TIMEOUT_EXT}
 N 1780 -680 1800 -680 { lab=TIMEOUT_EXT}
 N 1780 -720 1800 -720 { lab=SW_EN}
 N 1780 -580 1800 -580 { lab=VSS}
@@ -64,8 +69,8 @@ N 1780 -500 1800 -500 { lab=VSS}
 N 1780 -460 1800 -460 { lab=VSS}
 N 1780 -420 1800 -420 { lab=VSS}
 N 1780 -380 1800 -380 { lab=VSS}
-N 120 -500 120 -480 { lab=SW_EN}
-N 120 -420 120 -400 { lab=VSS}
+N -140 -900 -140 -880 { lab=SW_EN}
+N -140 -820 -140 -800 { lab=VSS}
 N 780 -940 820 -940 { lab=VREF_EXT}
 N 780 -940 780 -920 { lab=VREF_EXT}
 N 780 -860 780 -840 { lab=VSS}
@@ -108,8 +113,8 @@ N 780 -1480 780 -1460 { lab=VSS}
 N 760 -1460 780 -1460 { lab=VSS}
 N 880 -1560 900 -1560 { lab=IMON}
 N 740 -1560 780 -1560 { lab=IMON_EXT}
-N 560 -780 560 -760 { lab=VREF_EXT}
-N 700 -780 700 -760 { lab=IMON_EXT}
+N 340 -40 340 -20 { lab=VREF_EXT}
+N 1300 -1490 1300 -1470 { lab=IMON_EXT}
 N 300 -310 300 -290 { lab=IOSC_EXT}
 N 560 -310 560 -290 { lab=IBIAS_EXT}
 N 820 -320 820 -300 { lab=ISLOPE_EXT}
@@ -119,8 +124,8 @@ N 1790 -1220 1830 -1220 { lab=#net2}
 N 1790 -1220 1790 -1200 { lab=#net2}
 N 1200 -640 1200 -610 { lab=VSS}
 N 1120 -640 1200 -640 { lab=VSS}
-N 1040 -640 1060 -640 { lab=GND}
-N 1040 -640 1040 -620 { lab=GND}
+N 1040 -640 1060 -640 { lab=#net11}
+N 1040 -540 1040 -520 { lab=GND}
 N 820 -230 890 -230 { lab=#net4}
 N 890 -230 890 -220 { lab=#net4}
 N 890 -160 890 -140 { lab=GND}
@@ -131,7 +136,7 @@ N 380 -150 380 -130 { lab=GND}
 N 300 -220 380 -220 { lab=#net10}
 N 560 -220 640 -220 { lab=#net1}
 N 2460 -420 2460 -380 { lab=VOUT}
-N 2340 -580 2340 -560 { lab=#net11}
+N 2340 -580 2340 -560 { lab=#net12}
 N 2200 -640 2240 -640 { lab=#net5}
 N 2240 -640 2240 -620 { lab=#net5}
 N 2240 -640 2340 -640 { lab=#net5}
@@ -141,12 +146,12 @@ N 2240 -540 2240 -480 { lab=VOUT}
 N 2080 -480 2080 -460 { lab=GND}
 N 2080 -640 2080 -600 { lab=#net7}
 N 2240 -480 2240 -400 { lab=VOUT}
-N 2340 -250 2340 -230 { lab=#net12}
-N 2340 -170 2340 -150 { lab=#net13}
+N 2340 -250 2340 -230 { lab=#net13}
+N 2340 -170 2340 -150 { lab=#net14}
 N 2340 -340 2340 -310 { lab=VOUT}
 N 2100 -970 2100 -950 { lab=GND}
-N 2100 -1130 2100 -1110 { lab=#net14}
-N 2100 -1050 2100 -1030 { lab=#net15}
+N 2100 -1130 2100 -1110 { lab=#net15}
+N 2100 -1050 2100 -1030 { lab=#net16}
 N 2100 -1220 2100 -1190 { lab=VDD_PWR_PRE}
 N 2100 -1220 2140 -1220 { lab=VDD_PWR_PRE}
 N 2200 -1220 2240 -1220 { lab=VDD_PWR}
@@ -156,19 +161,19 @@ N 1900 -1300 1940 -1300 { lab=VDD_PWR_PRE}
 N 1940 -1300 1940 -1220 { lab=VDD_PWR_PRE}
 N 1910 -1220 1940 -1220 { lab=VDD_PWR_PRE}
 N 1940 -1220 2100 -1220 { lab=VDD_PWR_PRE}
-N 1800 -1540 1800 -1520 { lab=#net16}
+N 1800 -1540 1800 -1520 { lab=#net17}
 N 1800 -1460 1800 -1440 { lab=GND}
 N 1900 -1560 1920 -1560 { lab=V3V3_PRE}
-N 1800 -1560 1840 -1560 { lab=#net16}
-N 1800 -1560 1800 -1540 { lab=#net16}
+N 1800 -1560 1840 -1560 { lab=#net17}
+N 1800 -1560 1800 -1540 { lab=#net17}
 N 2110 -1310 2110 -1290 { lab=GND}
-N 2110 -1470 2110 -1450 { lab=#net17}
-N 2110 -1390 2110 -1370 { lab=#net18}
+N 2110 -1470 2110 -1450 { lab=#net18}
+N 2110 -1390 2110 -1370 { lab=#net19}
 N 2110 -1560 2110 -1530 { lab=V3V3_PRE}
 N 2110 -1560 2150 -1560 { lab=V3V3_PRE}
 N 2210 -1560 2250 -1560 { lab=V3V3}
-N 1810 -1640 1850 -1640 { lab=#net16}
-N 1810 -1640 1810 -1560 { lab=#net16}
+N 1810 -1640 1850 -1640 { lab=#net17}
+N 1810 -1640 1810 -1560 { lab=#net17}
 N 1910 -1640 1950 -1640 { lab=V3V3_PRE}
 N 1950 -1640 1950 -1560 { lab=V3V3_PRE}
 N 1920 -1560 1950 -1560 { lab=V3V3_PRE}
@@ -180,14 +185,15 @@ N 2660 -380 2660 -360 { lab=VOUT}
 N 1780 -260 1800 -260 { lab=SW_NODE}
 N 1780 -340 1800 -340 { lab=SW_EN}
 N 560 120 560 140 { lab=GND}
-N 560 40 560 60 { lab=#net19}
+N 560 40 560 60 { lab=#net20}
 N 560 -40 560 -20 { lab=IOC}
-N 640 50 640 60 { lab=#net19}
+N 640 50 640 60 { lab=#net20}
 N 640 120 640 140 { lab=GND}
-N 560 50 640 50 { lab=#net19}
+N 560 50 640 50 { lab=#net20}
 N 1200 -260 1220 -260 { lab=IOC}
 N 1800 -380 1820 -380 { lab=VSS}
 N 1800 -580 1800 -380 { lab=VSS}
+N 1040 -640 1040 -600 { lab=#net11}
 C {devices/code_shown.sym} 198.75 -701.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -225,11 +231,11 @@ C {devices/vsource.sym} 1790 -1150 0 0 {name=V5 value=3.3}
 C {devices/gnd.sym} 1790 -1100 0 0 {name=l42 lab=GND}
 C {devices/lab_pin.sym} 2240 -1220 0 1 {name=l43 sig_type=std_logic lab=VDD_PWR
 }
-C {devices/vsource.sym} 560 -650 0 0 {name=V6 value=1.25}
-C {devices/gnd.sym} 560 -600 0 0 {name=l54 lab=GND}
-C {devices/lab_pin.sym} 560 -780 0 0 {name=l55 sig_type=std_logic lab=VREF_EXT
+C {devices/vsource.sym} 340 90 0 0 {name=V6 value=1.25}
+C {devices/gnd.sym} 340 140 0 0 {name=l54 lab=GND}
+C {devices/lab_pin.sym} 340 -40 0 0 {name=l55 sig_type=std_logic lab=VREF_EXT
 }
-C {devices/isource.sym} 820 -190 2 0 {name=I4 value=10u
+C {devices/isource.sym} 820 -190 2 0 {name=I4 value=80u
 }
 C {devices/gnd.sym} 820 -140 0 0 {name=l78 lab=GND}
 C {devices/lab_pin.sym} 820 -320 0 0 {name=l79 sig_type=std_logic lab=ISLOPE_EXT
@@ -263,7 +269,7 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 2340 -70 0 0 {name=l35 lab=GND}
 C {devices/res.sym} 2660 -220 2 0 {name=R4
-value=20
+value=1k
 footprint=1206
 device=resistor
 m=1}
@@ -304,9 +310,9 @@ C {devices/lab_pin.sym} 1200 -380 0 0 {name=l5 sig_type=std_logic lab=ISLOPE
 }
 C {devices/lab_pin.sym} 1200 -420 0 0 {name=l6 sig_type=std_logic lab=IBIAS
 }
-C {devices/vsource.sym} 700 -650 0 0 {name=V2 value=3.3}
-C {devices/gnd.sym} 700 -600 0 0 {name=l7 lab=GND}
-C {devices/lab_pin.sym} 700 -780 0 0 {name=l8 sig_type=std_logic lab=IMON_EXT
+C {devices/vsource.sym} 1300 -1360 0 0 {name=V2 value=3.3}
+C {devices/gnd.sym} 1300 -1310 0 0 {name=l7 lab=GND}
+C {devices/lab_pin.sym} 1300 -1490 0 0 {name=l8 sig_type=std_logic lab=IMON_EXT
 }
 C {devices/lab_pin.sym} 1200 -340 0 0 {name=l17 sig_type=std_logic lab=IMON
 }
@@ -317,8 +323,8 @@ C {devices/lab_pin.sym} 300 -310 0 0 {name=l19 sig_type=std_logic lab=IOSC_EXT
 }
 C {devices/lab_pin.sym} 1200 -300 0 0 {name=l21 sig_type=std_logic lab=IOSC
 }
-C {devices/vsource.sym} 60 -190 0 0 {name=V7 value="PULSE(0 3.3 0 3n 3n 200n 2u)"}
-C {devices/lab_pin.sym} 80 -260 0 1 {name=l23 sig_type=std_logic lab=TIMEOUT_EXT
+C {devices/vsource.sym} -140 -670 0 0 {name=V7 value="PULSE(0 3.3 0 3n 3n 200n 2u)"}
+C {devices/lab_pin.sym} -120 -740 0 1 {name=l23 sig_type=std_logic lab=TIMEOUT_EXT
 }
 C {devices/lab_pin.sym} 1800 -680 0 1 {name=l24 sig_type=std_logic lab=TIMEOUT_EXT
 }
@@ -326,14 +332,14 @@ C {devices/lab_pin.sym} 1200 -610 0 0 {name=l27 sig_type=std_logic lab=VSS
 }
 C {devices/lab_pin.sym} 1820 -380 0 1 {name=l28 sig_type=std_logic lab=VSS
 }
-C {devices/vsource.sym} 120 -450 0 0 {name=V3 value=3.3}
-C {devices/lab_pin.sym} 120 -500 0 0 {name=l29 sig_type=std_logic lab=SW_EN
+C {devices/vsource.sym} -140 -850 0 0 {name=V3 value=3.3}
+C {devices/lab_pin.sym} -140 -900 0 0 {name=l29 sig_type=std_logic lab=SW_EN
 }
 C {devices/lab_pin.sym} 1800 -720 0 1 {name=l30 sig_type=std_logic lab=SW_EN
 }
-C {devices/lab_pin.sym} 120 -400 0 0 {name=l22 sig_type=std_logic lab=VSS
+C {devices/lab_pin.sym} -140 -800 0 0 {name=l22 sig_type=std_logic lab=VSS
 }
-C {devices/lab_pin.sym} 60 -140 0 0 {name=l25 sig_type=std_logic lab=VSS
+C {devices/lab_pin.sym} -140 -620 0 0 {name=l25 sig_type=std_logic lab=VSS
 }
 C {devices/lab_pin.sym} 900 -940 0 1 {name=l26 sig_type=std_logic lab=VREF
 }
@@ -448,12 +454,12 @@ C {devices/lab_pin.sym} 720 -1140 2 1 {name=l48 sig_type=std_logic lab=VFB_EXT
 C {devices/lab_pin.sym} 740 -1560 0 0 {name=l56 sig_type=std_logic lab=IMON_EXT
 
 }
-C {devices/res.sym} 560 -730 0 1 {name=R12
+C {devices/res.sym} 340 10 0 1 {name=R12
 value=120
 footprint=10
 device=resistor
 m=1}
-C {devices/res.sym} 700 -730 0 1 {name=R13
+C {devices/res.sym} 1300 -1440 0 1 {name=R13
 value=120
 footprint=10
 device=resistor
@@ -488,7 +494,7 @@ m=1
 value=1n
 footprint=1206
 device=inductor}
-C {devices/gnd.sym} 1040 -620 0 0 {name=l11 lab=GND}
+C {devices/gnd.sym} 1040 -520 0 0 {name=l11 lab=GND}
 C {devices/capa.sym} 890 -190 0 0 {name=C11
 m=1
 value=100p
@@ -617,3 +623,8 @@ C {devices/lab_pin.sym} 1200 -260 0 0 {name=l72 sig_type=std_logic lab=IOC
 }
 C {devices/lab_pin.sym} 1800 -340 0 1 {name=l73 sig_type=std_logic lab=SW_EN
 }
+C {devices/res.sym} 1040 -570 0 0 {name=R26
+value=30m
+footprint=1206
+device=resistor
+m=1}

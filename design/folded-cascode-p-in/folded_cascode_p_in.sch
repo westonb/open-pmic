@@ -4,6 +4,7 @@ K {}
 V {}
 S {}
 E {}
+T {bias current flows into VBN} 480 -670 0 0 0.4 0.4 {}
 N 680 -560 680 -540 { lab=VDD}
 N 680 -560 1100 -560 { lab=VDD}
 N 1100 -560 1100 -540 { lab=VDD}
