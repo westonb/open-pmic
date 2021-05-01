@@ -1,0 +1,3 @@
+verification/build/*
+verification/results.csv
+*.csv#

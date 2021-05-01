@@ -5,12 +5,12 @@ V {}
 S {}
 E {}
 T {slope = ri * Vin / L 
-ri = 1.69} 180 -420 0 0 0.4 0.4 {}
+ri = 1.69} 20 -190 0 0 0.4 0.4 {}
 T {source for current sensing} 2140 -750 0 0 0.4 0.4 {}
 T {I/O Pad Emulation} 260 -1590 0 0 0.4 0.4 {}
 T {simplified model for coilcraft LPS6235-223} 2400 -560 0 0 0.4 0.4 {}
 T {switch node capacitance} 1930 -430 0 0 0.4 0.4 {}
-T {source for current sensing} 2740 -330 0 0 0.4 0.4 {}
+T {source for current sensing} 2540 -80 0 0 0.4 0.4 {}
 T {external compensation components} 980 -70 0 0 0.4 0.4 {}
 T {Digital inputs from IO} -80 -810 0 0 0.4 0.4 {}
 T {supply rails} 2000 -1670 0 0 0.4 0.4 {}
@@ -194,19 +194,30 @@ N 1200 -260 1220 -260 { lab=IOC}
 N 1800 -380 1820 -380 { lab=VSS}
 N 1800 -580 1800 -380 { lab=VSS}
 N 1040 -640 1040 -600 { lab=#net11}
+N 2740 -380 2760 -380 { lab=VOUT}
+N 2820 -380 2880 -380 { lab=VOUT_FILT}
+N 2880 -280 2880 -240 { lab=GND}
+N 2880 -380 2880 -340 { lab=VOUT_FILT}
+N 2880 -380 2900 -380 { lab=VOUT_FILT}
 C {devices/code_shown.sym} 198.75 -701.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
+
+.param VIN = 3.3
+.param RL = 20
 .option temp=70
+
 .control
-.save all
-.options savecurrents
+* .save all
 tran 10n 400u
-write full_system_tb.raw
+quit
 .endc
 .measure tran Iin_avg AVG i(V5) from=300u to=400u
 .measure tran Iaux_avg AVG i(V8) from=300u to=400u
 .measure tran Iload_avg RMS i(V1) from=300u to=400u
+.measure tran Vout_max MAX v(vout_filt) from=300u to=400u
+.measure tran Vout_min MIN v(vout_filt) from=300u to=400u
+.measure tran vout_tran_max MAX v(vout_filt) from=300u to=400u
 "}
 C {devices/code.sym} -290 -440 0 0 {name=STDCELL_MODELS 
 only_toplevel=true
@@ -218,7 +229,7 @@ C {devices/code.sym} -290 -270 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
-.lib \\\\$::SKYWATER_MODELS\\\\/models/sky130.lib.spice ss
+.lib \\\\$::SKYWATER_MODELS\\\\/models/sky130.lib.spice tt
 .option wnflag=1
 "
 }
@@ -227,7 +238,7 @@ C {devices/isource.sym} 560 -180 2 0 {name=I0 value=100u
 C {devices/gnd.sym} 560 -130 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} 560 -310 0 0 {name=l4 sig_type=std_logic lab=IBIAS_EXT
 }
-C {devices/vsource.sym} 1790 -1150 0 0 {name=V5 value=3.3}
+C {devices/vsource.sym} 1790 -1150 0 0 {name=V5 value=\{VIN\}}
 C {devices/gnd.sym} 1790 -1100 0 0 {name=l42 lab=GND}
 C {devices/lab_pin.sym} 2240 -1220 0 1 {name=l43 sig_type=std_logic lab=VDD_PWR
 }
@@ -269,7 +280,7 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 2340 -70 0 0 {name=l35 lab=GND}
 C {devices/res.sym} 2660 -220 2 0 {name=R4
-value=1k
+value=\{RL\}
 footprint=1206
 device=resistor
 m=1}
@@ -310,7 +321,7 @@ C {devices/lab_pin.sym} 1200 -380 0 0 {name=l5 sig_type=std_logic lab=ISLOPE
 }
 C {devices/lab_pin.sym} 1200 -420 0 0 {name=l6 sig_type=std_logic lab=IBIAS
 }
-C {devices/vsource.sym} 1300 -1360 0 0 {name=V2 value=3.3}
+C {devices/vsource.sym} 1300 -1360 0 0 {name=V2 value=\{VIN\}}
 C {devices/gnd.sym} 1300 -1310 0 0 {name=l7 lab=GND}
 C {devices/lab_pin.sym} 1300 -1490 0 0 {name=l8 sig_type=std_logic lab=IMON_EXT
 }
@@ -323,7 +334,7 @@ C {devices/lab_pin.sym} 300 -310 0 0 {name=l19 sig_type=std_logic lab=IOSC_EXT
 }
 C {devices/lab_pin.sym} 1200 -300 0 0 {name=l21 sig_type=std_logic lab=IOSC
 }
-C {devices/vsource.sym} -140 -670 0 0 {name=V7 value="PULSE(0 3.3 0 3n 3n 200n 2u)"}
+C {devices/vsource.sym} -140 -670 0 0 {name=V7 value="PULSE(0 \{VIN\} 0 3n 3n 200n 2u)"}
 C {devices/lab_pin.sym} -120 -740 0 1 {name=l23 sig_type=std_logic lab=TIMEOUT_EXT
 }
 C {devices/lab_pin.sym} 1800 -680 0 1 {name=l24 sig_type=std_logic lab=TIMEOUT_EXT
@@ -332,7 +343,7 @@ C {devices/lab_pin.sym} 1200 -610 0 0 {name=l27 sig_type=std_logic lab=VSS
 }
 C {devices/lab_pin.sym} 1820 -380 0 1 {name=l28 sig_type=std_logic lab=VSS
 }
-C {devices/vsource.sym} -140 -850 0 0 {name=V3 value=3.3}
+C {devices/vsource.sym} -140 -850 0 0 {name=V3 value=\{VIN\}}
 C {devices/lab_pin.sym} -140 -900 0 0 {name=l29 sig_type=std_logic lab=SW_EN
 }
 C {devices/lab_pin.sym} 1800 -720 0 1 {name=l30 sig_type=std_logic lab=SW_EN
@@ -565,7 +576,7 @@ value=1
 footprint=1206
 device=resistor
 m=1}
-C {devices/vsource.sym} 1800 -1490 0 0 {name=V8 value=3.3}
+C {devices/vsource.sym} 1800 -1490 0 0 {name=V8 value=\{VIN\}}
 C {devices/gnd.sym} 1800 -1440 0 0 {name=l66 lab=GND}
 C {devices/ind.sym} 1870 -1560 1 0 {name=L8
 m=1
@@ -628,3 +639,15 @@ value=30m
 footprint=1206
 device=resistor
 m=1}
+C {devices/res.sym} 2790 -380 3 0 {name=R27
+value=10k
+footprint=1206
+device=resistor
+m=1}
+C {devices/capa.sym} 2880 -310 0 0 {name=C18
+m=1
+value=200p
+footprint=1206
+device="ceramic capacitor"}
+C {devices/gnd.sym} 2880 -240 0 0 {name=l74 lab=GND}
+C {devices/lab_pin.sym} 2900 -380 2 0 {name=l75 sig_type=std_logic lab=VOUT_FILT}
