@@ -16,6 +16,8 @@ T {Digital inputs from IO} -80 -810 0 0 0.4 0.4 {}
 T {supply rails} 2000 -1670 0 0 0.4 0.4 {}
 T {monitoring for current sense} 1190 -1560 0 0 0.4 0.4 {}
 T {external bias power supplies} 340 200 0 0 0.4 0.4 {}
+T {on die capacitance?} 2290 -1390 0 0 0.4 0.4 {}
+T {on die capacitance?} 2280 -1040 0 0 0.4 0.4 {}
 N 560 -150 560 -130 { lab=GND}
 N 560 -230 560 -210 { lab=#net1}
 N 1790 -1200 1790 -1180 { lab=#net2}
@@ -199,6 +201,23 @@ N 2820 -380 2880 -380 { lab=VOUT_FILT}
 N 2880 -280 2880 -240 { lab=GND}
 N 2880 -380 2880 -340 { lab=VOUT_FILT}
 N 2880 -380 2900 -380 { lab=VOUT_FILT}
+N 2000 -970 2000 -950 { lab=GND}
+N 2000 -1130 2000 -1110 { lab=#net21}
+N 2000 -1050 2000 -1030 { lab=#net22}
+N 2000 -1220 2000 -1190 { lab=VDD_PWR_PRE}
+N 2010 -1310 2010 -1290 { lab=GND}
+N 2010 -1470 2010 -1450 { lab=#net23}
+N 2010 -1390 2010 -1370 { lab=#net24}
+N 2010 -1560 2010 -1530 { lab=V3V3_PRE}
+N 2260 -1380 2260 -1360 { lab=GND}
+N 2260 -1460 2260 -1440 { lab=#net25}
+N 2260 -1560 2260 -1520 { lab=V3V3}
+N 2250 -1560 2260 -1560 { lab=V3V3}
+N 2260 -1560 2280 -1560 { lab=V3V3}
+N 2220 -1010 2220 -990 { lab=GND}
+N 2220 -1090 2220 -1070 { lab=#net26}
+N 2220 -1220 2220 -1160 { lab=VDD_PWR}
+N 2220 -1160 2220 -1150 { lab=VDD_PWR}
 C {devices/code_shown.sym} 198.75 -701.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
@@ -208,16 +227,18 @@ value="
 .option temp=70
 
 .control
-* .save all
-tran 10n 500u
-quit
+save all
+tran 10n 600u
+write full_system_tb.raw
 .endc
-.measure tran Iin_avg AVG i(V5) from=300u to=500u
-.measure tran Iaux_avg AVG i(V8) from=300u to=500u
-.measure tran Iload_avg RMS i(V1) from=300u to=500u
-.measure tran Vout_max MAX v(vout_filt) from=300u to=500u
-.measure tran Vout_min MIN v(vout_filt) from=300u to=500u
-.measure tran vout_tran_max MAX v(vout_filt) from=0u to=500u
+.measure tran Iin_avg AVG i(V5) from=400u to=600u
+.measure tran Iaux_avg AVG i(V8) from=400u to=600u
+.measure tran Iload_avg RMS i(V1) from=400u to=600u
+.measure tran Vout_max MAX v(vout_filt) from=400u to=600u
+.measure tran Vout_min MIN v(vout_filt) from=400u to=600u
+.measure tran vout_tran_max MAX v(vout_filt) from=0u to=600u
+.measure tran Il_max MAX i(V4) from=0u to=600u
+.measure tran Il_min MIN i(V4) from=0u to=600u
 "}
 C {devices/code.sym} -290 -440 0 0 {name=STDCELL_MODELS 
 only_toplevel=true
@@ -572,7 +593,7 @@ value=1n
 footprint=1206
 device=inductor}
 C {devices/res.sym} 1870 -1300 3 0 {name=R22
-value=1
+value=5
 footprint=1206
 device=resistor
 m=1}
@@ -605,11 +626,11 @@ value=5n
 footprint=1206
 device=inductor}
 C {devices/res.sym} 1880 -1640 3 0 {name=R24
-value=1
+value=5
 footprint=1206
 device=resistor
 m=1}
-C {devices/lab_pin.sym} 2250 -1560 0 1 {name=l67 sig_type=std_logic lab=V3V3
+C {devices/lab_pin.sym} 2280 -1560 0 1 {name=l67 sig_type=std_logic lab=V3V3
 }
 C {devices/vsource.sym} 2660 -330 0 0 {name=V1 value=0}
 C {devices/lab_wire.sym} 1990 -1560 0 1 {name=l2 sig_type=std_logic lab=V3V3_PRE}
@@ -651,3 +672,57 @@ footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 2880 -240 0 0 {name=l74 lab=GND}
 C {devices/lab_pin.sym} 2900 -380 2 0 {name=l75 sig_type=std_logic lab=VOUT_FILT}
+C {devices/capa.sym} 2000 -1000 0 0 {name=C19
+m=1
+value=200u
+footprint=1206
+device="ceramic capacitor"}
+C {devices/gnd.sym} 2000 -950 0 0 {name=l76 lab=GND}
+C {devices/ind.sym} 2000 -1080 0 0 {name=L3
+m=1
+value=20n
+footprint=1206
+device=inductor}
+C {devices/res.sym} 2000 -1160 0 0 {name=R28
+value=40m
+footprint=1206
+device=resistor
+m=1}
+C {devices/capa.sym} 2010 -1340 0 0 {name=C20
+m=1
+value=200u
+footprint=1206
+device="ceramic capacitor"}
+C {devices/gnd.sym} 2010 -1290 0 0 {name=l77 lab=GND}
+C {devices/ind.sym} 2010 -1420 0 0 {name=L11
+m=1
+value=20n
+footprint=1206
+device=inductor}
+C {devices/res.sym} 2010 -1500 0 0 {name=R29
+value=40m
+footprint=1206
+device=resistor
+m=1}
+C {devices/capa.sym} 2260 -1410 0 0 {name=C21
+m=1
+value=100p
+footprint=1206
+device="ceramic capacitor"}
+C {devices/res.sym} 2260 -1490 0 0 {name=R30
+value=10m
+footprint=1206
+device=resistor
+m=1}
+C {devices/gnd.sym} 2260 -1360 0 0 {name=l80 lab=GND}
+C {devices/capa.sym} 2220 -1040 0 0 {name=C22
+m=1
+value=100p
+footprint=1206
+device="ceramic capacitor"}
+C {devices/res.sym} 2220 -1120 0 0 {name=R31
+value=10m
+footprint=1206
+device=resistor
+m=1}
+C {devices/gnd.sym} 2220 -990 0 0 {name=l81 lab=GND}

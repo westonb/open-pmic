@@ -4,40 +4,28 @@ K {}
 V {}
 S {}
 E {}
-N 550 -510 550 -490 { lab=V3V3}
-N 550 -430 550 -410 { lab=GND}
-N 400 -420 400 -400 { lab=GND}
-N 400 -500 400 -480 { lab=VBN}
-N 740 -420 740 -400 { lab=GND}
-N 740 -500 740 -480 { lab=INM}
-N 740 -500 760 -500 { lab=INM}
-N 740 -580 740 -560 { lab=INP}
-N 740 -580 760 -580 { lab=INP}
-N 1260 -520 1260 -500 { lab=GND}
-N 1120 -520 1120 -500 { lab=V3V3}
-N 1000 -360 1020 -360 { lab=INP}
-N 1000 -280 1020 -280 { lab=INM}
-N 1280 -140 1280 -120 { lab=VBN}
-N 1360 -320 1400 -320 { lab=OUT}
-N 1420 -200 1420 -180 { lab=GND}
-N 1420 -290 1420 -260 { lab=OUT}
-N 1380 -290 1420 -290 { lab=OUT}
-N 1380 -320 1380 -290 { lab=OUT}
-C {devices/code_shown.sym} 48.75 -751.875 0 0 {name=NGSPICE
-only_toplevel=true
-value="
-
-.control
-.save all
-ac dec 200 10 1000Meg
-settype decibel out
-plot vdb(out)
-let outd = 180/PI*cph(out)
-settype phase outd
-plot outd
-write folded_cascode_p_in_tb.raw
-.endc
-"}
+N 800 -430 800 -410 { lab=V3V3}
+N 800 -350 800 -330 { lab=GND}
+N 1560 -70 1560 -50 { lab=GND}
+N 1560 -150 1560 -130 { lab=#net1}
+N 1030 -190 1030 -170 { lab=GND}
+N 1030 -270 1030 -250 { lab=#net2}
+N 1030 -350 1030 -330 { lab=INP}
+N 1030 -350 1050 -350 { lab=INP}
+N 1540 -550 1540 -530 { lab=GND}
+N 1400 -550 1400 -530 { lab=V3V3}
+N 1280 -390 1300 -390 { lab=INP}
+N 1280 -310 1300 -310 { lab=INM}
+N 1990 -260 1990 -240 { lab=GND}
+N 1990 -350 1990 -320 { lab=OUT}
+N 1560 -170 1560 -150 { lab=#net1}
+N 1720 -350 1720 -310 { lab=OUT}
+N 1720 -170 1720 -130 { lab=INM}
+N 1720 -70 1720 -50 { lab=GND}
+N 1720 -150 1740 -150 { lab=INM}
+N 1720 -250 1720 -230 { lab=#net3}
+N 1640 -350 1720 -350 { lab=OUT}
+N 1720 -350 1990 -350 { lab=OUT}
 C {devices/code.sym} 60 -420 0 0 {name=STDCELL_MODELS 
 only_toplevel=true
 place=end
@@ -84,37 +72,69 @@ value="
 .include \\\\$::SKYWATER_MODELS\\\\/models/corners/tt/rf.spice
 "
 }
-C {devices/vsource.sym} 550 -460 0 0 {name=V1 value=3.3}
-C {devices/gnd.sym} 550 -410 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} 550 -510 0 0 {name=l3 sig_type=std_logic lab=V3V3
+C {design/folded-cascode-p-in/folded_cascode_p_in.sym} 1460 -350 0 0 {name=x1}
+C {devices/code_shown.sym} 18.75 -911.875 0 0 {name=NGSPICE1
+only_toplevel=true
+value="
+.param CM_VOLTAGE = 1.25
+.param OUTPUT_VOLTAGE = 0.5
+.control
+save all
+ac dec 200 10 1000Meg
+settype decibel out
+plot vdb(out)
+let phase_val = 180/PI*cph(out)
+let phase_margin_val = 180 + 180/PI*cph(out)
+settype phase phase_val
+plot phase_val
+meas ac phase_margin find phase_margin_val when vdb(out)=0
+meas ac crossover_freq WHEN vdb(out)=0
+op
+print v(inp)
+print v(inm)
+print v(out)
+let v_offset = v(inp)-v(inm)
+print v_offset
+.endc
+"}
+C {devices/vsource.sym} 800 -380 0 0 {name=V1 value=3.3}
+C {devices/gnd.sym} 800 -330 0 0 {name=l2 lab=GND}
+C {devices/lab_pin.sym} 800 -430 0 0 {name=l3 sig_type=std_logic lab=V3V3
 }
-C {devices/isource.sym} 400 -450 2 0 {name=I0 value=20u
+C {devices/isource.sym} 1560 -100 2 0 {name=I0 value=40u
 }
-C {devices/gnd.sym} 400 -400 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} 1280 -120 3 0 {name=l15 sig_type=std_logic lab=VBN
+C {devices/gnd.sym} 1560 -50 0 0 {name=l1 lab=GND}
+C {devices/vsource.sym} 1030 -220 0 0 {name=V2 value=\{CM_VOLTAGE\}}
+C {devices/gnd.sym} 1030 -170 0 0 {name=l16 lab=GND}
+C {devices/vsource.sym} 1030 -300 0 0 {name=V3 value="AC 1"}
+C {devices/lab_pin.sym} 1050 -350 2 0 {name=l18 sig_type=std_logic lab=INP
 }
-C {devices/vsource.sym} 740 -450 0 0 {name=V2 value=1}
-C {devices/gnd.sym} 740 -400 0 0 {name=l16 lab=GND}
-C {devices/vsource.sym} 740 -530 0 0 {name=V3 value="AC 1"}
-C {devices/lab_pin.sym} 760 -500 2 0 {name=l17 sig_type=std_logic lab=INM
+C {devices/lab_pin.sym} 1280 -390 0 0 {name=l19 sig_type=std_logic lab=INP
 }
-C {devices/lab_pin.sym} 760 -580 2 0 {name=l18 sig_type=std_logic lab=INP
+C {devices/lab_pin.sym} 1280 -310 0 0 {name=l20 sig_type=std_logic lab=INM
 }
-C {devices/lab_pin.sym} 1000 -360 0 0 {name=l19 sig_type=std_logic lab=INP
+C {devices/lab_pin.sym} 1400 -550 0 0 {name=l21 sig_type=std_logic lab=V3V3
 }
-C {devices/lab_pin.sym} 1000 -280 0 0 {name=l20 sig_type=std_logic lab=INM
+C {devices/gnd.sym} 1540 -550 2 0 {name=l22 lab=GND}
+C {devices/lab_pin.sym} 1990 -350 2 0 {name=l23 sig_type=std_logic lab=OUT
 }
-C {devices/lab_pin.sym} 1120 -520 0 0 {name=l21 sig_type=std_logic lab=V3V3
-}
-C {devices/gnd.sym} 1260 -520 2 0 {name=l22 lab=GND}
-C {devices/lab_pin.sym} 1400 -320 2 0 {name=l23 sig_type=std_logic lab=OUT
-}
-C {devices/capa.sym} 1420 -230 0 0 {name=C1
+C {devices/capa.sym} 1990 -290 0 0 {name=C1
 m=1
-value=700f
+value=10p
 footprint=1206
 device="ceramic capacitor"}
-C {devices/gnd.sym} 1420 -180 0 0 {name=l24 lab=GND}
-C {design/folded-cascode-p-in/folded_cascode_p_in.sym} 1180 -320 0 0 {name=x1}
-C {devices/lab_pin.sym} 400 -500 0 0 {name=l5 sig_type=std_logic lab=VBN
+C {devices/gnd.sym} 1990 -240 0 0 {name=l24 lab=GND}
+C {devices/res.sym} 1720 -200 0 0 {name=R1
+value=10E6
+footprint=1206
+device=resistor
+m=1}
+C {devices/vsource.sym} 1720 -280 0 0 {name=V4 value=\{OUTPUT_VOLTAGE-CM_VOLTAGE\}}
+C {devices/capa.sym} 1720 -100 0 0 {name=C2
+m=1
+value=1
+footprint=1206
+device="ceramic capacitor"}
+C {devices/gnd.sym} 1720 -50 0 0 {name=l4 lab=GND}
+C {devices/lab_pin.sym} 1740 -150 0 1 {name=l6 sig_type=std_logic lab=INM
 }

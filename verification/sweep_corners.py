@@ -8,10 +8,11 @@ import pandas
 INPUT_NETLIST = os.path.expanduser("~/.xschem/simulations/full_system_tb.spice")
 BUILD_DIRECTORY = "./build/"
 
-VOLTAGE_SWEEP = [3.3, 3.1]
-RLOAD_SWEEP = [20, 40]
-TEMP_SWEEP = [70]
-PROCESS_CORNER_SWEEP = ['tt']
+VOLTAGE_SWEEP = [3.3, 3.6, 2.97]
+RLOAD_SWEEP = [10, 1000]
+TEMP_SWEEP = [25, 70]
+PROCESS_CORNER_SWEEP = ['ss', 'ff']
+
 
 
 def make_netlist(old_netlist, sub_values):
@@ -28,6 +29,12 @@ def make_netlist(old_netlist, sub_values):
 		if ".lib" in oldline  and "sky130.lib.spice " in oldline:
 			lib_index = oldline.find("sky130.lib.spice ")
 			nextline = oldline[:(lib_index+len("sky130.lib.spice "))] + sub_values[3] + "\n"
+		if "write full_system_tb.raw" in oldline:
+			nextline = "\n"
+		if ".endc" in oldline:
+			nextline = "quit\n.endc\n"
+
+
 		output_netlist.append(nextline)
 
 	return output_netlist
@@ -38,6 +45,8 @@ def parse_logval(log_lines, variable):
 			return float(log_line.split()[2])
 
 def run_sim(eval_point):
+	print("starting: ")
+	print(eval_point)
 
 	fin = open(INPUT_NETLIST, 'r')
 	input_netlist = fin.readlines()
@@ -64,9 +73,11 @@ def run_sim(eval_point):
 	V_ss_max = parse_logval(logtext, "vout_max")
 	V_ss_min = parse_logval(logtext, "vout_min")
 	V_tran_max = parse_logval(logtext, "vout_tran_max")
+	Il_max = parse_logval(logtext, "il_max")
+	Il_min = parse_logval(logtext, "il_min")
 	Eff = (Iout**2 * eval_point[1])/(eval_point[0]*(Iin+Ibias)) 
-	print(eval_point + [Iin, Iout, Ibias, V_ss_max, V_ss_min, V_tran_max, Eff])
-	return(eval_point + [Iin, Iout, Ibias, V_ss_max, V_ss_min, V_tran_max, Eff])
+	print(eval_point + [Iin, Iout, Ibias, V_ss_max, V_ss_min, V_tran_max, Il_max, Il_min, Eff])
+	return(eval_point + [Iin, Iout, Ibias, V_ss_max, V_ss_min, V_tran_max, Il_max, Il_min, Eff])
 
 
 if __name__ == '__main__':
@@ -79,12 +90,12 @@ if __name__ == '__main__':
 				for process_corner in PROCESS_CORNER_SWEEP:
 					EVAL_POINTS.append([voltage_val, rload_val, temp_val, process_corner])
 
-	pool = multiprocessing.Pool(4)
+	pool = multiprocessing.Pool(8)
 	results = []
 	r = pool.map_async(run_sim, EVAL_POINTS, callback=results.append)
 	r.wait()
 	print(results)
-	res = pandas.DataFrame(results[0], columns=['Vin', 'Rload', 'Temp', 'Process Corner', 'Iin', 'Iout', 'Ibias', 'Vmax', 'Vmin', 'Vpeak', "Eff"])
+	res = pandas.DataFrame(results[0], columns=['Vin', 'Rload', 'Temp', 'Process Corner', 'Iin', 'Iout', 'Ibias', 'Vmax', 'Vmin', 'Vpeak', 'IL_Max', 'Il_Min', "Eff"])
 	res.to_csv("results.csv", index=False)
 
 	print("--- %s seconds ---" % (time.time() - start_time))
