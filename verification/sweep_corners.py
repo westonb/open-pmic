@@ -9,8 +9,8 @@ INPUT_NETLIST = os.path.expanduser("~/.xschem/simulations/full_system_tb.spice")
 BUILD_DIRECTORY = "./build/"
 
 VOLTAGE_SWEEP = [3.3, 3.1]
-RLOAD_SWEEP = [20]
-TEMP_SWEEP = [25]
+RLOAD_SWEEP = [20, 40]
+TEMP_SWEEP = [70]
 PROCESS_CORNER_SWEEP = ['tt']
 
 
@@ -85,7 +85,7 @@ if __name__ == '__main__':
 	r.wait()
 	print(results)
 	res = pandas.DataFrame(results[0], columns=['Vin', 'Rload', 'Temp', 'Process Corner', 'Iin', 'Iout', 'Ibias', 'Vmax', 'Vmin', 'Vpeak', "Eff"])
-	res.to_csv("results.csv")
+	res.to_csv("results.csv", index=False)
 
 	print("--- %s seconds ---" % (time.time() - start_time))
 

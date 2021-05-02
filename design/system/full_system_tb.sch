@@ -209,15 +209,15 @@ value="
 
 .control
 * .save all
-tran 10n 400u
+tran 10n 500u
 quit
 .endc
-.measure tran Iin_avg AVG i(V5) from=300u to=400u
-.measure tran Iaux_avg AVG i(V8) from=300u to=400u
-.measure tran Iload_avg RMS i(V1) from=300u to=400u
-.measure tran Vout_max MAX v(vout_filt) from=300u to=400u
-.measure tran Vout_min MIN v(vout_filt) from=300u to=400u
-.measure tran vout_tran_max MAX v(vout_filt) from=300u to=400u
+.measure tran Iin_avg AVG i(V5) from=300u to=500u
+.measure tran Iaux_avg AVG i(V8) from=300u to=500u
+.measure tran Iload_avg RMS i(V1) from=300u to=500u
+.measure tran Vout_max MAX v(vout_filt) from=300u to=500u
+.measure tran Vout_min MIN v(vout_filt) from=300u to=500u
+.measure tran vout_tran_max MAX v(vout_filt) from=0u to=500u
 "}
 C {devices/code.sym} -290 -440 0 0 {name=STDCELL_MODELS 
 only_toplevel=true
