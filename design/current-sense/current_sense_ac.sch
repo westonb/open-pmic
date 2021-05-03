@@ -127,7 +127,7 @@ C {devices/code_shown.sym} 418.75 -801.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 
-.param I_SW = 0.2
+.param I_SW = 0.5
 .param VDD = 3.3
 .option temp=70
 .control
@@ -148,6 +148,8 @@ let voutd = 180/PI*cph(vout)
 settype phase voutd
 plot voutd
 
+op
+print v(vout)
 .endc
 "}
 C {devices/code.sym} 60 -420 0 0 {name=STDCELL_MODELS 
@@ -230,7 +232,7 @@ device=resistor
 m=1}
 C {devices/isource.sym} 2070 -500 0 0 {name=I1 value=\{I_SW\}}
 C {devices/gnd.sym} 2070 -450 0 0 {name=l6 lab=GND}
-C {devices/isource.sym} 2200 -500 2 0 {name=I2 value="AC 1"}
+C {devices/isource.sym} 2200 -500 0 0 {name=I2 value="AC 1"}
 C {devices/gnd.sym} 2200 -450 0 0 {name=l7 lab=GND}
 C {devices/gnd.sym} 1240 -750 0 0 {name=l8 lab=GND}
 C {devices/lab_pin.sym} 1990 -700 0 0 {name=l9 sig_type=std_logic lab=V3V3

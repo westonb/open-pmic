@@ -5,8 +5,8 @@ V {}
 S {}
 E {}
 T {IREF is 4x bias current} 240 -100 0 0 0.4 0.4 {}
-N 520 -400 520 -380 { lab=V3V3}
-N 520 -320 520 -300 { lab=GND}
+N 760 -490 760 -470 { lab=V3V3}
+N 760 -410 760 -390 { lab=GND}
 N 1280 -40 1280 -20 { lab=GND}
 N 1280 -120 1280 -100 { lab=#net1}
 N 750 -160 750 -140 { lab=GND}
@@ -31,7 +31,7 @@ C {devices/code_shown.sym} 68.75 -841.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
 .param CM_VOLTAGE = 3.3
-.param OUTPUT_VOLTAGE = 2.7
+.param OUTPUT_VOLTAGE = 2.5
 .control
 save all
 ac dec 200 10 1000Meg
@@ -97,9 +97,9 @@ value="
 .include \\\\$::SKYWATER_MODELS\\\\/models/corners/tt/rf.spice
 "
 }
-C {devices/vsource.sym} 520 -350 0 0 {name=V1 value=3.3}
-C {devices/gnd.sym} 520 -300 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} 520 -400 0 0 {name=l3 sig_type=std_logic lab=V3V3
+C {devices/vsource.sym} 760 -440 0 0 {name=V1 value=3.3}
+C {devices/gnd.sym} 760 -390 0 0 {name=l2 lab=GND}
+C {devices/lab_pin.sym} 760 -490 0 0 {name=l3 sig_type=std_logic lab=V3V3
 }
 C {devices/isource.sym} 1280 -70 2 0 {name=I0 value=40u
 }

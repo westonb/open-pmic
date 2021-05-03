@@ -140,14 +140,15 @@ value="
 .options savecurrents
 ac dec 200 10 1000Meg
 
-plot vdb(fb_node)
-let fb_phase = 180/PI*cph(fb_node)
-settype phase fb_phase
-plot fb_phase
+let gain_val = v(opa_out)/v(inp)
+plot vdb(gain_val)
+let gain_phase = 180/PI*cph(gain_val)
+settype phase gain_phase
+plot gain_phase
 
-let phase_margin_val = 180 + 180/PI*cph(fb_node)
-meas ac phase_margin find phase_margin_val when vdb(fb_node)=0
-meas ac crossover_freq WHEN vdb(fb_node)=0
+let phase_margin_val = 180 + 180/PI*cph(gain_val)
+meas ac phase_margin find phase_margin_val when vdb(gain_val)=0
+meas ac crossover_freq WHEN vdb(gain_val)=0
 
 .endc
 "}

@@ -4,14 +4,18 @@ import base64
 import multiprocessing
 import time
 import pandas
+import numpy as np
 
 INPUT_NETLIST = os.path.expanduser("~/.xschem/simulations/full_system_tb.spice")
 BUILD_DIRECTORY = "./build/"
 
-VOLTAGE_SWEEP = [3.3, 3.6, 2.97]
-RLOAD_SWEEP = [10, 1000]
-TEMP_SWEEP = [25, 70]
-PROCESS_CORNER_SWEEP = ['ss', 'ff']
+VOLTAGE_SWEEP = [3.3]
+#RLOAD_SWEEP = [10, 1000]
+power_vals = np.linspace(0.6, 0.05, 16)
+RLOAD_SWEEP = 1.8**2/power_vals
+
+TEMP_SWEEP = [70]
+PROCESS_CORNER_SWEEP = ['ss']
 
 
 
@@ -91,11 +95,11 @@ if __name__ == '__main__':
 					EVAL_POINTS.append([voltage_val, rload_val, temp_val, process_corner])
 
 	pool = multiprocessing.Pool(8)
-	results = []
-	r = pool.map_async(run_sim, EVAL_POINTS, callback=results.append)
+	results_ = []
+	r = pool.map_async(run_sim, EVAL_POINTS, callback=results_.append)
 	r.wait()
-	print(results)
-	res = pandas.DataFrame(results[0], columns=['Vin', 'Rload', 'Temp', 'Process Corner', 'Iin', 'Iout', 'Ibias', 'Vmax', 'Vmin', 'Vpeak', 'IL_Max', 'Il_Min', "Eff"])
+	print(results_)
+	res = pandas.DataFrame(results_[0], columns=['Vin', 'Rload', 'Temp', 'Process Corner', 'Iin', 'Iout', 'Ibias', 'Vmax', 'Vmin', 'Vpeak', 'IL_Max', 'Il_Min', "Eff"])
 	res.to_csv("results.csv", index=False)
 
 	print("--- %s seconds ---" % (time.time() - start_time))
