@@ -9,14 +9,14 @@ proc place_nmos {x_center y_center width length nf index} {
 	puts $x_center
 	select clear
 	box [expr $x_center]um [expr $y_center]um [expr $x_center]um [expr $y_center]um  
-	magic::gencell sky130::sky130_fd_pr__nfet_g5v0d10v5 [format "xm%d" $index] w $width l $length nf $nf m 1 diffcov 100 polycov 100 poverlap 0 doverlap 1 topc 1 botc 1 guard 0 full_metal 0 viagate 40
+	magic::gencell sky130::sky130_fd_pr__nfet_g5v0d10v5 [format "xm%d" $index] w $width l $length nf $nf m 1 diffcov 100 polycov 60 poverlap 0 doverlap 1 topc 1 botc 1 guard 0 full_metal 0 viagate 40
 	shift_to_center
 }
 
 proc place_pmos {x_center y_center width length nf index} {
 	select clear
 	box [expr $x_center]um [expr $y_center]um [expr $x_center]um [expr $y_center]um  
-	magic::gencell sky130::sky130_fd_pr__pfet_g5v0d10v5 [format "xm%d" $index] w $width l $length nf $nf m 1 diffcov 100 polycov 100 poverlap 0 doverlap 1 topc 1 botc 1 guard 0 full_metal 0 viagate 40
+	magic::gencell sky130::sky130_fd_pr__pfet_g5v0d10v5 [format "xm%d" $index] w $width l $length nf $nf m 1 diffcov 100 polycov 60 poverlap 0 doverlap 1 topc 1 botc 1 guard 0 full_metal 0 viagate 40
 	shift_to_center
 }
 
@@ -49,9 +49,9 @@ proc draw_nguard {lx ly ux uy} {
 	diff_gate_space	0.38 \
 	]
 	set drawdict [dict merge $sky130::ruleset $newdict $parameters]
-	dict set drawdict viagb 90 
-	dict set drawdict viagt 90 
-	dict set drawdict viagr 90 
+	dict set drawdict viagb 100
+	dict set drawdict viagt 100
+	dict set drawdict viagr 90
 	dict set drawdict viagl 90
 	dict set drawdict contact_size 0.5
 	dict set drawdict via_size 0.5
@@ -69,6 +69,26 @@ proc draw_nguard {lx ly ux uy} {
 
 
 	sky130::guard_ring $gw $gh $drawdict
+	#finish painting metal 
+	box [expr $center_x - $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 - $contact_size/2 - 0.03]um [expr $center_x - $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 + $contact_size/2 + 0.03]um
+	paint m1
+	box [expr $center_x + $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 - $contact_size/2 - 0.03]um [expr $center_x + $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 + $contact_size/2 + 0.03]um
+	paint m1
+
+	#connection to m4 power rail
+	#3x1.5 via in the corners
+	#top right via
+	box [expr $center_x + $gw/2 - $contact_size/2 - 0.03 -3]um [expr $center_y + $gh/2 - $contact_size/2 - 0.03 - 1.5]um [expr $center_x + $gw/2 - $contact_size/2 - 0.03]um [expr $center_y + $gh/2 - $contact_size/2 - 0.03]um
+	sky130::via1_draw
+	sky130::via2_draw
+	sky130::via3_draw
+
+	box [expr $center_x - $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 - $contact_size/2 - 0.03 - 1.5]um [expr $center_x - $gw/2 + $contact_size/2 + 0.03 + 3]um [expr $center_y + $gh/2 - $contact_size/2 - 0.03]um
+	sky130::via1_draw
+	sky130::via2_draw
+	sky130::via3_draw
+
+
 }
 
 #guard ring for nmos
@@ -99,8 +119,8 @@ proc draw_pguard {lx ly ux uy} {
 	    diff_gate_space	0.38 \
     ]
 	set drawdict [dict merge $sky130::ruleset $newdict $parameters]
-	dict set drawdict viagb 90 
-	dict set drawdict viagt 90 
+	dict set drawdict viagb 100
+	dict set drawdict viagt 100
 	dict set drawdict viagr 90 
 	dict set drawdict viagl 90
 	dict set drawdict contact_size 0.5
@@ -118,6 +138,25 @@ proc draw_pguard {lx ly ux uy} {
 	set gh [expr ($uy-$ly - ($contact_size + $diff_surround + $diff_surround + $sub_surround + $sub_surround) - 0.3)]
 
 	sky130::guard_ring $gw $gh $drawdict
+
+	#finish painting metal 
+	box [expr $center_x - $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 - $contact_size/2 - 0.03]um [expr $center_x - $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 + $contact_size/2 + 0.03]um
+	paint m1
+	box [expr $center_x + $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 - $contact_size/2 - 0.03]um [expr $center_x + $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 + $contact_size/2 + 0.03]um
+	paint m1
+
+	#connection to m4 power rail
+	#3x1.5 via in the corners
+	#bottom right via
+	box [expr $center_x + $gw/2 - $contact_size/2 - 0.03 -3]um [expr $center_y - $gh/2 + $contact_size/2 + 0.03]um [expr $center_x + $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 + $contact_size/2 + 0.03 + 1.5]um
+	sky130::via1_draw
+	sky130::via2_draw
+	sky130::via3_draw
+
+	box [expr $center_x - $gw/2 + $contact_size/2 + 0.03]um [expr $center_y - $gh/2 + $contact_size/2 + 0.03]um [expr $center_x - $gw/2 + $contact_size/2 + 0.03 + 3]um [expr $center_y - $gh/2 + $contact_size/2 + 0.03 + 1.5]um
+	sky130::via1_draw
+	sky130::via2_draw
+	sky130::via3_draw
 
 
 }
@@ -164,11 +203,11 @@ place_pmos 0 15 5 1 12 $fet_index
 
 draw_nguard [expr $cell_lx] 0.2 [expr $cell_ux] [expr $cell_uy]
 
-draw_nguard [expr $cell_ux] 0.2 [expr $cell_ux+50] [expr $cell_uy]
+
 
 #draw guard ring for nfets
 draw_pguard [expr $cell_lx] [expr $cell_ly] [expr $cell_ux] -0.2
-draw_pguard [expr $cell_ux] [expr $cell_ly] [expr $cell_ux+50] -0.2
+
 
 
 
@@ -193,4 +232,5 @@ box [expr $cell_lx]um [expr $cell_ly]um [expr $cell_lx]um [expr $cell_ly + $powe
 label $vss_rail_name FreeSans 30
 findlabel $vss_rail_name
 port make 
+
 

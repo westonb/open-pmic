@@ -1,3 +1,5 @@
+#cascode bias circuit to be intigrated into opamps
+
 proc shift_to_center {} {
 	set res1 [box size]
 	move [expr {-[lindex $res1 0] / 2}]i [expr {-[lindex $res1 1] / 2}]i
@@ -7,14 +9,14 @@ proc place_nmos {x_center y_center width length nf index} {
 	puts $x_center
 	select clear
 	box [expr $x_center]um [expr $y_center]um [expr $x_center]um [expr $y_center]um  
-	magic::gencell sky130::sky130_fd_pr__nfet_g5v0d10v5 [format "xm%d" $index] w $width l $length nf $nf m 1 diffcov 100 polycov 100 poverlap 0 doverlap 1 topc 1 botc 1 guard 0 full_metal 0 viagate 0
+	magic::gencell sky130::sky130_fd_pr__nfet_g5v0d10v5 [format "xm%d" $index] w $width l $length nf $nf m 1 diffcov 100 polycov 60 poverlap 0 doverlap 1 topc 1 botc 1 guard 0 full_metal 0 viagate 40
 	shift_to_center
 }
 
 proc place_pmos {x_center y_center width length nf index} {
 	select clear
 	box [expr $x_center]um [expr $y_center]um [expr $x_center]um [expr $y_center]um  
-	magic::gencell sky130::sky130_fd_pr__pfet_g5v0d10v5 [format "xm%d" $index] w $width l $length nf $nf m 1 diffcov 100 polycov 100 poverlap 0 doverlap 1 topc 1 botc 1 guard 0 full_metal 0 viagate 0
+	magic::gencell sky130::sky130_fd_pr__pfet_g5v0d10v5 [format "xm%d" $index] w $width l $length nf $nf m 1 diffcov 100 polycov 60 poverlap 0 doverlap 1 topc 1 botc 1 guard 0 full_metal 0 viagate 40
 	shift_to_center
 }
 
@@ -47,9 +49,9 @@ proc draw_nguard {lx ly ux uy} {
 	diff_gate_space	0.38 \
 	]
 	set drawdict [dict merge $sky130::ruleset $newdict $parameters]
-	dict set drawdict viagb 90 
-	dict set drawdict viagt 90 
-	dict set drawdict viagr 90 
+	dict set drawdict viagb 100
+	dict set drawdict viagt 100
+	dict set drawdict viagr 90
 	dict set drawdict viagl 90
 	dict set drawdict contact_size 0.5
 	dict set drawdict via_size 0.5
@@ -67,6 +69,26 @@ proc draw_nguard {lx ly ux uy} {
 
 
 	sky130::guard_ring $gw $gh $drawdict
+	#finish painting metal 
+	box [expr $center_x - $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 - $contact_size/2 - 0.03]um [expr $center_x - $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 + $contact_size/2 + 0.03]um
+	paint m1
+	box [expr $center_x + $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 - $contact_size/2 - 0.03]um [expr $center_x + $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 + $contact_size/2 + 0.03]um
+	paint m1
+
+	#connection to m4 power rail
+	#3x1.5 via in the corners
+	#top right via
+	box [expr $center_x + $gw/2 - $contact_size/2 - 0.03 -3]um [expr $center_y + $gh/2 - $contact_size/2 - 0.03 - 1.5]um [expr $center_x + $gw/2 - $contact_size/2 - 0.03]um [expr $center_y + $gh/2 - $contact_size/2 - 0.03]um
+	sky130::via1_draw
+	sky130::via2_draw
+	sky130::via3_draw
+
+	box [expr $center_x - $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 - $contact_size/2 - 0.03 - 1.5]um [expr $center_x - $gw/2 + $contact_size/2 + 0.03 + 3]um [expr $center_y + $gh/2 - $contact_size/2 - 0.03]um
+	sky130::via1_draw
+	sky130::via2_draw
+	sky130::via3_draw
+
+
 }
 
 #guard ring for nmos
@@ -97,8 +119,8 @@ proc draw_pguard {lx ly ux uy} {
 	    diff_gate_space	0.38 \
     ]
 	set drawdict [dict merge $sky130::ruleset $newdict $parameters]
-	dict set drawdict viagb 90 
-	dict set drawdict viagt 90 
+	dict set drawdict viagb 100
+	dict set drawdict viagt 100
 	dict set drawdict viagr 90 
 	dict set drawdict viagl 90
 	dict set drawdict contact_size 0.5
@@ -117,18 +139,37 @@ proc draw_pguard {lx ly ux uy} {
 
 	sky130::guard_ring $gw $gh $drawdict
 
+	#finish painting metal 
+	box [expr $center_x - $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 - $contact_size/2 - 0.03]um [expr $center_x - $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 + $contact_size/2 + 0.03]um
+	paint m1
+	box [expr $center_x + $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 - $contact_size/2 - 0.03]um [expr $center_x + $gw/2 + $contact_size/2 + 0.03]um [expr $center_y + $gh/2 + $contact_size/2 + 0.03]um
+	paint m1
+
+	#connection to m4 power rail
+	#3x1.5 via in the corners
+	#bottom right via
+	box [expr $center_x + $gw/2 - $contact_size/2 - 0.03 -3]um [expr $center_y - $gh/2 + $contact_size/2 + 0.03]um [expr $center_x + $gw/2 - $contact_size/2 - 0.03]um [expr $center_y - $gh/2 + $contact_size/2 + 0.03 + 1.5]um
+	sky130::via1_draw
+	sky130::via2_draw
+	sky130::via3_draw
+
+	box [expr $center_x - $gw/2 + $contact_size/2 + 0.03]um [expr $center_y - $gh/2 + $contact_size/2 + 0.03]um [expr $center_x - $gw/2 + $contact_size/2 + 0.03 + 3]um [expr $center_y - $gh/2 + $contact_size/2 + 0.03 + 1.5]um
+	sky130::via1_draw
+	sky130::via2_draw
+	sky130::via3_draw
+
 
 }
 
-load example_layout
+load cascode_bias
 #define cell boundaries 
 #50um total cell height, variable cell width 
 
-set cell_lx -10
-set cell_ux 10
+set cell_lx -15
+set cell_ux 15
 
-set cell_ly -25
-set cell_uy 25
+set cell_ly -22.5
+set cell_uy 22.5
 
 set power_rail_width 4
 
@@ -141,26 +182,32 @@ set vss_rail_name "vss"
 
 set fet_index 1
 
-place_nmos 0 -6 5 1 6 $fet_index
+#middle nmos
+place_nmos 0 -6 5 1 10 $fet_index 
 
 set fet_index [expr $fet_index + 1]
 
-place_pmos 0 6 5 1 6 $fet_index
+#bottom nmos 
+place_nmos 0 -15 5 1 18 $fet_index
 
 set fet_index [expr $fet_index + 1]
-
-place_pmos 0 15 5 1 6 $fet_index
+#middle pmos
+place_pmos 0 6 5 1 10 $fet_index
 
 set fet_index [expr $fet_index + 1]
+#top pmos
+place_pmos 0 15 5 1 12 $fet_index
 
-place_nmos 0 -15 5 1 6 $fet_index
 
 #draw guard ring for pfets
 
-draw_nguard [expr $cell_lx] 0.5 [expr $cell_ux] [expr $cell_uy]
+draw_nguard [expr $cell_lx] 0.2 [expr $cell_ux] [expr $cell_uy]
+
+#draw_nguard [expr $cell_ux] 0.2 [expr $cell_ux+50] [expr $cell_uy]
 
 #draw guard ring for nfets
-draw_pguard [expr $cell_lx] [expr $cell_ly] [expr $cell_ux] -0.5
+#draw_pguard [expr $cell_lx] [expr $cell_ly] [expr $cell_ux] -0.2
+#draw_pguard [expr $cell_ux] [expr $cell_ly] [expr $cell_ux+50] -0.2
 
 
 
@@ -185,4 +232,6 @@ box [expr $cell_lx]um [expr $cell_ly]um [expr $cell_lx]um [expr $cell_ly + $powe
 label $vss_rail_name FreeSans 30
 findlabel $vss_rail_name
 port make 
+
+draw_pguard [expr $cell_lx] [expr $cell_ly] [expr $cell_ux] -0.2
 
