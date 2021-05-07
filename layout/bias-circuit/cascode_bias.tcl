@@ -53,8 +53,8 @@ proc draw_nguard {lx ly ux uy} {
 	dict set drawdict viagt 100
 	dict set drawdict viagr 90
 	dict set drawdict viagl 90
-	dict set drawdict contact_size 0.5
-	dict set drawdict via_size 0.5
+	dict set drawdict contact_size 0.8
+	dict set drawdict via_size 0.8
 	dict set drawdict full_metal 1
 
 	set contact_size [dict get $drawdict contact_size]
@@ -123,8 +123,8 @@ proc draw_pguard {lx ly ux uy} {
 	dict set drawdict viagt 100
 	dict set drawdict viagr 90 
 	dict set drawdict viagl 90
-	dict set drawdict contact_size 0.5
-	dict set drawdict via_size 0.5
+	dict set drawdict contact_size 0.8
+	dict set drawdict via_size 0.8
 	dict set drawdict full_metal 1
 
 	set contact_size [dict get $drawdict contact_size]
@@ -203,12 +203,12 @@ place_pmos 0 15 5 1 12 $fet_index
 
 draw_nguard [expr $cell_lx] 0.2 [expr $cell_ux] [expr $cell_uy]
 
-
+#draw_nguard [expr $cell_ux] 0.2 [expr $cell_ux+50] [expr $cell_uy]
 
 #draw guard ring for nfets
 draw_pguard [expr $cell_lx] [expr $cell_ly] [expr $cell_ux] -0.2
 
-
+#draw_pguard [expr $cell_ux] [expr $cell_ly] [expr $cell_ux +50] -0.2
 
 
 #place power rails 
