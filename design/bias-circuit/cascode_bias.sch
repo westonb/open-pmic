@@ -166,27 +166,14 @@ N 2170 -100 2180 -100 { lab=VSS}
 N 2180 -100 2180 -40 { lab=VSS}
 N 2160 -40 2180 -40 { lab=VSS}
 N 2160 -160 2160 -130 { lab=VCP}
-C {devices/ipin.sym} 60 -510 0 0 {name=p1 lab=VCN}
-C {devices/ipin.sym} 60 -480 0 0 {name=p2 lab=VBP
+C {devices/ipin.sym} 60 -570 0 0 {name=p6 lab=ibias}
+C {devices/ipin.sym} 60 -540 0 0 {name=p9 lab=VBN}
+C {devices/ipin.sym} 60 -510 0 0 {name=p2 lab=VBP
 }
 C {devices/ipin.sym} 60 -450 0 0 {name=p3 lab=VCP}
+C {devices/ipin.sym} 60 -430 0 0 {name=p1 lab=VCN}
 C {devices/ipin.sym} 60 -360 0 0 {name=p4 lab=VDD}
 C {devices/ipin.sym} 60 -320 0 0 {name=p5 lab=VSS
-}
-C {devices/ipin.sym} 60 -540 0 0 {name=p9 lab=VBN}
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 280 -510 0 0 {name=M1
-L=1
-W=5
-nf=1
-mult=2
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_g5v0d10v5
-spiceprefix=X
 }
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 480 -350 0 0 {name=M2
 L=1
@@ -423,7 +410,20 @@ model=nfet_g5v0d10v5
 spiceprefix=X
 }
 C {devices/lab_wire.sym} 180 -220 0 1 {name=l15 sig_type=std_logic lab=VBN}
-C {devices/ipin.sym} 60 -420 0 0 {name=p6 lab=ibias}
+C {sky130_fd_pr/pfet_g5v0d10v5.sym} 280 -510 0 0 {name=M1
+L=1
+W=5
+nf=1
+mult=2
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=pfet_g5v0d10v5
+spiceprefix=X
+}
 C {sky130_fd_pr/res_generic_m2.sym} 180 -170 0 0 {name=R1
 W=0.4
 L=0.46

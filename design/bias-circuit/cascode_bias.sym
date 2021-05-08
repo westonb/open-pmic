@@ -29,7 +29,7 @@ B 5 -142.5 -22.5 -137.5 -17.5 {name=VDD
 dir=inout}
 B 5 -142.5 17.5 -137.5 22.5 {name=VSS
 dir=inout}
-B 5 -142.5 77.5 -137.5 82.5 {name=XXX
+B 5 -142.5 77.5 -137.5 82.5 {name=ibias
 dir=inout}
 T {VBN} 90 -70 0 1 0.4 0.4 {}
 T {VCN} 90 -30 0 1 0.4 0.4 {}
