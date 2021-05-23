@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1621206611
+timestamp 1621804320
 << nwell >>
 rect -3000 40 3000 4500
 << pwell >>
@@ -465,14 +465,18 @@ rect -1471 1787 -1436 1826
 rect -1302 1860 -1296 1912
 rect -1244 1860 -1238 1912
 rect -1302 1854 -1238 1860
-rect -1623 1781 -1436 1787
-rect -1623 1747 -1611 1781
+rect -1729 1781 -1436 1787
+rect -1729 1747 -1611 1781
 rect -1543 1747 -1436 1781
-rect -1623 1741 -1436 1747
+rect -1729 1741 -1436 1747
 rect -1408 1781 -1330 1787
 rect -1408 1747 -1396 1781
 rect -1342 1747 -1330 1781
 rect -1408 1741 -1330 1747
+rect -1729 1688 -1683 1741
+rect -1729 712 -1723 1688
+rect -1689 712 -1683 1688
+rect -1729 700 -1683 712
 rect -1471 1700 -1436 1741
 rect -1302 1700 -1267 1854
 rect -1207 1741 -1115 2010
@@ -532,10 +536,6 @@ rect 901 1952 907 2014
 rect 969 1952 975 2014
 rect 901 1946 975 1952
 rect 1115 2010 2822 2038
-rect -1729 1688 -1683 1700
-rect -1729 712 -1723 1688
-rect -1689 712 -1683 1688
-rect -1729 700 -1683 712
 rect -1471 1688 -1425 1700
 rect -1471 712 -1465 1688
 rect -1431 712 -1425 1688
@@ -559,17 +559,17 @@ rect 1330 1781 1408 1787
 rect 1330 1747 1342 1781
 rect 1396 1747 1408 1781
 rect 1330 1741 1408 1747
-rect 1436 1781 1634 1787
+rect 1436 1781 1729 1787
 rect 1436 1747 1543 1781
-rect 1611 1747 1634 1781
-rect 1436 1741 1634 1747
+rect 1611 1747 1729 1781
+rect 1436 1741 1729 1747
 rect 1436 1700 1471 1741
 rect 1425 1688 1471 1700
 rect -1471 700 -1425 712
 rect 1425 712 1431 1688
 rect 1465 712 1471 1688
 rect 1425 700 1471 712
-rect 1683 1688 1729 1700
+rect 1683 1688 1729 1741
 rect 1683 712 1689 1688
 rect 1723 712 1729 1688
 rect 1683 700 1729 712
@@ -652,14 +652,18 @@ rect -1302 -360 -1238 -354
 rect -1302 -412 -1296 -360
 rect -1244 -412 -1238 -360
 rect -1302 -418 -1238 -412
-rect -1623 -628 -1436 -622
-rect -1623 -662 -1611 -628
+rect -1729 -628 -1436 -622
+rect -1729 -662 -1611 -628
 rect -1543 -662 -1436 -628
-rect -1623 -668 -1436 -662
+rect -1729 -668 -1436 -662
 rect -1408 -628 -1330 -622
 rect -1408 -662 -1396 -628
 rect -1342 -662 -1330 -628
 rect -1408 -668 -1330 -662
+rect -1729 -712 -1683 -668
+rect -1729 -1688 -1723 -712
+rect -1689 -1688 -1683 -712
+rect -1729 -1700 -1683 -1688
 rect -1471 -700 -1436 -668
 rect -1302 -700 -1267 -418
 rect -1207 -668 -1115 -316
@@ -693,15 +697,11 @@ rect 1330 -628 1408 -622
 rect 1330 -662 1342 -628
 rect 1396 -662 1408 -628
 rect 1330 -668 1408 -662
-rect 1436 -628 1623 -622
+rect 1436 -628 1729 -622
 rect 1436 -662 1543 -628
-rect 1611 -662 1623 -628
-rect 1436 -668 1623 -662
+rect 1611 -662 1729 -628
+rect 1436 -668 1729 -662
 rect 1436 -700 1471 -668
-rect -1729 -712 -1683 -700
-rect -1729 -1688 -1723 -712
-rect -1689 -1688 -1683 -712
-rect -1729 -1700 -1683 -1688
 rect -1471 -712 -1425 -700
 rect -1471 -1688 -1465 -712
 rect -1431 -1688 -1425 -712
@@ -710,7 +710,7 @@ rect 1425 -712 1471 -700
 rect 1425 -1688 1431 -712
 rect 1465 -1688 1471 -712
 rect 1425 -1700 1471 -1688
-rect 1683 -712 1729 -700
+rect 1683 -712 1729 -668
 rect 1683 -1688 1689 -712
 rect 1723 -1688 1729 -712
 rect 1683 -1700 1729 -1688
@@ -792,11 +792,13 @@ rect 464 -2138 568 -2132
 rect 2816 -2166 2822 -423
 rect -2822 -2230 2822 -2166
 rect -2822 -4117 -2816 -2230
-rect -2239 -2468 -2147 -2230
+rect -2239 -2428 -2147 -2230
 rect -2096 -2316 -2032 -2310
 rect -2096 -2368 -2090 -2316
 rect -2038 -2368 -2032 -2316
 rect -2096 -2374 -2032 -2368
+rect -2345 -2468 -2147 -2428
+rect -2345 -2500 -2299 -2468
 rect -2087 -2500 -2041 -2374
 rect -1829 -2500 -1783 -2230
 rect -1723 -2316 -1631 -2310
@@ -864,7 +866,9 @@ rect 2032 -2368 2038 -2316
 rect 2090 -2368 2096 -2316
 rect 2032 -2374 2096 -2368
 rect 2041 -2500 2087 -2374
-rect 2147 -2468 2239 -2230
+rect 2147 -2428 2239 -2230
+rect 2147 -2468 2345 -2428
+rect 2299 -2500 2345 -2468
 rect -1981 -3632 -1889 -3532
 rect -1571 -3626 -1525 -3500
 rect -797 -3532 -751 -3500
@@ -1366,163 +1370,35 @@ rect -3000 -4316 -2816 -4016
 rect -2216 -4316 2216 -4016
 rect 2816 -4316 3000 -4016
 rect -3000 -4500 3000 -4316
-use sky130_fd_pr__pfet_g5v0d10v5_QM5ZLW  xm4
-timestamp 1620882236
-transform 1 0 0 0 1 3000
-box -2417 -600 2417 600
-use sky130_fd_pr__pfet_g5v0d10v5_QRGZLW  xm3
-timestamp 1620882236
-transform 1 0 0 0 1 1200
-box -1385 -600 1385 600
-use sky130_fd_pr__nfet_g5v0d10v5_7QEKRB  xm2
-timestamp 1620882236
-transform 1 0 0 0 1 -3000
-box -2351 -588 2351 588
 use sky130_fd_pr__nfet_g5v0d10v5_V2YKKA  xm1
 timestamp 1620882236
 transform 1 0 0 0 1 -1200
 box -1319 -588 1319 588
+use sky130_fd_pr__nfet_g5v0d10v5_7QEKRB  xm2
+timestamp 1620882236
+transform 1 0 0 0 1 -3000
+box -2351 -588 2351 588
+use sky130_fd_pr__pfet_g5v0d10v5_QRGZLW  xm3
+timestamp 1620882236
+transform 1 0 0 0 1 1200
+box -1385 -600 1385 600
+use sky130_fd_pr__pfet_g5v0d10v5_QM5ZLW  xm4
+timestamp 1620882236
+transform 1 0 0 0 1 3000
+box -2417 -600 2417 600
 << labels >>
 flabel metal4 -3000 3700 -3000 4500 3 FreeSans 480 0 0 0 vdd
-port 1 e
-flabel metal4 -3000 -4500 -3000 -3700 3 FreeSans 480 0 0 0 vss
 port 2 e
-flabel nwell -148 2972 -148 2972 1 FreeSans 400 0 0 0 mir
-flabel nwell 116 2972 116 2972 1 FreeSans 400 0 0 0 mir
-flabel nwell -394 2972 -394 2972 1 FreeSans 400 0 0 0 11
-flabel nwell 378 2972 378 2972 1 FreeSans 400 0 0 0 11
-flabel nwell -658 2972 -658 2972 1 FreeSans 400 0 0 0 11
-flabel nwell 630 2972 630 2972 1 FreeSans 400 0 0 0 11
-flabel nwell 876 2972 876 2972 1 FreeSans 400 0 0 0 7
-flabel nwell -912 2972 -912 2972 1 FreeSans 400 0 0 0 7
-flabel nwell 1158 2972 1158 2972 1 FreeSans 400 0 0 0 dum
-flabel nwell -1186 2970 -1186 2970 1 FreeSans 400 0 0 0 dum
-flabel nwell 1396 2968 1396 2968 1 FreeSans 400 0 0 0 8
-flabel nwell -1450 2968 -1450 2968 1 FreeSans 400 0 0 0 8
-flabel nwell 1668 2962 1668 2962 1 FreeSans 400 0 0 0 8
-flabel nwell -1706 2968 -1706 2968 1 FreeSans 400 0 0 0 8
-flabel nwell -1948 2960 -1948 2960 1 FreeSans 400 0 0 0 7
-flabel nwell 1910 2954 1910 2954 1 FreeSans 400 0 0 0 7
-flabel nwell 2164 2954 2164 2954 1 FreeSans 400 0 0 0 dum
-flabel nwell -2218 2956 -2218 2956 1 FreeSans 400 0 0 0 dum
-flabel nwell -4 3172 -4 3172 1 FreeSans 400 0 0 0 D
-flabel nwell 258 3178 258 3178 1 FreeSans 400 0 0 0 S
-flabel nwell 514 3172 514 3172 1 FreeSans 400 0 0 0 D
-flabel nwell -262 3162 -262 3162 1 FreeSans 400 0 0 0 S
-flabel nwell 772 3164 772 3164 1 FreeSans 400 0 0 0 S
-flabel nwell -516 3152 -516 3152 1 FreeSans 400 0 0 0 D
-flabel nwell -774 3144 -774 3144 1 FreeSans 400 0 0 0 S
-flabel nwell 1030 3152 1030 3152 1 FreeSans 400 0 0 0 D
-flabel nwell -1030 3134 -1030 3134 1 FreeSans 400 0 0 0 D
-flabel nwell -1292 3138 -1292 3138 1 FreeSans 400 0 0 0 S
-flabel nwell 1290 3138 1290 3138 1 FreeSans 400 0 0 0 S
-flabel nwell -1552 3132 -1552 3132 1 FreeSans 400 0 0 0 D
-flabel nwell 1548 3128 1548 3128 1 FreeSans 400 0 0 0 D
-flabel nwell -1816 3138 -1816 3138 1 FreeSans 400 0 0 0 S
-flabel nwell 1806 3140 1806 3140 1 FreeSans 400 0 0 0 S
-flabel nwell 2060 3132 2060 3132 1 FreeSans 400 0 0 0 D
-flabel nwell -2068 3128 -2068 3128 1 FreeSans 400 0 0 0 D
-flabel nwell -2326 3122 -2326 3122 1 FreeSans 400 0 0 0 S
-flabel nwell 2328 3134 2328 3134 1 FreeSans 400 0 0 0 D
-flabel nwell -125 1161 -125 1161 1 FreeSans 200 0 0 0 1
-flabel nwell 125 1161 125 1161 1 FreeSans 200 0 0 0 1
-flabel nwell 379 1157 379 1157 1 FreeSans 200 0 0 0 2
-flabel nwell -393 1153 -393 1153 1 FreeSans 200 0 0 0 2
-flabel nwell 635 1153 635 1153 1 FreeSans 200 0 0 0 2
-flabel nwell -661 1152 -661 1152 1 FreeSans 200 0 0 0 2
-flabel nwell 887 1143 887 1143 1 FreeSans 200 0 0 0 1
-flabel nwell -918 1145 -918 1145 1 FreeSans 200 0 0 0 1
-flabel nwell 1162 1132 1162 1132 1 FreeSans 200 0 0 0 dum
-flabel nwell -1193 1152 -1193 1152 1 FreeSans 200 0 0 0 dum
-flabel mvpmos 1560 1129 1560 1129 1 FreeSans 200 0 0 0 dum
-flabel mvpmos -1601 1144 -1601 1144 1 FreeSans 200 0 0 0 dum
-flabel nwell 0 1392 0 1392 1 FreeSans 200 0 0 0 D
-flabel nwell 258 1392 258 1392 1 FreeSans 200 0 0 0 S
-flabel nwell -258 1392 -258 1392 1 FreeSans 200 0 0 0 S
-flabel nwell 516 1388 516 1388 1 FreeSans 200 0 0 0 D
-flabel nwell -517 1389 -517 1389 1 FreeSans 200 0 0 0 D
-flabel nwell 778 1385 778 1385 1 FreeSans 200 0 0 0 S
-flabel nwell -778 1392 -778 1392 1 FreeSans 200 0 0 0 S
-flabel nwell 1032 1383 1032 1383 1 FreeSans 200 0 0 0 D
-flabel nwell -1033 1390 -1033 1390 1 FreeSans 200 0 0 0 D
-flabel nwell -1290 1387 -1290 1387 1 FreeSans 200 0 0 0 S
-flabel viali -1451 1383 -1451 1383 1 FreeSans 200 0 0 0 D
-flabel viali -1706 1383 -1706 1383 1 FreeSans 200 0 0 0 S
-flabel nwell 1290 1381 1290 1381 1 FreeSans 200 0 0 0 S
-flabel viali 1448 1385 1448 1385 1 FreeSans 200 0 0 0 D
-flabel viali 1707 1382 1707 1382 1 FreeSans 200 0 0 0 S
-flabel pwell -133 -1229 -133 -1229 1 FreeSans 240 0 0 0 12
-flabel pwell 127 -1227 127 -1227 1 FreeSans 240 0 0 0 12
-flabel pwell -913 -1229 -913 -1229 1 FreeSans 240 0 0 0 12
-flabel pwell 906 -1227 906 -1227 1 FreeSans 240 0 0 0 12
-flabel pwell -386 -1231 -386 -1231 1 FreeSans 240 0 0 0 9
-flabel pwell -662 -1231 -662 -1231 1 FreeSans 240 0 0 0 9
-flabel pwell 377 -1229 377 -1229 1 FreeSans 240 0 0 0 9
-flabel pwell 639 -1231 639 -1231 1 FreeSans 240 0 0 0 9
-flabel pwell 1157 -1238 1157 -1238 1 FreeSans 240 0 0 0 dum
-flabel pwell -1170 -1229 -1170 -1229 1 FreeSans 240 0 0 0 dum
-flabel pwell 1 -1094 1 -1094 1 FreeSans 240 0 0 0 D
-flabel pwell 252 -1090 252 -1090 1 FreeSans 240 0 0 0 S
-flabel pwell -258 -1088 -258 -1088 1 FreeSans 240 0 0 0 S
-flabel pwell 516 -1092 516 -1092 1 FreeSans 240 0 0 0 D
-flabel pwell -518 -1083 -518 -1083 1 FreeSans 240 0 0 0 D
-flabel pwell 774 -1092 774 -1092 1 FreeSans 240 0 0 0 S
-flabel pwell -778 -1083 -778 -1083 1 FreeSans 240 0 0 0 S
-flabel pwell 1031 -1092 1031 -1092 1 FreeSans 240 0 0 0 D
-flabel pwell -1031 -1085 -1031 -1085 1 FreeSans 240 0 0 0 D
-flabel pwell -1289 -1082 -1289 -1082 1 FreeSans 240 0 0 0 D
-flabel viali -1450 -1082 -1450 -1082 1 FreeSans 240 0 0 0 S
-flabel mvnmos -1372 -1230 -1372 -1230 1 FreeSans 240 0 0 0 13
-flabel pwell 1289 -1094 1289 -1094 1 FreeSans 240 0 0 0 D
-flabel viali 1445 -1095 1445 -1095 1 FreeSans 240 0 0 0 S
-flabel mvnmos 1367 -1238 1367 -1238 1 FreeSans 240 0 0 0 13
-flabel mvnmos 1571 -1238 1571 -1238 1 FreeSans 240 0 0 0 dum
-flabel mvnmos -1572 -1230 -1572 -1230 1 FreeSans 240 0 0 0 dum
-flabel pwell -126 -3010 -124 -3008 1 FreeSans 560 0 0 0 4
-flabel pwell 131 -3008 131 -3008 1 FreeSans 280 0 0 0 3
-flabel pwell 390 -3009 390 -3009 1 FreeSans 280 0 0 0 3
-flabel pwell -393 -3015 -381 -3001 1 FreeSans 280 0 0 0 4
-flabel pwell 648 -3005 648 -3005 1 FreeSans 280 0 0 0 4
-flabel pwell -643 -3010 -643 -3010 1 FreeSans 280 0 0 0 3
-flabel pwell 902 -3008 902 -3008 1 FreeSans 280 0 0 0 dum
-flabel pwell -913 -3013 -913 -3013 1 FreeSans 280 0 0 0 dum
-flabel pwell 1160 -3020 1160 -3020 1 FreeSans 280 0 0 0 5
-flabel pwell 1415 -3008 1415 -3008 1 FreeSans 280 0 0 0 6
-flabel pwell 1675 -3020 1675 -3020 1 FreeSans 280 0 0 0 6
-flabel pwell 1930 -3018 1930 -3018 1 FreeSans 280 0 0 0 5
-flabel pwell 2190 -3026 2190 -3026 1 FreeSans 280 0 0 0 dum
-flabel pwell -2203 -3018 -2203 -3018 1 FreeSans 280 0 0 0 dum
-flabel pwell -1938 -3020 -1938 -3020 1 FreeSans 280 0 0 0 5
-flabel pwell -1683 -3026 -1683 -3026 1 FreeSans 280 0 0 0 6
-flabel pwell -1433 -3020 -1433 -3020 1 FreeSans 280 0 0 0 6
-flabel pwell -1165 -3013 -1165 -3013 1 FreeSans 280 0 0 0 5
-flabel pwell -1 -2856 -1 -2856 1 FreeSans 280 0 0 0 S
-flabel pwell 256 -2851 256 -2851 1 FreeSans 280 0 0 0 D
-flabel pwell -257 -2859 -257 -2859 1 FreeSans 280 0 0 0 D
-flabel pwell 514 -2859 514 -2859 1 FreeSans 280 0 0 0 S
-flabel pwell 777 -2859 777 -2859 1 FreeSans 280 0 0 0 D
-flabel pwell -514 -2853 -514 -2853 1 FreeSans 280 0 0 0 S
-flabel pwell 1032 -2864 1032 -2864 1 FreeSans 280 0 0 0 D
-flabel pwell -775 -2861 -775 -2861 1 FreeSans 280 0 0 0 D
-flabel pwell -1035 -2872 -1035 -2872 1 FreeSans 280 0 0 0 D
-flabel pwell 1287 -2870 1287 -2870 1 FreeSans 280 0 0 0 S
-flabel pwell 1545 -2875 1545 -2875 1 FreeSans 280 0 0 0 D
-flabel pwell 1805 -2864 1805 -2864 1 FreeSans 280 0 0 0 S
-flabel pwell 2063 -2856 2063 -2856 1 FreeSans 280 0 0 0 D
-flabel pwell -1295 -2872 -1295 -2872 1 FreeSans 280 0 0 0 S
-flabel pwell -1551 -2875 -1551 -2875 1 FreeSans 280 0 0 0 D
-flabel pwell -1806 -2880 -1806 -2880 1 FreeSans 280 0 0 0 S
-flabel pwell -2069 -2872 -2069 -2872 1 FreeSans 280 0 0 0 D
-flabel mvpmos -1379 1148 -1379 1148 1 FreeSans 280 0 0 0 10
-flabel mvpmos 1366 1129 1366 1129 1 FreeSans 280 0 0 0 10
-flabel nwell -2595 2301 -2595 2380 1 FreeSans 280 0 0 0 ibias
-port 3 n
 flabel metal3 -2595 2153 -2595 2213 1 FreeSans 280 0 0 0 vinp
 port 4 n
 flabel metal3 -2621 312 -2621 372 1 FreeSans 280 0 0 0 vinm
-port 5 n
+port 3 n
 flabel metal3 2737 752 2737 812 1 FreeSans 280 0 0 0 vout
-port 6 n
+port 5 n
+flabel metal4 -3000 -4500 -2999 -3700 3 FreeSans 240 0 0 0 vss
+port 6 e
+flabel metal3 -2595 2320 -2595 2380 1 FreeSans 240 0 0 0 ibias
+port 1 n
 << properties >>
 string FIXED_BBOX -2872 -4372 2872 -168
 << end >>

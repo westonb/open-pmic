@@ -108,73 +108,25 @@ N 870 -60 920 -60 { lab=vss}
 N 690 -260 720 -260 { lab=#net3}
 N 690 -260 690 0 { lab=#net3}
 N 690 0 840 -0 { lab=#net3}
+N 2030 -380 2080 -380 {}
+N 2080 -380 2080 -200 {}
+N 2030 -200 2080 -200 {}
+N 1930 -630 1970 -630 {}
+N 1930 -690 1930 -630 {}
 C {devices/lab_pin.sym} 1220 -390 2 0 {name=l1 sig_type=std_logic lab=vinm
 
 }
-C {devices/lab_pin.sym} 500 -390 2 1 {name=l2 sig_type=std_logic lab=vinp
-
-
+C {devices/iopin.sym} -90 -750 0 0 {name=p6 lab=IB
 }
-C {devices/lab_pin.sym} 1780 -440 0 1 {name=l3 sig_type=std_logic lab=vout
-
-
-
+C {devices/iopin.sym} -90 -720 0 0 {name=p1 lab=VDD
 }
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 890 -680 0 1 {name=M11
-L=1
-W=5
-nf=1
-mult=4
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_g5v0d10v5
-spiceprefix=X
+C {devices/iopin.sym} -90 -690 0 0 {name=p5 lab=Vinm
 }
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1300 -530 0 0 {name=M8
-L=1
-W=5
-nf=1
-mult=4
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_g5v0d10v5
-spiceprefix=X
+C {devices/iopin.sym} -90 -670 0 0 {name=p4 lab=Vinp
 }
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 430 -530 0 1 {name=M7
-L=1
-W=5
-nf=1
-mult=4
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_g5v0d10v5
-spiceprefix=X
+C {devices/iopin.sym} -90 -640 0 0 {name=p3 lab=Vout
 }
-C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1140 -390 0 1 {name=M2
-L=1
-W=5
-nf=1
-mult=4
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_g5v0d10v5
-spiceprefix=X
+C {devices/iopin.sym} -90 -610 0 0 {name=p2 lab=VSS
 }
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 560 -390 0 0 {name=M1
 L=1
@@ -275,17 +227,70 @@ C {devices/lab_pin.sym} 410 -290 0 0 {name=l16 sig_type=std_logic lab=vss
 
 
 }
-C {devices/iopin.sym} -90 -680 0 0 {name=p1 lab=VDD
+C {devices/lab_pin.sym} 1780 -440 0 1 {name=l3 sig_type=std_logic lab=vout
+
+
+
 }
-C {devices/iopin.sym} -90 -650 0 0 {name=p2 lab=VSS
+C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1140 -390 0 1 {name=M2
+L=1
+W=5
+nf=1
+mult=4
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=pfet_g5v0d10v5
+spiceprefix=X
 }
-C {devices/iopin.sym} -90 -620 0 0 {name=p3 lab=Vout
+C {sky130_fd_pr/pfet_g5v0d10v5.sym} 430 -530 0 1 {name=M7
+L=1
+W=5
+nf=1
+mult=4
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=pfet_g5v0d10v5
+spiceprefix=X
 }
-C {devices/iopin.sym} -90 -590 0 0 {name=p4 lab=Vinp
+C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1300 -530 0 0 {name=M8
+L=1
+W=5
+nf=1
+mult=4
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=pfet_g5v0d10v5
+spiceprefix=X
 }
-C {devices/iopin.sym} -90 -560 0 0 {name=p5 lab=Vinm
+C {sky130_fd_pr/pfet_g5v0d10v5.sym} 890 -680 0 1 {name=M11
+L=1
+W=5
+nf=1
+mult=4
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=pfet_g5v0d10v5
+spiceprefix=X
 }
-C {devices/iopin.sym} -90 -530 0 0 {name=p6 lab=IB
+C {devices/lab_pin.sym} 500 -390 2 1 {name=l2 sig_type=std_logic lab=vinp
+
+
 }
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1500 -680 0 0 {name=Mmir
 L=1
