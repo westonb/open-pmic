@@ -40,7 +40,6 @@ N 1380 -340 1500 -340 { lab=SW_NODE}
 N 1500 -340 1500 -320 { lab=SW_NODE}
 N 1500 -255 1500 -220 { lab=GND}
 N 960 -500 980 -500 { lab=V3V3}
-N 960 -460 980 -460 { lab=V3V3}
 N 960 -420 980 -420 { lab=GND}
 N 960 -320 980 -320 { lab=P_IN}
 N 960 -280 980 -280 { lab=P_IN_N}
@@ -54,11 +53,20 @@ N 620 -850 620 -820 { lab=VNB}
 N 700 -850 700 -820 { lab=VGND}
 N 1500 -260 1500 -255 { lab=GND}
 N 1440 -340 1440 -320 { lab=SW_NODE}
+N 1580 -250 1580 -220 { lab=GND}
+N 1500 -340 1580 -340 { lab=SW_NODE}
+N 1580 -330 1580 -310 { lab=SW_NODE}
+N 1580 -340 1580 -330 { lab=SW_NODE}
+N 1380 -280 1380 -240 { lab=SW_ESD}
+N 1380 -240 1410 -240 { lab=SW_ESD}
+N 1410 -240 1410 -200 { lab=SW_ESD}
 C {devices/code_shown.sym} -1.25 -731.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
+.options savecurrents
+.option temp=75
 .control
-.save all
+save all
 tran 1n 5u
 write power_stage_tb.raw
 .endc
@@ -73,40 +81,8 @@ C {devices/code.sym} 60 -250 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_01v8/sky130_fd_pr__nfet_01v8__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_01v8_lvt/sky130_fd_pr__nfet_01v8_lvt__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_01v8/sky130_fd_pr__pfet_01v8__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_03v3_nvt/sky130_fd_pr__nfet_03v3_nvt__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_05v0_nvt/sky130_fd_pr__nfet_05v0_nvt__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/esd_nfet_01v8/sky130_fd_pr__esd_nfet_01v8__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_01v8_lvt/sky130_fd_pr__pfet_01v8_lvt__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_01v8_hvt/sky130_fd_pr__pfet_01v8_hvt__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/esd_pfet_g5v0d10v5/sky130_fd_pr__esd_pfet_g5v0d10v5__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_g5v0d10v5/sky130_fd_pr__pfet_g5v0d10v5__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_g5v0d16v0/sky130_fd_pr__pfet_g5v0d16v0__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_g5v0d10v5/sky130_fd_pr__nfet_g5v0d10v5__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_g5v0d16v0/sky130_fd_pr__nfet_g5v0d16v0__tt_discrete.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/esd_nfet_g5v0d10v5/sky130_fd_pr__esd_nfet_g5v0d10v5__tt.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/models/corners/tt/nonfet.spice
-* Mismatch parameters
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_01v8/sky130_fd_pr__nfet_01v8__mismatch.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_01v8/sky130_fd_pr__pfet_01v8__mismatch.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_01v8_lvt/sky130_fd_pr__nfet_01v8_lvt__mismatch.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_01v8_lvt/sky130_fd_pr__pfet_01v8_lvt__mismatch.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_01v8_hvt/sky130_fd_pr__pfet_01v8_hvt__mismatch.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_g5v0d10v5/sky130_fd_pr__nfet_g5v0d10v5__mismatch.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/pfet_g5v0d10v5/sky130_fd_pr__pfet_g5v0d10v5__mismatch.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_05v0_nvt/sky130_fd_pr__nfet_05v0_nvt__mismatch.corner.spice
-.include \\\\$::SKYWATER_MODELS\\\\/cells/nfet_03v3_nvt/sky130_fd_pr__nfet_03v3_nvt__mismatch.corner.spice
-* Resistor\\\\$::SKYWATER_MODELS\\\\/Capacitor
-.include \\\\$::SKYWATER_MODELS\\\\/models/r+c/res_typical__cap_typical.spice
-.include \\\\$::SKYWATER_MODELS\\\\/models/r+c/res_typical__cap_typical__lin.spice
-* Special cells
-.include \\\\$::SKYWATER_MODELS\\\\/models/corners/tt/specialized_cells.spice
-* All models
-.include \\\\$::SKYWATER_MODELS\\\\/models/all.spice
-* Corner
-.include \\\\$::SKYWATER_MODELS\\\\/models/corners/tt/rf.spice
+.lib \\\\$::SKYWATER_MODELS\\\\/models/sky130.lib.spice ss
+.option wnflag=1
 "
 }
 C {devices/vsource.sym} 360 -800 0 0 {name=V1 value=3.3}
@@ -142,8 +118,6 @@ C {devices/lab_pin.sym} 960 -180 0 0 {name=l16 sig_type=std_logic lab=N_IN_N
 }
 C {devices/lab_pin.sym} 960 -500 0 0 {name=l17 sig_type=std_logic lab=V3V3
 }
-C {devices/lab_pin.sym} 960 -460 0 0 {name=l18 sig_type=std_logic lab=V3V3
-}
 C {devices/gnd.sym} 920 -390 0 0 {name=l19 lab=GND}
 C {devices/gnd.sym} 320 -450 0 0 {name=l20 lab=GND}
 C {devices/lab_pin.sym} 340 -570 2 0 {name=l21 sig_type=std_logic lab=PULSEA
@@ -159,7 +133,7 @@ C {devices/lab_pin.sym} 740 -290 2 0 {name=l24 sig_type=std_logic lab=N_IN
 C {devices/lab_pin.sym} 740 -200 2 0 {name=l25 sig_type=std_logic lab=N_IN_N
 }
 C {devices/res.sym} 1500 -290 0 0 {name=R1
-value=20
+value=100
 footprint=1206
 device=resistor
 m=1}
@@ -178,4 +152,8 @@ C {devices/gnd.sym} 1560 -380 0 0 {name=l27 lab=GND}
 C {devices/vsource.sym} 620 -790 0 0 {name=V6 value=0}
 C {devices/vsource.sym} 700 -790 0 0 {name=V7 value=0}
 C {devices/lab_pin.sym} 1440 -320 0 0 {name=l28 sig_type=std_logic lab=SW_NODE
+}
+C {devices/isource.sym} 1580 -280 0 0 {name=I0 value=400m}
+C {devices/gnd.sym} 1580 -220 0 0 {name=l18 lab=GND}
+C {devices/lab_pin.sym} 1410 -200 0 0 {name=l29 sig_type=std_logic lab=SW_ESD
 }

@@ -1,3 +1,9 @@
 verification/build/*
 verification/results.csv
 *.csv#
+
+#extracted files from magic 
+layout/*/*.ext
+layout/*/*.nodes
+layout/*/*.sim
+layout/*/*.spice

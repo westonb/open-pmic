@@ -6,6 +6,8 @@ S {}
 E {}
 T {SKY130 IO pad ESD resistor is 2x sky130_fd_pr__res_generic_po W=2 L=3.15 m=1} 570 -160 0 0 0.4 0.4 {}
 T {150 ohm nominal} 380 -520 0 0 0.4 0.4 {}
+T {36x36 NMOS grid} 1230 -510 0 0 0.4 0.4 {}
+T {48x48 grid} 1170 -690 0 0 0.4 0.4 {}
 N 1160 -700 1160 -580 { lab=SW_NODE}
 N 1160 -520 1160 -480 { lab=VSS}
 N 1160 -550 1180 -550 { lab=VSS}
@@ -37,12 +39,12 @@ N 780 -1120 800 -1120 { lab=N_IN}
 N 780 -1040 800 -1040 { lab=N_IN_N}
 N 640 -680 640 -640 { lab=SW_NODE_ESD}
 N 600 -660 640 -660 { lab=SW_NODE_ESD}
-N 580 -710 600 -710 { lab=#net1}
-N 580 -760 580 -710 { lab=#net1}
-N 580 -760 660 -760 { lab=#net1}
-N 640 -760 640 -740 { lab=#net1}
-N 640 -710 660 -710 { lab=#net1}
-N 660 -760 660 -710 { lab=#net1}
+N 580 -710 600 -710 { lab=VDD_PWR}
+N 580 -760 580 -710 { lab=VDD_PWR}
+N 580 -760 660 -760 { lab=VDD_PWR}
+N 640 -760 640 -740 { lab=VDD_PWR}
+N 640 -710 660 -710 { lab=VDD_PWR}
+N 660 -760 660 -710 { lab=VDD_PWR}
 N 580 -610 600 -610 { lab=VSS}
 N 580 -610 580 -560 { lab=VSS}
 N 580 -560 640 -560 { lab=VSS}
@@ -50,7 +52,7 @@ N 640 -580 640 -560 { lab=VSS}
 N 640 -610 660 -610 { lab=VSS}
 N 660 -610 660 -560 { lab=VSS}
 N 640 -560 660 -560 { lab=VSS}
-N 640 -780 640 -760 { lab=#net1}
+N 640 -780 640 -760 { lab=VDD_PWR}
 N 520 -660 600 -660 { lab=SW_NODE_ESD}
 N 440 -660 460 -660 { lab=SW_NODE}
 N 640 -660 680 -660 { lab=SW_NODE_ESD}
@@ -65,7 +67,7 @@ C {devices/lab_wire.sym} 960 -1220 0 0 {name=l1 sig_type=std_logic lab=VDD_PWR}
 C {devices/lab_wire.sym} 940 -940 0 0 {name=l2 sig_type=std_logic lab=VSS}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 1140 -550 0 0 {name=M13
 L=0.5
-W=4.6
+W=4.38
 nf=1
 mult=2520
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -79,9 +81,9 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1140 -730 0 0 {name=M14
 L=0.5
-W=4.6
+W=4.38
 nf=1
-mult=5040
+mult=4506
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -93,9 +95,9 @@ spiceprefix=X
 }
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1380 -730 0 0 {name=M15
 L=0.5
-W=4.6
+W=4.38
 nf=1
-mult=10
+mult=6
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
