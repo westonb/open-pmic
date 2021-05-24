@@ -31,7 +31,7 @@ C {devices/gnd.sym} 190 -390 0 1 {name=l2 lab=GND}
 C {devices/lab_pin.sym} 800 -520 0 0 {name=l3 sig_type=std_logic lab=V3V3
 }
 C {devices/gnd.sym} 1000 -510 0 0 {name=l4 lab=GND}
-C {devices/isource.sym} 120 -450 0 0 {name=I0 value=80u}
+C {devices/isource.sym} 120 -450 0 0 {name=I0 value=20u}
 C {devices/gnd.sym} 120 -390 0 0 {name=l5 lab=GND}
 C {devices/lab_pin.sym} 120 -510 0 0 {name=l6 sig_type=std_logic lab=IBIAS
 
@@ -112,7 +112,6 @@ write comparator_w_obuff_tb.raw
 C {devices/gnd.sym} 300 -300 0 1 {name=l13 lab=GND}
 C {devices/vsource.sym} 300 -390 0 0 {name=V3 value=0.1
 }
-C {devices/vsource.sym} 300 -480 0 0 {name=V2 value="pulse -0.5 0.5 0 1u 1u 0.5u 3u" }
 C {sky130_stdcells/inv_4.sym} 1110 -300 0 0 {name=x2 VGND=GND VNB=GND VPB=V3V3 VPWR=V3V3 prefix=sky130_fd_sc_hvl__ }
 C {devices/lab_pin.sym} 1180 -300 1 1 {name=l14 sig_type=std_logic lab=INVOUT
 
@@ -125,3 +124,4 @@ C {devices/lab_pin.sym} 320 -240 2 0 {name=l16 sig_type=std_logic lab=VTEST
 
 }
 C {design/comparator/comparator_w_obuff.sym} 860 -300 0 0 {name=x1}
+C {devices/vsource.sym} 300 -480 0 0 {name=V8 value="pwl 0 -160m 99n -160m 100n -140m 199n -140m 200n -120m 299n -120m 300n -100m 399n -100m 400n -80m 499n -80m 500n -60m 599n -60m 600n -40m 699n -40m 700n -20m 799n -20m 800n 0 899n 0 900n 20m 999n 20m 1u 40m 1.099u 40m 1.1u 42m 1.199u 42m 1.2u 44m 1.299u 44m 1.3u 46m 1.399u 46m 1.4u 48m 1.499u 48m 1.5u 50m 1.599u 50m 1.6u 52m 1.699u 52m 1.7u 54m 1.799u 54m 1.8u 56m 1.899u 56m 1.9u 58m 1.999u 58m 2u 60m 2.099u 60m 2.1u 80m 2.199u 80m 2.2u 100m 2.299u 100m 2.3u 120m 2.399u 120m 2.4u 140m 2.499u 140m 2.5u 160m 2.599u 160m"}

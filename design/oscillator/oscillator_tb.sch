@@ -70,7 +70,7 @@ only_toplevel=true
 value="
 .control
 .save all
-tran 0.1n 500n
+tran 1n 8u
 write oscillator_tb.raw
 .endc
 "}

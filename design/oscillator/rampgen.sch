@@ -39,7 +39,7 @@ C {sky130_fd_pr/nfet_g5v0d10v5.sym} 1110 -810 0 1 {name=M1
 L=1
 W=5
 nf=1
-mult=1
+mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -53,7 +53,7 @@ C {sky130_fd_pr/nfet_g5v0d10v5.sym} 1290 -810 0 0 {name=M2
 L=1
 W=5
 nf=1
-mult=1
+mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -67,7 +67,7 @@ C {sky130_fd_pr/nfet_g5v0d10v5.sym} 1560 -810 0 0 {name=M3
 L=1
 W=5
 nf=1
-mult=15
+mult=16
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -81,7 +81,7 @@ C {sky130_fd_pr/nfet_g5v0d10v5.sym} 1560 -930 0 0 {name=M4
 L=1
 W=5
 nf=1
-mult=15
+mult=16
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -95,7 +95,7 @@ C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1330 -1150 0 1 {name=M5
 L=1
 W=5
 nf=1
-mult=1
+mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -109,7 +109,7 @@ C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1560 -1050 0 0 {name=M6
 L=1
 W=5
 nf=1
-mult=1
+mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -123,7 +123,7 @@ C {sky130_fd_pr/pfet_g5v0d10v5.sym} 1560 -1150 0 0 {name=M7
 L=1
 W=5
 nf=1
-mult=1
+mult=2
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -133,7 +133,7 @@ sa=0 sb=0 sd=0
 model=pfet_g5v0d10v5
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 1830 -900 0 0 {name=C1 model=cap_mim_m3_1 W=20 L=26 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 1830 -900 0 0 {name=C1 model=cap_mim_m3_1 W=120 L=120 MF=1 spiceprefix=X}
 C {devices/lab_pin.sym} 1830 -990 2 0 {name=l1 sig_type=std_logic lab=VRAMP}
 C {devices/lab_pin.sym} 1430 -990 0 0 {name=l2 sig_type=std_logic lab=RAMPGEN_EN}
 C {devices/lab_pin.sym} 1580 -1240 2 0 {name=l3 sig_type=std_logic lab=VPWR}
