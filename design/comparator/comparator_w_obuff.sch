@@ -123,7 +123,7 @@ N 580 -320 690 -320 { lab=#net2}
 C {devices/lab_pin.sym} 1220 -390 2 0 {name=l1 sig_type=std_logic lab=vinm
 
 }
-C {devices/iopin.sym} -90 -750 0 0 {name=p6 lab=IB
+C {devices/iopin.sym} -90 -750 0 0 {name=p6 lab=ibias
 }
 C {devices/iopin.sym} -90 -720 0 0 {name=p1 lab=VDD
 }
