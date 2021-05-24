@@ -74,14 +74,14 @@ N 290 -600 290 -530 { lab=vdd}
 N 1970 -740 1970 -720 { lab=vdd}
 N 1760 -740 1970 -740 { lab=vdd}
 N 1930 -740 1930 -690 { lab=vdd}
-N 1970 -660 1970 -630 { lab=#net5}
+N 1970 -660 1970 -630 { lab=vdd}
 N 1840 -740 1840 -590 { lab=vdd}
 N 1740 -550 1810 -550 { lab=vout}
 N 660 -820 660 -290 { lab=#net2}
 N 660 -820 1900 -820 { lab=#net2}
 N 1900 -820 1900 -550 { lab=#net2}
 N 1870 -550 1900 -550 { lab=#net2}
-N 2030 -380 2030 -310 { lab=#net6}
+N 2030 -380 2030 -310 { lab=vss}
 N 2030 -250 2030 -140 { lab=vss}
 N 1740 -140 2030 -140 { lab=vss}
 N 1970 -280 1990 -280 { lab=vss}
@@ -108,11 +108,18 @@ N 870 -60 920 -60 { lab=vss}
 N 690 -260 720 -260 { lab=#net3}
 N 690 -260 690 0 { lab=#net3}
 N 690 0 840 -0 { lab=#net3}
-N 2030 -380 2080 -380 {}
-N 2080 -380 2080 -200 {}
-N 2030 -200 2080 -200 {}
-N 1930 -630 1970 -630 {}
-N 1930 -690 1930 -630 {}
+N 2030 -380 2080 -380 { lab=vss}
+N 2080 -380 2080 -200 { lab=vss}
+N 2030 -200 2080 -200 { lab=vss}
+N 1930 -630 1970 -630 { lab=vdd}
+N 1930 -690 1930 -630 { lab=vdd}
+N 750 -420 790 -420 { lab=#net3}
+N 790 -420 790 -350 { lab=#net3}
+N 720 -380 810 -380 { lab=vss}
+N 810 -380 810 -300 { lab=vss}
+N 810 -300 870 -300 { lab=vss}
+N 690 -420 690 -320 { lab=#net2}
+N 580 -320 690 -320 { lab=#net2}
 C {devices/lab_pin.sym} 1220 -390 2 0 {name=l1 sig_type=std_logic lab=vinm
 
 }
@@ -518,11 +525,11 @@ sa=0 sb=0 sd=0
 model=nfet_g5v0d10v5
 spiceprefix=X
 }
-C {sky130_fd_pr/nfet_g5v0d10v5.sym} 870 -330 3 0 {name=dum_nmos_bot_in
+C {sky130_fd_pr/nfet_g5v0d10v5.sym} 870 -330 3 0 {name=dum_nmos_bot_in_right
 L=1
 W=5
 nf=1
-mult=2
+mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -565,6 +572,26 @@ C {devices/lab_pin.sym} 870 -350 3 1 {name=l25 sig_type=std_logic lab=vss
 
 }
 C {devices/lab_pin.sym} 210 -530 0 0 {name=l26 sig_type=std_logic lab=vdd
+
+
+
+
+}
+C {sky130_fd_pr/nfet_g5v0d10v5.sym} 720 -400 1 1 {name=dum_nmos_bot_in_left
+L=1
+W=5
+nf=1
+mult=1
+ad="'int((nf+1)/2) * W/nf * 0.29'" 
+pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
+as="'int((nf+2)/2) * W/nf * 0.29'" 
+ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
+nrd="'0.29 / W'" nrs="'0.29 / W'"
+sa=0 sb=0 sd=0
+model=nfet_g5v0d10v5
+spiceprefix=X
+}
+C {devices/lab_pin.sym} 720 -420 3 1 {name=l27 sig_type=std_logic lab=vss
 
 
 
