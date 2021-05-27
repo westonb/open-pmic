@@ -8,8 +8,6 @@ V {}
 S {}
 E {}
 L 4 -120 -300 -120 -260 {}
-L 4 -40 -300 -40 -260 {}
-L 4 40 -300 40 -260 {}
 L 4 120 -300 120 -260 {}
 L 4 -220 -200 -180 -200 {}
 L 4 -220 -80 -180 -80 {}
@@ -37,33 +35,29 @@ L 4 -180 -260 -180 -180 {}
 L 4 180 -260 180 -180 {}
 L 4 -220 -40 -180 -40 {}
 L 4 -220 -0 -180 -0 {}
-B 5 -122.5 -302.5 -117.5 -297.5 {name=VPWR dir=in}
-B 5 -42.5 -302.5 -37.5 -297.5 {name=VPB dir=in}
-B 5 37.5 -302.5 42.5 -297.5 {name=VNB dir=in}
-B 5 117.5 -302.5 122.5 -297.5 {name=VGND dir=in}
-B 5 -222.5 -202.5 -217.5 -197.5 {name=TIMEOUT_INT dir=in}
 B 5 -222.5 -82.5 -217.5 -77.5 {name=CYCLE_END dir=in}
-B 5 -222.5 37.5 -217.5 42.5 {name=SW_EN dir=in}
-B 5 -222.5 77.5 -217.5 82.5 {name=SW_OVERRIDE dir=in}
-B 5 -222.5 117.5 -217.5 122.5 {name=PMOS_VAL dir=in}
-B 5 -222.5 157.5 -217.5 162.5 {name=NMOS_VAL dir=in}
-B 5 217.5 -62.5 222.5 -57.5 {name=PMOS_DRV dir=out}
 B 5 217.5 37.5 222.5 42.5 {name=NMOS_DRV dir=out}
-B 5 -222.5 197.5 -217.5 202.5 {name=PMOS_DT dir=in}
-B 5 -222.5 237.5 -217.5 242.5 {name=NMOS_DT dir=in}
-B 5 217.5 -22.5 222.5 -17.5 {name=PMOS_DRV_N dir=out}
 B 5 217.5 77.5 222.5 82.5 {name=NMOS_DRV_N dir=out}
-B 5 -222.5 -162.5 -217.5 -157.5 {name=TIMEOUT_EXT dir=in}
-B 5 -222.5 -122.5 -217.5 -117.5 {name=TIMEOUT_SEL dir=in}
-B 5 217.5 157.5 222.5 162.5 {name=TIMEOUT_OUT dir=out}
-B 5 -222.5 -42.5 -217.5 -37.5 {name=OVERCURRENT
-dir=inout}
+B 5 -222.5 237.5 -217.5 242.5 {name=NMOS_DT dir=in}
+B 5 -222.5 157.5 -217.5 162.5 {name=NMOS_VAL dir=in}
 B 5 -222.5 -2.5 -217.5 2.5 {name=OC_EN
 dir=inout}
-T {VPWR} -150 -250 0 0 0.4 0.4 {}
-T {VPB} -60 -250 0 0 0.4 0.4 {}
-T {VNB} 20 -250 0 0 0.4 0.4 {}
-T {VGND} 90 -250 0 0 0.4 0.4 {}
+B 5 -222.5 -42.5 -217.5 -37.5 {name=OVERCURRENT
+dir=inout}
+B 5 217.5 -62.5 222.5 -57.5 {name=PMOS_DRV dir=out}
+B 5 217.5 -22.5 222.5 -17.5 {name=PMOS_DRV_N dir=out}
+B 5 -222.5 197.5 -217.5 202.5 {name=PMOS_DT dir=in}
+B 5 -222.5 117.5 -217.5 122.5 {name=PMOS_VAL dir=in}
+B 5 -222.5 37.5 -217.5 42.5 {name=SW_EN dir=in}
+B 5 -222.5 77.5 -217.5 82.5 {name=SW_OVERRIDE dir=in}
+B 5 -222.5 -162.5 -217.5 -157.5 {name=TIMEOUT_EXT dir=in}
+B 5 -222.5 -202.5 -217.5 -197.5 {name=TIMEOUT_INT dir=in}
+B 5 217.5 157.5 222.5 162.5 {name=TIMEOUT_OUT dir=out}
+B 5 -222.5 -122.5 -217.5 -117.5 {name=TIMEOUT_SEL dir=in}
+B 5 -122.5 -302.5 -117.5 -297.5 {name=vdd dir=in}
+B 5 117.5 -302.5 122.5 -297.5 {name=vss dir=in}
+T {VDD} -150 -250 0 0 0.4 0.4 {}
+T {VSS} 90 -250 0 0 0.4 0.4 {}
 T {TIMEOUT_INT} -160 -210 0 0 0.4 0.4 {}
 T {CYCLE_END} -160 -90 0 0 0.4 0.4 {}
 T {SW_EN} -160 30 0 0 0.4 0.4 {}
