@@ -8,6 +8,7 @@ T {Q} 940 -170 0 0 0.4 0.4 {}
 T {!Q} 950 20 0 0 0.4 0.4 {}
 T {S} 790 -180 0 0 0.4 0.4 {}
 T {R} 790 40 0 0 0.4 0.4 {}
+T {kludge for broken decap extraction in sky130 PDK} 850 -1180 0 0 0.4 0.4 {}
 N 940 -260 980 -260 { lab=#net1}
 N 820 -260 860 -260 { lab=#net2}
 N 700 -260 740 -260 { lab=#net3}
@@ -294,8 +295,8 @@ C {devices/lab_wire.sym} 1040 -1000 0 0 {name=l30 sig_type=std_logic lab=TIMEOUT
 C {devices/lab_wire.sym} 1040 -960 0 0 {name=l31 sig_type=std_logic lab=TIMEOUT_SEL}
 C {devices/lab_wire.sym} 1500 -1020 0 1 {name=l32 sig_type=std_logic lab=TIMEOUT_OUT}
 C {sky130_fd_pr/pfet_g5v0d10v5.sym} 740 -1230 0 0 {name=M1
-L=0.5
-W=1
+L=1
+W=48
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -311,8 +312,8 @@ C {devices/lab_wire.sym} 760 -1280 0 0 {name=l33 sig_type=std_logic lab=vdd}
 C {devices/lab_wire.sym} 700 -1230 0 0 {name=l34 sig_type=std_logic lab=vss}
 C {devices/lab_wire.sym} 710 -1130 0 0 {name=l35 sig_type=std_logic lab=vdd}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 740 -1130 0 0 {name=M3
-L=0.5
-W=1
+L=1
+W=36
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
@@ -325,3 +326,9 @@ model=nfet_g5v0d10v5
 spiceprefix=X
 }
 C {devices/lab_wire.sym} 760 -1070 0 0 {name=l37 sig_type=std_logic lab=vss}
+C {devices/code.sym} 910 -1370 0 0 {name=STDCELL_MODELS 
+only_toplevel=true
+place=end
+format="tcleval(@value )"
+value="[sky130_models]"
+}
