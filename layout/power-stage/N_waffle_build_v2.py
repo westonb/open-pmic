@@ -1560,8 +1560,8 @@ cmd_str = "paint %s \n" % (M2_LAYER)
 fout.write(cmd_str)
 
 
-#fout.write("flatten waffle_testb\n")
-#fout.write("load waffle_testb\n")
+fout.write("flatten waffle_testb\n")
+fout.write("load waffle_testb\n")
 
 
 fout.close()

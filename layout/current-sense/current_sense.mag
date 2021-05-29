@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1621806964
+timestamp 1622253817
 << nwell >>
 rect -11400 5300 6900 9000
 rect -11400 1000 -4600 5300
@@ -931,42 +931,42 @@ rect -850 7477 -791 7741
 rect 4398 7407 4457 7671
 rect 582 4226 641 4490
 rect 584 2140 643 2404
-use sky130_fd_pr__cap_mim_m3_1_28umx28um  sky130_fd_pr__cap_mim_m3_1_28umx28um_0
-timestamp 1621745012
-transform 0 1 -8050 -1 0 4450
-box -3000 -2950 2999 2950
-use sky130_fd_pr__res_high_po_1p41_30um  sky130_fd_pr__res_high_po_1p41_30um_0
+use folded_cascode_n_in  folded_cascode_n_in_0 ../folded_cascode_n_in
+timestamp 1622253817
+transform 1 0 -3000 0 -1 -4500
+box -9000 -4500 15000 4500
+use sky130_fd_pr__pfet_g5v0d10v5_QFGZLW  xm4
+timestamp 1621753798
+transform 1 0 4400 0 1 6750
+box -1901 -600 1901 600
+use sky130_fd_pr__pfet_g5v0d10v5_QWKX2D  xm3
+timestamp 1621753798
+transform 1 0 -800 0 1 6750
+box -2933 -600 2933 600
+use sky130_fd_pr__nfet_g5v0d10v5_L2Y3MP  xm2
+timestamp 1621753798
+transform 1 0 600 0 1 1500
+box -2867 -588 2867 588
+use sky130_fd_pr__nfet_g5v0d10v5_DQEKTK  xm1
+timestamp 1621753798
+transform 1 0 600 0 1 3600
+box -3899 -588 3899 588
+use sky130_fd_pr__res_high_po_1p41_30um  sky130_fd_pr__res_high_po_1p41_30um_2
 timestamp 1621758535
-transform 1 0 8200 0 1 4500
+transform 1 0 9400 0 1 4500
 box -143 -3432 143 3432
 use sky130_fd_pr__res_high_po_1p41_30um  sky130_fd_pr__res_high_po_1p41_30um_1
 timestamp 1621758535
 transform 1 0 8800 0 1 4500
 box -143 -3432 143 3432
-use sky130_fd_pr__res_high_po_1p41_30um  sky130_fd_pr__res_high_po_1p41_30um_2
+use sky130_fd_pr__res_high_po_1p41_30um  sky130_fd_pr__res_high_po_1p41_30um_0
 timestamp 1621758535
-transform 1 0 9400 0 1 4500
+transform 1 0 8200 0 1 4500
 box -143 -3432 143 3432
-use sky130_fd_pr__nfet_g5v0d10v5_DQEKTK  xm1
-timestamp 1621753798
-transform 1 0 600 0 1 3600
-box -3899 -588 3899 588
-use sky130_fd_pr__nfet_g5v0d10v5_L2Y3MP  xm2
-timestamp 1621753798
-transform 1 0 600 0 1 1500
-box -2867 -588 2867 588
-use sky130_fd_pr__pfet_g5v0d10v5_QWKX2D  xm3
-timestamp 1621753798
-transform 1 0 -800 0 1 6750
-box -2933 -600 2933 600
-use sky130_fd_pr__pfet_g5v0d10v5_QFGZLW  xm4
-timestamp 1621753798
-transform 1 0 4400 0 1 6750
-box -1901 -600 1901 600
-use folded_cascode_n_in  folded_cascode_n_in_0 ../folded_cascode_n_in
-timestamp 1621758535
-transform 1 0 -3000 0 -1 -4500
-box -9000 -4500 15000 4500
+use sky130_fd_pr__cap_mim_m3_1_28umx28um  sky130_fd_pr__cap_mim_m3_1_28umx28um_0
+timestamp 1621745012
+transform 0 1 -8050 -1 0 4450
+box -3000 -2950 2999 2950
 << labels >>
 flabel metal4 -12000 8200 -12000 9000 3 FreeSans 480 0 0 0 vdd
 port 7 e

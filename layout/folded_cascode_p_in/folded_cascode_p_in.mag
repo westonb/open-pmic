@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1620682935
+timestamp 1622253817
 << nwell >>
 rect -9000 40 9000 4500
 << pwell >>
@@ -1107,25 +1107,25 @@ rect -3111 2071 -3087 2248
 rect 4375 1995 4394 2140
 rect -19 -187 18 122
 use cascode_bias  cascode_bias_0 ./../bias-circuit
-timestamp 1620679850
+timestamp 1622253817
 transform 1 0 12000 0 1 0
 box -3000 -4500 3000 4500
-use sky130_fd_pr__pfet_g5v0d10v5_QF5B2D  xm2
-timestamp 1620355256
-transform 1 0 0 0 1 1300
-box -7061 -600 7061 600
-use sky130_fd_pr__nfet_g5v0d10v5_V3Y342  xm1
-timestamp 1620355256
-transform 1 0 0 0 1 -1600
-box -4673 -588 4673 588
-use sky130_fd_pr__pfet_g5v0d10v5_QC2ZLW  xm3
-timestamp 1620355256
-transform 1 0 -3096 0 1 3000
-box -2159 -600 2159 600
 use sky130_fd_pr__pfet_g5v0d10v5_QM5ZLW  xm4
 timestamp 1620355256
 transform 1 0 4386 0 1 3000
 box -2417 -600 2417 600
+use sky130_fd_pr__pfet_g5v0d10v5_QC2ZLW  xm3
+timestamp 1620355256
+transform 1 0 -3096 0 1 3000
+box -2159 -600 2159 600
+use sky130_fd_pr__nfet_g5v0d10v5_V3Y342  xm1
+timestamp 1620355256
+transform 1 0 0 0 1 -1600
+box -4673 -588 4673 588
+use sky130_fd_pr__pfet_g5v0d10v5_QF5B2D  xm2
+timestamp 1620355256
+transform 1 0 0 0 1 1300
+box -7061 -600 7061 600
 << labels >>
 flabel metal4 -9000 3700 -9000 4500 3 FreeSans 480 0 0 0 vdd
 port 5 e

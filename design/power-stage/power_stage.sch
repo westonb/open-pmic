@@ -56,6 +56,10 @@ N 640 -780 640 -760 { lab=VDD_PWR}
 N 520 -660 600 -660 { lab=SW_NODE_ESD}
 N 440 -660 460 -660 { lab=SW_NODE}
 N 640 -660 680 -660 { lab=SW_NODE_ESD}
+N 1400 -690 1500 -690 { lab=REF_CURRENT}
+N 1500 -690 1500 -680 { lab=REF_CURRENT}
+N 1500 -620 1500 -580 { lab=REF_CURRENT_KELVIN}
+N 1500 -580 1520 -580 { lab=REF_CURRENT_KELVIN}
 C {devices/ipin.sym} 260 -580 0 0 {name=p2 lab=N_IN}
 C {devices/ipin.sym} 260 -680 0 0 {name=p3 lab=VSS}
 C {devices/ipin.sym} 260 -640 0 0 {name=p5 lab=P_IN}
@@ -113,7 +117,7 @@ C {devices/lab_wire.sym} 1080 -550 0 0 {name=l7 sig_type=std_logic lab=N_DRIVE}
 C {devices/lab_wire.sym} 1080 -730 0 0 {name=l8 sig_type=std_logic lab=P_DRIVE}
 C {devices/lab_wire.sym} 1330 -780 0 0 {name=l10 sig_type=std_logic lab=VDD_PWR}
 C {devices/lab_wire.sym} 1340 -730 0 0 {name=l16 sig_type=std_logic lab=P_DRIVE}
-C {devices/ipin.sym} 260 -480 0 0 {name=p9 lab=SW_NODE}
+C {devices/ipin.sym} 250 -390 0 0 {name=p9 lab=SW_NODE}
 C {devices/lab_wire.sym} 1160 -630 0 0 {name=l17 sig_type=std_logic lab=SW_NODE}
 C {design/power-stage/gate_drive.sym} 960 -1080 0 0 {name=x1}
 C {design/power-stage/gate_drive.sym} 1500 -1080 0 0 {name=x2}
@@ -125,12 +129,12 @@ C {devices/lab_wire.sym} 1680 -1080 0 1 {name=l30 sig_type=std_logic lab=P_DRIVE
 C {devices/lab_wire.sym} 1320 -1120 0 0 {name=l31 sig_type=std_logic lab=P_IN}
 C {devices/lab_wire.sym} 1320 -1040 0 0 {name=l32 sig_type=std_logic lab=P_IN_N}
 C {devices/lab_wire.sym} 1500 -1220 0 0 {name=l33 sig_type=std_logic lab=VDD_PWR}
-C {devices/ipin.sym} 260 -420 0 0 {name=p4 lab=SW_NODE_ESD}
+C {devices/ipin.sym} 250 -330 0 0 {name=p4 lab=SW_NODE_ESD}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 620 -610 0 0 {name=M1
 L=0.5
 W=5
 nf=1
-mult=20
+mult=12
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -144,7 +148,7 @@ C {sky130_fd_pr/pfet_g5v0d10v5.sym} 620 -710 0 0 {name=M2
 L=0.5
 W=5
 nf=1
-mult=20
+mult=12
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
@@ -164,3 +168,11 @@ mult=1}
 C {devices/lab_wire.sym} 440 -660 0 0 {name=l3 sig_type=std_logic lab=SW_NODE}
 C {devices/lab_wire.sym} 680 -660 0 1 {name=l4 sig_type=std_logic lab=SW_NODE_ESD}
 C {devices/lab_wire.sym} 640 -780 0 1 {name=l9 sig_type=std_logic lab=VDD_PWR}
+C {sky130_fd_pr/res_generic_m2.sym} 1500 -650 0 0 {name=R2
+W=0.4
+L=0.46
+model=res_generic_m2
+spiceprefix=R
+mult=1}
+C {devices/lab_wire.sym} 1520 -580 0 1 {name=l11 sig_type=std_logic lab=REF_CURRENT_KELVIN}
+C {devices/ipin.sym} 260 -490 0 0 {name=p10 lab=REF_CURRENT_KELVIN}

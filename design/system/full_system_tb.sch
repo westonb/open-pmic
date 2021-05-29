@@ -228,7 +228,7 @@ value="
 
 .control
 save all
-tran 10n 600u
+tran 10n 300u
 write full_system_tb.raw
 .endc
 .measure tran Iin_avg AVG i(V5) from=400u to=600u
@@ -250,7 +250,7 @@ C {devices/code.sym} -290 -270 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
-.lib \\\\$::SKYWATER_MODELS\\\\/models/sky130.lib.spice tt
+.lib \\\\$::SKYWATER_MODELS\\\\/models/sky130.lib.spice ss
 .option wnflag=1
 "
 }

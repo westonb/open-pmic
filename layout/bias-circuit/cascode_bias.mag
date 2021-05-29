@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1620706892
+timestamp 1622254647
 << nwell >>
 rect -3000 40 3000 4500
 << pwell >>
@@ -370,9 +370,11 @@ rect -1062 -2490 -1002 -2480
 rect 1002 -2420 1062 -2410
 rect 1002 -2490 1062 -2480
 rect -2269 -3536 -2189 -3526
-rect -2189 -3616 -2073 -3536
-rect -1981 -3546 -1889 -3536
-rect -1981 -3616 -1889 -3606
+rect -2189 -3616 -2121 -3536
+rect -2029 -3546 -1879 -3536
+rect -2029 -3606 -1981 -3546
+rect -1889 -3606 -1879 -3546
+rect -2029 -3616 -1879 -3606
 rect -2269 -3626 -2189 -3616
 rect -2537 -3701 30 -3691
 rect -2537 -3761 -30 -3701
@@ -384,7 +386,7 @@ rect -2756 -4266 -2156 -4256
 rect 2156 -3956 2756 -3946
 rect 2156 -4266 2756 -4256
 << rmetal2 >>
-rect -2073 -3616 -1981 -3536
+rect -2121 -3616 -2029 -3536
 << via2 >>
 rect -2756 3956 -2156 4256
 rect 2156 3956 2756 4256
@@ -456,22 +458,22 @@ rect -3000 -4256 -2756 -3956
 rect -2156 -4256 2156 -3956
 rect 2756 -4256 3000 -3956
 rect -3000 -4500 3000 -4256
-use sky130_fd_pr__nfet_g5v0d10v5_7QEKRB  xm2 ../bias-circuit
-timestamp 1620706892
+use sky130_fd_pr__nfet_g5v0d10v5_7QEKRB  xm2
+timestamp 1621758535
 transform 1 0 0 0 1 -3000
 box -2351 -588 2351 588
-use sky130_fd_pr__nfet_g5v0d10v5_V2YKKA  xm1
-timestamp 1620252470
-transform 1 0 0 0 1 -1200
-box -1319 -588 1319 588
-use sky130_fd_pr__pfet_g5v0d10v5_QRGZLW  xm3
+use sky130_fd_pr__pfet_g5v0d10v5_QRGZLW  xm3 ./../folded_cascode_n_in/../bias-circuit
 timestamp 1620252470
 transform 1 0 0 0 1 1200
 box -1385 -600 1385 600
 use sky130_fd_pr__pfet_g5v0d10v5_QNH2MW  xm4
-timestamp 1620252470
+timestamp 1621737489
 transform 1 0 0 0 1 3000
 box -1643 -600 1643 600
+use sky130_fd_pr__nfet_g5v0d10v5_V2YKKA  xm1
+timestamp 1621758535
+transform 1 0 0 0 1 -1200
+box -1319 -588 1319 588
 << labels >>
 flabel metal4 -3000 3700 -3000 4500 3 FreeSans 480 0 0 0 vdd
 port 1 e

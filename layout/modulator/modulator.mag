@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1621844011
+timestamp 1622253817
 << nwell >>
 rect -2600 3700 8900 9000
 << pwell >>
@@ -948,41 +948,41 @@ rect -402 1118 -356 1358
 rect 3283 1212 3329 1452
 rect 6786 1093 6832 1333
 use comparator  comparator_0 ../comparator
-timestamp 1621838304
+timestamp 1621890638
 transform 1 0 6000 0 -1 -4500
 box -3000 -4500 3000 4500
 use comparator  comparator_1
-timestamp 1621838304
+timestamp 1621890638
 transform 1 0 -3000 0 -1 -4500
 box -3000 -4500 3000 4500
-use sky130_fd_pr__nfet_g5v0d10v5_E8UHFU  xm6
-timestamp 1621838304
-transform 1 0 6800 0 1 2000
-box -1451 -588 1451 588
-use sky130_fd_pr__nfet_g5v0d10v5_DQEKNK  xm5
-timestamp 1621838304
-transform 1 0 3300 0 1 2000
-box -1835 -588 1835 588
 use sky130_fd_pr__nfet_g5v0d10v5_V2YKKA  xm4 ../comparator/../comparator
 timestamp 1621838304
 transform 1 0 -400 0 1 2000
 box -1319 -588 1319 588
-use sky130_fd_pr__pfet_g5v0d10v5_ZBHAPX  xm3
-timestamp 1621838304
-transform 1 0 7000 0 1 5200
-box -1127 -600 1127 600
-use sky130_fd_pr__pfet_g5v0d10v5_QVWX2D  xm2
-timestamp 1621838304
-transform 1 0 2000 0 1 5200
-box -3707 -600 3707 600
-use sky130_fd_pr__pfet_g5v0d10v5_QZEXLW  xm1
-timestamp 1621838304
-transform 1 0 2800 0 1 7400
-box -4675 -600 4675 600
 use sky130_fd_pr__res_high_po_1p41_20um  sky130_fd_pr__res_high_po_1p41_20um_0
 timestamp 1621838304
 transform 1 0 10000 0 -1 3500
 box -143 -2432 143 2432
+use sky130_fd_pr__pfet_g5v0d10v5_QZEXLW  xm1
+timestamp 1621838304
+transform 1 0 2800 0 1 7400
+box -4675 -600 4675 600
+use sky130_fd_pr__pfet_g5v0d10v5_QVWX2D  xm2
+timestamp 1621838304
+transform 1 0 2000 0 1 5200
+box -3707 -600 3707 600
+use sky130_fd_pr__pfet_g5v0d10v5_ZBHAPX  xm3
+timestamp 1621838304
+transform 1 0 7000 0 1 5200
+box -1127 -600 1127 600
+use sky130_fd_pr__nfet_g5v0d10v5_DQEKNK  xm5
+timestamp 1621838304
+transform 1 0 3300 0 1 2000
+box -1835 -588 1835 588
+use sky130_fd_pr__nfet_g5v0d10v5_E8UHFU  xm6
+timestamp 1621838304
+transform 1 0 6800 0 1 2000
+box -1451 -588 1451 588
 << labels >>
 flabel metal4 -12000 8200 -12000 9000 3 FreeSans 480 0 0 0 vdd
 port 11 e

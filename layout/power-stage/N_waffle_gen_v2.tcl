@@ -2846,3 +2846,5 @@ box -2um -2um 0um 35um
 paint metal2 
 box -2um 33um 35um 35um
 paint metal2 
+flatten waffle_testb
+load waffle_testb

@@ -10,10 +10,6 @@ T {Logic Signals to GPIO Pad} -500 -1060 0 0 0.4 0.4 {}
 T {Logic Signals driven by LA bus} -500 -930 0 0 0.4 0.4 {}
 T {switching node} -500 -660 0 0 0.4 0.4 {}
 T {I/O ESD and filtering} 410 420 0 0 0.4 0.4 {}
-T {680k nom
-12x10 array} 90 -750 0 0 0.4 0.4 {}
-T {3.6pF nominal 
-30um x 30um} 180 -520 0 0 0.4 0.4 {}
 N 820 -1490 820 -1470 { lab=VDD}
 N 820 -1490 900 -1490 { lab=VDD}
 N 900 -1490 900 -1470 { lab=VDD}
@@ -31,9 +27,9 @@ N 1420 -1410 1440 -1410 { lab=VDD_PWR}
 N 1420 -1330 1440 -1330 { lab=VSS}
 N 1840 -1250 1860 -1250 { lab=SW_NODE}
 N 1840 -1290 1860 -1290 { lab=SENSE_FET}
-N 720 -630 740 -630 { lab=SENSE_FET}
-N 720 -590 740 -590 { lab=#net1}
-N 720 -530 740 -530 { lab=VREF_FILT}
+N 720 -610 740 -610 { lab=SENSE_FET}
+N 720 -570 740 -570 { lab=SW_NODE_ESD}
+N 720 -530 740 -530 { lab=VREF}
 N 720 -490 740 -490 { lab=VFB}
 N 720 -450 740 -450 { lab=VCOMP}
 N 1100 -430 1120 -430 { lab=IMON}
@@ -59,17 +55,6 @@ N 900 -270 900 -190 { lab=IOC}
 N 1100 -570 1120 -570 { lab=OVERCURRENT}
 N 700 -1210 720 -1210 { lab=OVERCURRENT}
 N 700 -1170 720 -1170 { lab=OC_EN}
-N 100 -640 100 -620 { lab=VREF_FILT}
-N 220 -640 220 -620 { lab=VREF_FILT}
-N 100 -560 100 -540 { lab=VSS}
-N 100 -540 220 -540 { lab=VSS}
-N 220 -560 220 -540 { lab=VSS}
-N 100 -540 100 -500 { lab=VSS}
-N 80 -640 100 -640 { lab=VREF_FILT}
-N 50 -620 50 -540 { lab=VSS}
-N 50 -540 100 -540 { lab=VSS}
-N 100 -640 220 -640 { lab=VREF_FILT}
-N -10 -640 20 -640 { lab=VREF}
 N -90 -660 -90 -620 { lab=VREF}
 N -130 -640 -90 -640 { lab=VREF}
 N -150 -690 -130 -690 { lab=VDD}
@@ -86,7 +71,6 @@ N -90 -590 -70 -590 { lab=VSS}
 N -70 -590 -70 -540 { lab=VSS}
 N -90 -540 -70 -540 { lab=VSS}
 N -90 -760 -90 -740 { lab=VDD}
-N -90 -640 -10 -640 { lab=VREF}
 N -120 -300 -120 -260 { lab=VFB}
 N -160 -280 -120 -280 { lab=VFB}
 N -180 -330 -160 -330 { lab=VDD}
@@ -200,6 +184,8 @@ N -100 610 -100 660 { lab=VSS}
 N -120 660 -100 660 { lab=VSS}
 N -120 440 -120 460 { lab=VDD}
 N 1840 -1190 1860 -1190 { lab=SW_NODE_ESD}
+N 720 -650 740 -650 { lab=SENSE_FET_KELVIN}
+N 1840 -1330 1860 -1330 { lab=SENSE_FET_KELVIN}
 C {devices/iopin.sym} -500 -1480 0 0 {name=p1 lab=VDD
 }
 C {devices/iopin.sym} -500 -1420 0 0 {name=p2 lab=VSS
@@ -234,8 +220,7 @@ C {devices/lab_wire.sym} 1860 -1250 0 1 {name=l14 sig_type=std_logic lab=SW_NODE
 C {devices/lab_wire.sym} 1860 -1290 0 1 {name=l15 sig_type=std_logic lab=SENSE_FET}
 C {devices/iopin.sym} -500 -1450 0 0 {name=p11 lab=VDD_PWR
 }
-C {devices/lab_wire.sym} 720 -630 0 0 {name=l16 sig_type=std_logic lab=SENSE_FET}
-C {devices/lab_wire.sym} 720 -530 0 0 {name=l18 sig_type=std_logic lab=VREF_FILT}
+C {devices/lab_wire.sym} 720 -610 0 0 {name=l16 sig_type=std_logic lab=SENSE_FET}
 C {devices/lab_wire.sym} 720 -490 0 0 {name=l19 sig_type=std_logic lab=VFB}
 C {devices/lab_wire.sym} 720 -450 0 0 {name=l20 sig_type=std_logic lab=VCOMP}
 C {devices/lab_wire.sym} 840 -230 0 0 {name=l21 sig_type=std_logic lab=IBIAS}
@@ -283,17 +268,7 @@ C {devices/iopin.sym} -500 -710 0 0 {name=p21 lab=OC_EN
 C {devices/lab_wire.sym} 1120 -570 0 1 {name=l39 sig_type=std_logic lab=OVERCURRENT}
 C {devices/lab_wire.sym} 700 -1210 0 0 {name=l40 sig_type=std_logic lab=OVERCURRENT}
 C {devices/lab_wire.sym} 700 -1170 0 0 {name=l41 sig_type=std_logic lab=OC_EN}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} 50 -640 3 0 {name=R1
-W=0.35
-L=120
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {sky130_fd_pr/cap_mim_m3_1.sym} 100 -590 0 0 {name=C4 model=cap_mim_m3_1 W=30 L=30 MF=1 spiceprefix=X}
-C {sky130_fd_pr/cap_mim_m3_2.sym} 220 -590 0 0 {name=C6 model=cap_mim_m3_2 W=30 L=30 MF=1 spiceprefix=X}
-C {devices/lab_wire.sym} 100 -500 0 1 {name=l42 sig_type=std_logic lab=VSS}
 C {devices/lab_wire.sym} -130 -640 0 0 {name=l43 sig_type=std_logic lab=VREF}
-C {devices/lab_wire.sym} 220 -640 0 1 {name=l44 sig_type=std_logic lab=VREF_FILT}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} -110 -590 0 0 {name=M1
 L=0.5
 W=5
@@ -542,4 +517,7 @@ spiceprefix=X
 C {devices/lab_wire.sym} -120 440 0 1 {name=l66 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} -170 660 0 1 {name=l67 sig_type=std_logic lab=VSS}
 C {devices/lab_wire.sym} 1860 -1190 0 1 {name=l68 sig_type=std_logic lab=SW_NODE_ESD}
-C {devices/lab_wire.sym} 720 -590 0 0 {name=l69 sig_type=std_logic lab=SW_NODE_ESD}
+C {devices/lab_wire.sym} 720 -570 0 0 {name=l69 sig_type=std_logic lab=SW_NODE_ESD}
+C {devices/lab_wire.sym} 720 -530 0 0 {name=l18 sig_type=std_logic lab=VREF}
+C {devices/lab_wire.sym} 720 -650 0 0 {name=l17 sig_type=std_logic lab=SENSE_FET_KELVIN}
+C {devices/lab_wire.sym} 1860 -1330 0 1 {name=l42 sig_type=std_logic lab=SENSE_FET_KELVIN}
