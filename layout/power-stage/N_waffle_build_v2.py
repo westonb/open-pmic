@@ -2,7 +2,7 @@ from math import floor
 
 
 PITCH = 5.5
-ARRAY_SIZE = 6
+ARRAY_SIZE = 36
 MOS_NAME = "sky130_fd_pr__pfet_g5v0d10v5_W4_38_L0_5.mag"
 CONTACT_CENTER_SPACING = 0.56
 DIFF_LAYER = "mvpdiffusion"
