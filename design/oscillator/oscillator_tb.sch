@@ -68,6 +68,8 @@ value="
 C {devices/code_shown.sym} 708.75 -151.875 0 0 {name=NGSPICE
 only_toplevel=true
 value="
+.option RSHUNT = 1e20
+.include /home/atumkur/EE272B/open-pmic/layout/oscillator/schmittbuf_lvs.spice
 .control
 .save all
 tran 1n 8u
