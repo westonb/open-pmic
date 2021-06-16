@@ -68,6 +68,10 @@ N 1510 -1430 1510 -1280 { lab=#net1}
 N 1210 -1430 1450 -1430 { lab=#net3}
 N 1210 -1430 1210 -1090 { lab=#net3}
 N 1210 -1090 1310 -1090 { lab=#net3}
+N 1990 -990 1990 -930 { lab=vramp}
+N 1830 -990 1990 -990 { lab=vramp}
+N 1830 -740 1990 -740 { lab=vgnd}
+N 1990 -870 1990 -740 { lab=vgnd}
 C {sky130_fd_pr/nfet_g5v0d10v5.sym} 1110 -810 0 1 {name=M1
 L=1
 W=5
@@ -270,3 +274,4 @@ sa=0 sb=0 sd=0
 model=pfet_g5v0d10v5
 spiceprefix=X
 }
+C {sky130_fd_pr/cap_mim_m3_2.sym} 1990 -900 0 0 {name=C2 model=cap_mim_m3_2 W=32 L=32 MF=4 spiceprefix=X}
