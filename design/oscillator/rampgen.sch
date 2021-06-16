@@ -166,7 +166,7 @@ sa=0 sb=0 sd=0
 model=pfet_g5v0d10v5
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_1.sym} 1830 -900 0 0 {name=C1 model=cap_mim_m3_1 W=32 L=120 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 1830 -900 0 0 {name=C1 model=cap_mim_m3_1 W=32 L=32 MF=4 spiceprefix=X}
 C {devices/lab_pin.sym} 1830 -990 2 0 {name=l1 sig_type=std_logic lab=vramp}
 C {devices/lab_pin.sym} 1430 -990 0 0 {name=l2 sig_type=std_logic lab=rampgen_en}
 C {devices/lab_pin.sym} 1780 -1240 1 0 {name=l3 sig_type=std_logic lab=vpwr}
