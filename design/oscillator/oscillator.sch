@@ -29,8 +29,8 @@ N 1450 -640 1470 -640 { lab=vramp}
 N 1010 -700 1010 -640 { lab=#net2}
 N 1010 -830 1010 -780 { lab=#net3}
 C {design/oscillator/rampgen.sym} 1190 -640 0 0 {name=x1}
-C {sky130_stdcells/inv_1.sym} 800 -640 0 0 {name=x3 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
-C {sky130_stdcells/inv_4.sym} 950 -640 0 0 {name=x4 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
+C {sky130_stdcells/inv_1.sym} 800 -640 0 0 {name=x3 VGND=vgnd VNB=vgnd VPB=vpwr VPWR=vpwr prefix=sky130_fd_sc_hvl__ }
+C {sky130_stdcells/inv_4.sym} 950 -640 0 0 {name=x4 VGND=vgnd VNB=vgnd VPB=vpwr VPWR=vpwr prefix=sky130_fd_sc_hvl__ }
 C {devices/lab_pin.sym} 1650 -760 0 1 {name=l1 sig_type=std_logic lab=vpwr}
 C {devices/lab_pin.sym} 1650 -500 0 1 {name=l2 sig_type=std_logic lab=vgnd}
 C {devices/lab_pin.sym} 1850 -640 0 1 {name=l3 sig_type=std_logic lab=timeout_int}
@@ -42,7 +42,7 @@ C {devices/iopin.sym} 600 -880 0 0 {name=p3 lab=iramp}
 C {devices/iopin.sym} 600 -850 0 0 {name=p4 lab=vramp}
 C {devices/iopin.sym} 600 -820 0 0 {name=p5 lab=timeout_int}
 C {layout/oscillator/sky130_fd_sc_hvl__schmittbuf_1.sym} 1160 -380 0 0 {name=x5}
-C {sky130_stdcells/inv_8.sym} 1010 -740 3 0 {name=x2 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hvl__ }
+C {sky130_stdcells/inv_8.sym} 1010 -740 3 0 {name=x2 VGND=vgnd VNB=vgnd VPB=vpwr VPWR=vpwr prefix=sky130_fd_sc_hvl__ }
 C {devices/code.sym} 2050 -940 0 0 {name=STDCELL_MODELS 
 only_toplevel=true
 place=end

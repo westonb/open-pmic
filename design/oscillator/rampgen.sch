@@ -275,3 +275,7 @@ model=pfet_g5v0d10v5
 spiceprefix=X
 }
 C {sky130_fd_pr/cap_mim_m3_2.sym} 1990 -900 0 0 {name=C2 model=cap_mim_m3_2 W=32 L=32 MF=4 spiceprefix=X}
+C {devices/lab_pin.sym} 1740 -810 2 0 {name=l15 sig_type=std_logic lab=vgnd}
+C {devices/lab_pin.sym} 910 -890 2 1 {name=l16 sig_type=std_logic lab=vgnd}
+C {devices/lab_pin.sym} 1480 -1430 1 1 {name=l17 sig_type=std_logic lab=vpwr}
+C {devices/lab_pin.sym} 1460 -1280 1 1 {name=l18 sig_type=std_logic lab=vpwr}
