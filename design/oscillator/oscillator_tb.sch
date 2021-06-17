@@ -71,7 +71,6 @@ value="
 .option RSHUNT = 1e20
 .include /home/atumkur/EE272B/open-pmic/layout/oscillator/schmittbuf_lvs.spice
 .include /usr/share/pdk/sky130A/libs.ref/sky130_fd_sc_hvl/spice/sky130_fd_sc_hvl.spice
-.inlcude 
 .control
 .save all
 tran 1n 8u
