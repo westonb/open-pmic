@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1623804744
+timestamp 1623912714
 << nwell >>
 rect -922 -5049 -826 -4529
 rect 1000 -9000 11000 -4600
@@ -1369,53 +1369,49 @@ rect -12000 -8300 -11000 -8198
 rect -12000 -8900 -11800 -8300
 rect -11200 -8900 -11000 -8300
 rect -12000 -9000 -11000 -8900
-use sky130_fd_pr__nfet_g5v0d10v5_DQEKTK  xm1
-timestamp 1623565379
-transform 1 0 6000 0 1 -3300
-box -3899 -588 3899 588
-use sky130_fd_pr__nfet_g5v0d10v5_7QEKRB  xm2
-timestamp 1623565379
-transform 1 0 6000 0 1 -1500
-box -2351 -588 2351 588
-use sky130_fd_pr__pfet_g5v0d10v5_ZD39PX  xm3
-timestamp 1623565379
-transform 1 0 6000 0 1 -5700
-box -611 -600 611 600
+use sky130_fd_sc_hvl__schmittbuf_1  sky130_fd_sc_hvl__schmittbuf_1_0 $PDKPATH/libs.ref/sky130_fd_sc_hvl/mag
+timestamp 1623824673
+transform 1 0 -3100 0 -1 -4152
+box -66 -43 1122 897
+use sky130_fd_sc_hvl__inv_1  sky130_fd_sc_hvl__inv_1_0 $PDKPATH/libs.ref/sky130_fd_sc_hvl/mag
+timestamp 1623824673
+transform 1 0 -2044 0 -1 -4152
+box -66 -43 354 897
+use sky130_fd_sc_hvl__inv_8  sky130_fd_sc_hvl__inv_8_0 $PDKPATH/libs.ref/sky130_fd_sc_hvl/mag
+timestamp 1623824673
+transform -1 0 680 0 -1 -4152
+box -66 -43 1506 897
+use sky130_fd_sc_hvl__inv_4  sky130_fd_sc_hvl__inv_4_0 $PDKPATH/libs.ref/sky130_fd_sc_hvl/mag
+timestamp 1623824673
+transform 1 0 -1756 0 -1 -4152
+box -66 -43 834 897
 use sky130_fd_pr__pfet_g5v0d10v5_8ATX2D  xm4
 timestamp 1623565379
 transform 1 0 6000 0 1 -7500
 box -1514 -600 1514 600
-use sky130_fd_sc_hvl__inv_8  sky130_fd_sc_hvl__inv_8_0 $PDKPATH/libs.ref/sky130_fd_sc_hvl/mag
-timestamp 1621624387
-transform -1 0 680 0 -1 -4152
-box -66 -43 1506 897
-use sky130_fd_sc_hvl__inv_4  sky130_fd_sc_hvl__inv_4_0 $PDKPATH/libs.ref/sky130_fd_sc_hvl/mag
-timestamp 1621624387
-transform 1 0 -1756 0 -1 -4152
-box -66 -43 834 897
-use sky130_fd_sc_hvl__inv_1  sky130_fd_sc_hvl__inv_1_0 $PDKPATH/libs.ref/sky130_fd_sc_hvl/mag
-timestamp 1621624387
-transform 1 0 -2044 0 -1 -4152
-box -66 -43 354 897
-use sky130_fd_sc_hvl__schmittbuf_1  sky130_fd_sc_hvl__schmittbuf_1_0 $PDKPATH/libs.ref/sky130_fd_sc_hvl/mag
-timestamp 1621624387
-transform 1 0 -3100 0 -1 -4152
-box -66 -43 1122 897
+use sky130_fd_pr__pfet_g5v0d10v5_ZD39PX  xm3
+timestamp 1623565379
+transform 1 0 6000 0 1 -5700
+box -611 -600 611 600
+use sky130_fd_pr__nfet_g5v0d10v5_7QEKRB  xm2
+timestamp 1623565379
+transform 1 0 6000 0 1 -1500
+box -2351 -588 2351 588
+use sky130_fd_pr__nfet_g5v0d10v5_DQEKTK  xm1
+timestamp 1623565379
+transform 1 0 6000 0 1 -3300
+box -3899 -588 3899 588
 << labels >>
-flabel metal4 -12000 8200 -12000 9000 3 FreeSans 480 0 0 0 vdd
-port 1 e
-flabel metal4 -12000 0 -12000 800 3 FreeSans 480 0 0 0 vss
-port 2 e
 flabel metal3 -12000 -5000 -11200 -4600 0 FreeSans 800 0 0 0 iramp
 port 3 nsew
 flabel metal5 -12000 -9000 -11800 -8200 0 FreeSans 800 0 0 0 vpwr
 port 5 nsew
-flabel metal5 -12000 -800 -11800 800 0 FreeSans 800 0 0 0 vgnd
-port 6 nsew
 flabel metal3 11200 -5000 12000 -4600 0 FreeSans 800 0 0 0 timeout_int
 port 4 nsew
 flabel metal3 -400 -3771 -300 -3671 1 FreeSans 280 0 0 0 vramp
 port 7 n
+flabel metal4 -10798 320 -10288 800 1 FreeSans 240 0 0 0 vgnd
+port 8 n
 << properties >>
 string FIXED_BBOX 1158 -4242 10842 -158
 << end >>
