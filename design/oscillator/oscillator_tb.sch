@@ -73,7 +73,7 @@ value="
 .include /usr/share/pdk/sky130A/libs.ref/sky130_fd_sc_hvl/spice/sky130_fd_sc_hvl.spice
 .control
 .save all
-tran 1n 8u
+tran 1n 10u
 write oscillator_tb.raw
 .endc
 "}
